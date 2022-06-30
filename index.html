@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>¡Bienvenidos a interActividades!</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="./img/logo.png" alt="logo" height="50" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 400px">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/about.html">Sobre este sitio...</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Fichas INTERactivas
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li>
+                                    <a class="dropdown-item disabled" href="#">Fichas por Área</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./pages/pdl.html">Prácticas del Lenguaje</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./pages/matematicas.html">Matemáticas</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item disabled" href="#">Ciencias Sociales</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item disabled" href="#">Ciencias Naturales</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item disabled" href="#">Inglés</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar fichas interActivas"
+                            aria-label="Search" />
+                        <button class="btn btn-danger" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <section class="col-12 titulo" data-aos="fade-down">
+                    <h1>¡Bienvenidos a InterActividades!</h1>
+                </section>
+            </div>
+        </div>
+
+        <section class="areas">
+            <h2>Seleccioná el área:</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card" style="width: 18rem">
+                        <a href="./pages/pdl.html"><img src="./img/areas/pdl.png" class="card-img-top"
+                                alt="Prácticas del Lenguaje" /></a>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="./pages/pdl.html">Prácticas del Lenguaje</a>
+                            </h5>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rem deleniti eveniet
+                                quo, quasi quibusdam fugit omnis quae voluptatum voluptatem!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem">
+                        <a href="./pages/matematicas.html"><img src="./img/areas/matematicas.png" class="card-img-top"
+                                alt="Matemáticas" /></a>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="./pages/matematicas.html">Matemáticas</a>
+                            </h5>
+                            <p class="card-text">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, nam perferendis?
+                                Consequatur aspernatur quia ipsam exercitationem nulla consequuntur voluptates natus.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem">
+                        <img src="./img/areas/sociales.png" class="card-img-top" alt="Ciencias Sociales" />
+                        <div class="card-body">
+                            <h5 class="card-title">Ciencias Sociales</h5>
+                            <p class="card-text">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores officia corrupti
+                                consectetur hic, dignissimos alias quidem iure minus? Consequuntur, quis?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem">
+                        <img src="./img/areas/naturales.png" class="card-img-top" alt="Ciencias Naturales" />
+                        <div class="card-body">
+                            <h5 class="card-title">Ciencias Naturales</h5>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro tenetur sapiente nihil.
+                                Impedit recusandae est ducimus? Ad harum fuga veniam!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem">
+                        <img src="./img/areas/ingles.png" class="card-img-top" alt="Inglés" />
+                        <div class="card-body">
+                            <h5 class="card-title">Inglés</h5>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt unde eos maiores,
+                                nobis illum amet nihil esse perspiciatis quibusdam! Quisquam.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- botón volver arriba -->
+
+        <button type="button" class="btn btn-floating btn-sm" id="btn-back-to-top">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+    </main>
+
+    <footer>
+        <div class="footer__info">
+            <div class="redes">
+                <p><i class="bi bi-link"></i>Seguinos en Nuestras Redes:</p>
+                <a class="facebook" href="https://www.facebook.com/maharani.indumentaria" target="blank"><i
+                        class="bi bi-facebook"></i>/senio.pame</a>
+                <a class="instagram" href="https://www.instagram.com/maharani.indumentaria/" target="blank"><i
+                        class="bi bi-instagram"></i>/senio.pame</a>
+                <a class="twitter" href="https://twitter.com/MaharaniIndume1" target="blank"><i
+                        class="bi bi-twitter"></i>/Seniopame</a>
+            </div>
+            <div class="telefono">
+                <p><i class="bi bi-phone"></i>Teléfono:</p>
+                <p class="whatsapp">
+                    <a href="https://api.whatsapp.com/send?phone=5492923584787" target="blank"><i
+                            class="bi bi-whatsapp"></i></a><a href="tel:+5492923584787">02923 - 15 - 584787</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer__copyRigth">
+            <strong>SeñoPame &copy; 2022</strong>
+            <p>
+                República Argentina 537, (7540) Coronel Suárez, Provincia de Buenos
+                Aires.
+            </p>
+        </div>
+    </footer>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+    <script src="./js/back_to_top.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
