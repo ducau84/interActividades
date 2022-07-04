@@ -1,4 +1,6 @@
-alert(`¡Bienvenidos a INTERactividades!
+const saludo = document.getElementById("saludo");
 
+let nombre = prompt(`¡Bienvenidos a INTERactividades!
+¡Por favor decinos cuál es tu nombre para que tengas una experiencia personalizada! :`)
 
-Haga click en aceptar para ingresar:`)
+saludo.innerText = `¡ Hola ${nombre} !`

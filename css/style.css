@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&family=PT+Sans+Narrow:wght@700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arima&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 /* ----------------Animaciones-------------- */
 
@@ -181,6 +183,18 @@ body main .row,
 .titulo {
     font-size: 1.5rem;
     text-align: center;
+    margin-bottom: 2rem;
+}
+
+.actividades h2 {
+    font-family: 'Pacifico', cursive;
+    text-decoration: underline;
+    color: #00185c;
+    text-shadow: 0px 3px 3px #0036ca71;
+}
+
+strong {
+    text-decoration: underline;
 }
 
 .titulo h1 {
@@ -197,7 +211,6 @@ body main .row,
     right: 20rem;
     display: none;
 }
-
 
 /* ----------------Barra de Navegación-------------- */
 
@@ -302,7 +315,8 @@ footer {
     text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
 
-footer a, footer a:visited {
+footer a,
+footer a:visited {
     color: white;
     -webkit-transition: all 1s;
     transition: all 1s;
@@ -390,6 +404,60 @@ footer .footer__copyRigth p {
     color: lime;
 }
 
+@media screen and (max-width: 576px) {
+    .logo {
+      max-width: 50%;
+    }
+  }
+  
+  @media (min-width: 576px) and (max-width: 863px) {
+    html {
+      font-size: 80%;
+    }
+    .footer__info,
+    .footer__copyRight {
+      padding: 0;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    html {
+      font-size: 75%;
+    }
+    footer .bi {
+      margin: 0.5rem;
+    }
+    footer .footer__info .bi-link,
+    footer .footer__info .telefono {
+      display: none;
+    }
+    footer .footer__info .redes {
+      margin: 1rem;
+      font-size: 0;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row;
+              flex-flow: row;
+      width: 100%;
+      height: auto;
+    }
+    footer .footer__info .redes p {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 576px) and (max-width: 1400px) {
+    #btn-back-to-top {
+      right: 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    #btn-back-to-top {
+      right: 1rem;
+    }
+  }
+
 /* ----------------Index-------------- */
 
 .intro {
@@ -420,7 +488,15 @@ footer .footer__copyRigth p {
     margin: 10px;
 }
 
-.areas h2 {
+#saludo {
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 0 0 #006432, -2px 0 0 #006432, 0 2px 0 #006432, 0 -2px 0 #006432, 1px 1px #006432, -1px -1px 0 #006432, 1px -1px 0 #006432, -1px 1px 0 #006432;
+}
+
+.areas h3 {
     text-align: center;
     color: #006432;
     text-decoration: underline;
@@ -450,9 +526,11 @@ footer .footer__copyRigth p {
     color: #385898;
 }
 
-.card-title a, a:visited {
+.card-title a,
+a:visited {
     color: #385898;
 }
+
 .card-title a:hover {
     color: #7f00b1;
 }
@@ -468,4 +546,199 @@ footer .footer__copyRigth p {
     filter: saturate(2);
     -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0px 2px 4px, rgba(255, 255, 255, 0.3) 0px 7px 13px -3px, rgba(255, 255, 255, 0.2) 0px -3px 0px inset;
     box-shadow: rgba(255, 255, 255, 0.4) 0px 2px 4px, rgba(255, 255, 255, 0.3) 0px 7px 13px -3px, rgba(255, 255, 255, 0.2) 0px -3px 0px inset;
+}
+
+/* Poesia */
+
+#poesia, #problemas {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.poesia, .problemas {
+    padding: 2rem 5rem;
+    background-color: #ffffff66;
+    font-family: 'Arima', cursive;
+    box-shadow: 0px 3px 3px #929292b9;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    max-width: 100%;
+}
+
+.poesia, .problemas span {
+    font-size: 1rem;
+}
+
+.poesia .titulo, .problemas .titulo {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.poesia h3, .problemas h3 {
+    font-family: 'Arima', cursive;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 600;
+    color: #00185c;
+    margin-bottom: 2rem;
+}
+
+.palabras__poesia {
+    position: sticky;
+    top: 0;
+    right: 15rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.palabras__poesia table {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    border-width: 1rem;
+    border: 0.2rem #006432 ridge;
+    box-shadow: 0px 3px 3px #00643271;
+}
+
+.palabras__poesia td {
+    width: 5rem;
+    padding: 0.5rem;
+    background: #ffffffb6;
+    color: #006432;
+    border: 0.1rem #006432 solid;
+}
+
+.estrofa {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.estrofa span {
+    background-color: #006432;
+    border-radius: 15px;
+    color: #EEEEEE;
+    padding: 0 1rem;
+    position: relative;
+    right: -5px;
+    margin: 0;
+    z-index: -1;
+}
+
+.estrofa input {
+    color: #00185c;
+    width: 8rem;
+    text-align: center;
+    background: transparent;
+    border: hwb(234 20% 20%) solid 1px;
+    border-radius: 5px;
+}
+
+.estrofa input:focus {
+    background: white;
+    color: #006432;
+    border: #ff000073 solid 1px;
+}
+
+.poesia .btn_send, .problemas .btn_send {
+    display: inline-block;
+    width: 22rem;
+    height: 3rem;
+    margin: 0.5rem;
+    color: white;
+    background: #00185c;
+    border-radius: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-transition: all 333ms;
+    transition: all 333ms;
+}
+
+.poesia .btn_send:active, .problemas .btn_send:active {
+    border: white 0.2rem solid;
+}
+
+.poesia .btn_send:hover,  .problemas .btn_send:hover {
+    color: white;
+    background-color: #006432;
+}
+
+.poesia #nota {
+    position: absolute;
+    top: 75rem;
+    right: 25rem;
+    transform: rotate(35deg);
+}
+
+.problemas #nota {
+    position: absolute;
+    top: 40rem;
+    right: 20rem;
+    transform: rotate(25deg);
+}
+
+
+#nota {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #ff0000;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 767px) {
+    html {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    actividades h2 {
+        font-size: 1.0rem;
+    }
+    p {
+        font-size: 0.95rem;
+    }
+    .poesia, .problemas {
+        padding: 1rem;
+    }
+    .poesia .titulo, .problemas .titulo {
+        font-size: 1.5rem;
+    }
+    .palabras__poesia table {
+        font-size: 1rem;
+    }
+    .poesia span {
+        font-size: 0.8rem;
+    }
+    .poesia #nota, .problemas #nota {
+        position: static;
+        bottom: 0;
+        right: 0;
+        transform: rotate(0deg);
+    }
+    .estrofa input {
+        width: 5rem;
+    }
+    .estrofa #palabra1 {
+        margin-right: 80px;
+    }
+    .estrofa span {
+        padding: 0 5px;
+        right: 0px;
+        width: 100%;
+    }
+    .poesia .btn_send, .problemas .btn_send {
+        width: 30vh;
+    }
+    #nota {
+        font-size: small;
+    }
 }

@@ -1,7 +1,6 @@
 // Defino las variables globales
 
 let nombre = "";
-let rta = 0;
 let puntaje = 0;
 let correctas = 0;
 let saludo = "";
@@ -10,6 +9,37 @@ let saludo = "";
 
 function primerLetraMayusc(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// Creo una función para pintar de rojo el input con información no válida
+
+function pintarFondo(_num, color) {
+  casillero = document.body.getElementsByTagName("input")[_num];
+  casillero.style.background = color;
+  console.log(casillero);
+}
+
+// Creo una función para verficar que no se hayan dejado casilleros en blanco o usado números para completar
+
+function validarRespuesta(rta, _num) {
+  if (rta === "") {
+    error = alert(`¡No has ingresado nada en la pregunta número ${_num}! 
+    
+    Intenta de nuevo:`);
+    pintarFondo(_num, "#ff000073");
+    puntaje = 0;
+    correctas = 0;
+    return false;
+  }
+  if (rta == null || isNaN(rta)) {
+    error = alert(`¡Debes ingresar números en el casillero número ${_num}!
+
+    Intenta de nuevo:`);
+    pintarFondo(_num, "#ff000073");
+    puntaje = 0;
+    correctas = 0;
+    return false;
+  }
 }
 
 // Creo una función que determine el puntaje y la cantidad de respuestas correctas
@@ -75,7 +105,10 @@ function mensaje(a) {
   if (a == 10) {
     saludo = "¡Felicitaciones, obtuviste un puntaje perfecto!";
   }
-  if (a >= 7 && a < 10) {
+  if (a >= 8 && a < 10) {
+    saludo = "¡Felicitaciones, hiciste un gran trabajo, un poquito mas y es perfecto!";
+  }
+  if (a >= 7 && a < 8) {
     saludo = "¡Felicitaciones, aprobaste, pero podes hacerlo aún mejor!";
   }
   if (a < 7) {
@@ -105,110 +138,105 @@ nombre = primerLetraMayusc(nombre);
 
 alert(`${nombre} ¡Comencemos con la Evaluación de Matemáticas!`);
 
-// Primer pregunta
+// Creo una función que muestra la nota obtenida en el documento
 
-while (rta == "" || rta == null || isNaN(rta)) {
-  rta = Number(
-    prompt(`1. En un avión viajan 436 pasajeros, 215 son mujeres y el resto son hombres.
-¿Cuántos hombres van en el avión?`)
-  );
-  if (rta == "" || rta == null || isNaN(rta)) {
-    alert(`¡No has ingresado una respuesta válida! Intenta de nuevo:`);
-  }
+function darNota() {
+  const nota = document.createElement("p");
+
+  nota.innerHTML = `  <p style="font-size:2rem;">${nombre}:</p>
+                      <p>¡Obtuviste un total de: ${correctas} respuestas correctas!</p>
+                      <p style="font-size:2rem;">Tu nota es un: <strong style="font-size: 2.5rem;">${puntaje}</strong></p>
+                      <p>${saludo}</p>
+                    `;
+
+  const imprimeNota = document.getElementById("nota");
+  imprimeNota.appendChild(nota);
+
+  // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
+
+  formulario.removeEventListener("submit", evaluarActividad);
 }
 
-// Invoco la funcion para verificar si la respuesta es correcta o no
+const formulario = document.getElementById("problemas");
 
-pregunta(rta, 1);
+formulario.addEventListener("submit", evaluarActividad);
 
-// Verifico por consola la salida de ambas variables
+function evaluarActividad(e) {
+  {
+    // Evito el comportamiento por defecto
+    e.preventDefault();
 
-console.log(rta);
-console.log(puntaje);
+    //Primera Pregunta
+    let rta = document.getElementById("rta1").value;
 
-// "Limpio" la variable rta para la proxima pregunta
+    // valido lo ingresado
+    if (validarRespuesta(rta, 1) == false) {
+      return;
+    } else {
+      // Invoco la funcion para verificar si la respuesta es correcta o no
+      pregunta(Number(rta), 1);
+    }
 
-rta=""
+    // Verifico por consola la salida de ambas variables
 
-// Segunda pregunta
+    console.log(rta);
+    console.log(puntaje);
 
-while (rta == "" || rta == null || isNaN(rta)) {
-  rta = Number(
-    prompt(`2. En una caja de galletitas de chocolate vienen 5 paquetes. Si cada paquete tiene 29 galletitas...
-¿Cuántas galletitas tiene toda la caja?`)
-  );
-  if (rta == "" || rta == null || isNaN(rta)) {
-    alert(`¡No has ingresado una respuesta válida! Intenta de nuevo:`);
+    // Segunda pregunta
+
+    rta = document.getElementById("rta2").value;
+
+    // valido lo ingresado
+    if (validarRespuesta(rta, 2) == false) {
+      return;
+    } else {
+      // Invoco la funcion para verificar si la respuesta es correcta o no
+      pregunta(Number(rta), 2);
+    }
+
+    // Verifico por consola la salida de ambas variables
+    console.log(rta);
+    console.log(puntaje);
+
+    // Tercera pregunta
+
+    rta = document.getElementById("rta3").value;
+
+    // valido lo ingresado
+    if (validarRespuesta(rta, 3) == false) {
+      return;
+    } else {
+      // Invoco la funcion para verificar si la respuesta es correcta o no
+      pregunta(Number(rta), 3);
+    }
+    // Verifico por consola la salida de ambas variables
+    console.log(rta);
+    console.log(puntaje);
+
+    // Cuarta pregunta
+
+    rta = document.getElementById("rta4").value;
+
+    // valido lo ingresado
+    if (validarRespuesta(rta, 4) == false) {
+      return;
+    } else {
+
+      // Invoco la funcion para verificar si la respuesta es correcta o no
+      pregunta(Number(rta), 4);
+    }
+    // Verifico por consola la salida de ambas variables
+    console.log(rta);
+    console.log(puntaje);
+
+    // Invoco la funcion que determina el saludo en base al puntaje
+    saludo = mensaje(puntaje);
+
+    // Verifico la salida
+    console.log(saludo);
+
+    // Invoco la funcion que muestra el puntaje
+
+    darNota();
   }
 }
-
-// Invoco la funcion para verificar si la respuesta es correcta o no
-pregunta(rta, 2);
-
-// Verifico por consola la salida de ambas variables
-console.log(rta);
-console.log(puntaje);
-
-// "Limpio" la variable rta para la proxima pregunta
-
-rta=""
-
-// Tercera pregunta
-
-while (rta == "" || rta == null || isNaN(rta)) {
-  rta = Number(
-    prompt(`3. Manuel y su padre han hecho este fin de semana 3 rutas en bici. 
-El Viernes pedalearon 16 Km.
-El Sábado pedalearon 37 Km.
-El Domingo pedalearon 43 Km.
-¿Cuántos Km. han recorrido en los tres días?`)
-  );
-  if (rta == "" || rta == null || isNaN(rta)) {
-    alert(`¡No has ingresado una respuesta válida! Intenta de nuevo:`);
-  }
-}
-
-// Invoco la funcion para verificar si la respuesta es correcta o no
-pregunta(rta, 3);
-
-// Verifico por consola la salida de ambas variables
-console.log(rta);
-console.log(puntaje);
-
-// "Limpio" la variable rta para la proxima pregunta
-
-rta=""
-
-// Cuarta pregunta
-
-while (rta == "" || rta == null || isNaN(rta)) {
-  rta = Number(
-    prompt(`4. Julián tenía ahorrados $ 5.269,00.
-El Lunes gastó $ 2.178,00 en la compra de una tablet.
-¿Cuánto dinero le quedó?`)
-  );
-  if (rta == "" || rta == null || isNaN(rta)) {
-    alert(`¡No has ingresado una respuesta válida! Intenta de nuevo:`);
-  }
-}
-
-// Invoco la funcion para verificar si la respuesta es correcta o no
-pregunta(rta, 4);
-
-// Verifico por consola la salida de ambas variables
-console.log(rta);
-console.log(puntaje);
-
-// Invoco la funcion que determina el saludo en base al puntaje
-saludo = mensaje(puntaje);
-
-// Verifico la salida
-console.log(saludo);
-
-// Comunico al usuario el puntaje obtenido, cantidad de respuestas correctas y lo saludo en base al puntaje
-alert(`${nombre}: 
-¡Obtuviste un total de: ${correctas} respuestas correctas!
-
-Tu nota fue un: ${puntaje}/10
-
-${saludo}`);

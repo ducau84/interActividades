@@ -26,12 +26,15 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 400px">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0
+                            navbar-nav-scroll" style="--bs-scroll-height:
+                            400px">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="../index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./about.html">Sobre este sitio...</a>
+                            <a class="nav-link" href="./about.html">Sobre
+                                este sitio...</a>
                         </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
@@ -46,7 +49,8 @@
                                     <hr class="dropdown-divider" />
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="./pdl.html">Prácticas del Lenguaje</a>
+                                    <a class="dropdown-item" href="./pdl.html">Prácticas del
+                                        Lenguaje</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="./matematicas.html">Matemáticas</a>
@@ -66,7 +70,9 @@
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Buscar fichas interActivas"
                             aria-label="Search" />
-                        <button class="btn btn-danger" type="submit"><i class="bi bi-search"></i></button>
+                        <button class="btn btn-danger" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -79,35 +85,99 @@
                 <section class="col-12 titulo" data-aos="fade-down">
                     <h1>Prácticas del Lenguaje</h1>
                 </section>
+                <section class="actividades actividades__pdl">
+                    <h2 class="actividades">Actividades</h2>
+                    <article class="poesia">
+                        <h3 class="titulo">Evaluación sobre: Poesía</h3>
+
+                        <p class="actividades__consigna">Completa los
+                            casilleros en blanco de la poesía, con las
+                            siguientes palabras:</p>
+
+                        <div class="palabras__poesia" id="pistas">
+
+                        </div>
+                        <span>Recordá colocar las <strong>tildes</strong> en
+                            las palabras correspondenties, sino te las
+                            tomará como <strong>incorrectas</strong></span>
+                        <form id="poesia" autocomplete="off">
+                            <p class="titulo"><strong>Los Pajaritos</strong></p>
+                            <div class="estrofa">
+                                <p id="ayuda">
+                                    Por mi ventana veo cada <input type="text" name="rima1" id="palabra1" placeholder="Palabra 1" />
+                                </p>
+                                <p>Bellos y cantantes pajaritos</p>
+                                <p>
+                                    ¡Que no se despierte mi <input type="text" name="rima2" id="palabra2" placeholder="Palabra 2" />!
+                                </p>
+                                <p>
+                                    ¡Que no la espanten sus <input type="text" name="rima3" id="palabra3" placeholder="Palabra 3" />!
+                                </p>
+                            </div>
+                            <div class="estrofa">
+                                <p>
+                                    Yo los quiero <input type="text" name="rima4" id="palabra4" placeholder="Palabra 4" />
+                                </p>
+                                <p>
+                                    Pero ellos vuelan tan <input type="text" name="rima5" id="palabra5" placeholder="Palabra 5" />
+                                </p>
+                                <p>
+                                    Solo los puedo <input type="text" name="rima6" id="palabra6" placeholder="Palabra 6" />
+                                </p>
+                                <p>
+                                    Y escuchar su dulce <input type="text" name="rima7" id="palabra7" placeholder="Palabra 7" />
+                                </p>
+                            </div>
+                            <div class="estrofa">
+                                <p>
+                                    Me despiertan con su dulce <input type="text" name="rima8" id="palabra8" placeholder="Palabra 8" />
+                                </p>
+                                <p>
+                                    Me levanto corriendo de la <input type="text" name="rima9" id="palabra9" placeholder="Palabra 9" />
+                                </p>
+                                <p>
+                                    Yo los miro cada <input type="text" name="rima10" id="palabra10" placeholder="Palabra 10" />
+                                </p>
+                                <p>
+                                    entada detrás de mi <input type="text" name="rima11" id="palabra11" placeholder="Palabra 11" />
+                                </p>
+                            </div>
+                            <button type="submit" class="btn_send">Evaluar Respuestas</button>
+                            <div id="nota">
+                            </div>
+                        </form>
+                    </article>
+                </section>
             </div>
         </div>
-
-
     </main>
 
     <footer>
         <div class="footer__info">
             <div class="redes">
                 <p><i class="bi bi-link"></i>Seguinos en Nuestras Redes:</p>
-                <a class="facebook" href="https://www.facebook.com/maharani.indumentaria" target="blank"><i
-                        class="bi bi-facebook"></i>/senio.pame</a>
-                <a class="instagram" href="https://www.instagram.com/maharani.indumentaria/" target="blank"><i
-                        class="bi bi-instagram"></i>/senio.pame</a>
-                <a class="twitter" href="https://twitter.com/MaharaniIndume1" target="blank"><i
-                        class="bi bi-twitter"></i>/Seniopame</a>
+                <a class="facebook" href="https://www.facebook.com/maharani.indumentaria" target="blank">
+                    <i class="bi bi-facebook"></i>/senio.pame</a>
+                <a class="instagram" href="https://www.instagram.com/maharani.indumentaria/" target="blank">
+                    <i class="bi bi-instagram"></i>/senio.pame</a>
+                <a class="twitter" href="https://twitter.com/MaharaniIndume1" target="blank">
+                    <i class="bi bi-twitter"></i>/Seniopame</a>
             </div>
             <div class="telefono">
                 <p><i class="bi bi-phone"></i>Teléfono:</p>
                 <p class="whatsapp">
-                    <a href="https://api.whatsapp.com/send?phone=5492923584787" target="blank"><i
-                            class="bi bi-whatsapp"></i></a><a href="tel:+5492923584787">02923 - 15 - 584787</a>
+                    <a href="https://api.whatsapp.com/send?phone=5492923584787" target="blank">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                    <a href="tel:+5492923584787">02923 - 15 - 584787</a>
                 </p>
             </div>
         </div>
         <div class="footer__copyRigth">
-            <strong>SeñoPame &copy; 2022</strong>
+            <p>SeñoPame &copy; 2022</p>
             <p>
-                República Argentina 537, (7540) Coronel Suárez, Provincia de Buenos
+                República Argentina 537, (7540) Coronel Suárez, Provincia de
+                Buenos
                 Aires.
             </p>
         </div>
