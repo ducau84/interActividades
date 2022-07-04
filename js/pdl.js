@@ -1,7 +1,8 @@
 // declaro las variables globales
 
 let nombre = "";
-let iguales = 0;
+let puntaje = 0;
+let correctas = 0;
 let saludo = "";
 
 // Creo un array con las posibles respuestas, donde el orden indica que numero de respuesta es
@@ -81,77 +82,9 @@ rimas.sort(function (a, b) {
 });
 
 // filtro el array "rimas" eliminando las incorrectas ( el valor de orden es 0)
-const correctas = rimas.filter((elemento) => elemento.orden != 0);
+const rimasCorrectas = rimas.filter((elemento) => elemento.orden != 0);
 
-// Creo una función para pasar la primera letra a mayúscula
-
-function primerLetraMayusc(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-// Creo una función que muestre un mensaje determinado en función del puntaje obtenido
-
-function mensaje(a) {
-  if (a == 10) {
-    saludo = "¡Felicitaciones, obtuviste un puntaje perfecto!";
-  }
-  if (a >= 7 && a < 10) {
-    saludo = "¡Felicitaciones, aprobaste, pero podes hacerlo aún mejor!";
-  }
-  if (a < 7) {
-    saludo =
-      "Sigue esforzandote! ¡Con paciencia y dedidación vas a lograr aprobar!";
-  }
-  return saludo;
-}
-
-// Creo una función que muestra la nota obtenida en el documento
-
-function darNota() {
-
-  const nota = document.createElement("p");
-
-  nota.innerHTML = `  <p><strong>${nombre}:</strong></p>
-                      <p>¡Obtuviste un total de: ${iguales} respuestas correctas!</p>
-                      <p>Tu nota fue un: <strong style="font-size: 2rem;">${iguales}</strong></p>
-                      <p>${saludo}</p>
-                    `;
-  
-  const imprimeNota = document.getElementById("nota");
-  imprimeNota.appendChild(nota);
-
-  // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
-  
-  formulario.removeEventListener ("submit", evaluarPoesia);
-}
-
-// Creo una funcion para pintar de rojo el fondo del casillero
-
-function pintarFondo(_num, color) {
-  casillero = document.body.getElementsByTagName("input")[_num];
-  casillero.style.background = color;
-  console.log(casillero);
-}
-
-// Creo una función para verficar que no se hayan dejado casilleros en blanco o usado números para completar
-
-function validarRespuesta(palabra, _num) {
-  if (palabra === "") {
-    error = alert(`¡No has ingresado nada en el casillero número ${_num}! 
-    
-    Intenta de nuevo:`);
-    pintarFondo(_num, "#ff000073");
-    return false;
-  }
-  if (palabra == null || !isNaN(palabra)) {
-    error = alert(`¡No puedes ingresar números en el casillero número ${_num}!
-
-    
-    Intenta de nuevo:`);
-    pintarFondo(_num, "#ff000073");
-    return false;
-  }
-}
+// Defino un event listener para el primer input, que al ser activado muestra su solución a modo de Ayuda
 
 const ayuda1 = document.getElementById("ayuda");
 
@@ -170,18 +103,17 @@ function verAyuda() {
 ayuda1.removeEventListener ("click", verAyuda );
 }
 
-
 // Defino un event listener para el formulario activado cuando el usuario hace click sobre el boton submit e invoco la funcion para evaluar
 
 const formulario = document.getElementById("poesia");
 
-formulario.addEventListener("submit", evaluarPoesia);
+formulario.addEventListener("submit", evaluarActividad);
 
  // Evito el comportamiento por defecto 
 
-function evaluarPoesia(event) {
+function evaluarActividad(e) {
   {
-    event.preventDefault();
+    e.preventDefault();
 
     // capturo los input y los asigno una constante
 
@@ -200,17 +132,17 @@ function evaluarPoesia(event) {
     // valido lo ingresado
 
     if (
-      validarRespuesta(palabra1, 1) == false ||
-      validarRespuesta(palabra2, 2) == false ||
-      validarRespuesta(palabra3, 3) == false ||
-      validarRespuesta(palabra4, 4) == false ||
-      validarRespuesta(palabra5, 5) == false ||
-      validarRespuesta(palabra6, 6) == false ||
-      validarRespuesta(palabra7, 7) == false ||
-      validarRespuesta(palabra8, 8) == false ||
-      validarRespuesta(palabra9, 9) == false ||
-      validarRespuesta(palabra10, 10) == false ||
-      validarRespuesta(palabra11, 11) == false
+      validarRespuestaPalabra(palabra1, 1) == false ||
+      validarRespuestaPalabra(palabra2, 2) == false ||
+      validarRespuestaPalabra(palabra3, 3) == false ||
+      validarRespuestaPalabra(palabra4, 4) == false ||
+      validarRespuestaPalabra(palabra5, 5) == false ||
+      validarRespuestaPalabra(palabra6, 6) == false ||
+      validarRespuestaPalabra(palabra7, 7) == false ||
+      validarRespuestaPalabra(palabra8, 8) == false ||
+      validarRespuestaPalabra(palabra9, 9) == false ||
+      validarRespuestaPalabra(palabra10, 10) == false ||
+      validarRespuestaPalabra(palabra11, 11) == false
     ) {
       return;
     }
@@ -261,73 +193,73 @@ function evaluarPoesia(event) {
 
     // comparo las respuestas del usuario con las correctas mediante la comparacion de objetos en el array omito el objeto 0 ya que no evaluo esa respuesta
 
-    if (respuestas[1].palabra == correctas[1].palabra) {
-      iguales += 1;
+    if (respuestas[1].palabra == rimasCorrectas[1].palabra) {
+      correctas += 1;
     } else {
-      iguales += 0;
+      correctas += 0;
     }
-    if (respuestas[2].palabra == correctas[2].palabra) {
-      iguales += 1;
+    if (respuestas[2].palabra == rimasCorrectas[2].palabra) {
+      correctas += 1;
     } else {
-      iguales += 0;
+      correctas += 0;
     }
-    if (respuestas[3].palabra == correctas[3].palabra) {
-      iguales += 1;
+    if (respuestas[3].palabra == rimasCorrectas[3].palabra) {
+      correctas += 1;
     } else {
-      iguales += 0;
+      correctas += 0;
     }
-    if (respuestas[4].palabra == correctas[4].palabra) {
-      iguales += 1;
+    if (respuestas[4].palabra == rimasCorrectas[4].palabra) {
+      correctas += 1;
     } else {
-      iguales += 0;
+      correctas += 0;
     }
-    if (respuestas[5].palabra == correctas[5].palabra) {
-      iguales += 1;
+    if (respuestas[5].palabra == rimasCorrectas[5].palabra) {
+      correctas += 1;
     } else {
-      iguales += 0;
+      correctas += 0;
     }
-    if (respuestas[6].palabra == correctas[6].palabra) {
-      iguales += 1;
+    if (respuestas[6].palabra == rimasCorrectas[6].palabra) {
+      correctas += 1;
     } else {
-      iguales += 0;
+      correctas += 0;
     }
-    if (respuestas[7].palabra == correctas[7].palabra) {
-      iguales += 1;
+    if (respuestas[7].palabra == rimasCorrectas[7].palabra) {
+      correctas += 1;
     } else {
-      iguales += 0;
+      correctas += 0;
     }
-    if (respuestas[8].palabra == correctas[8].palabra) {
-      iguales += 1;
+    if (respuestas[8].palabra == rimasCorrectas[8].palabra) {
+      correctas += 1;
     } else {
-      iguales += 0;
+      correctas += 0;
     }
-    if (respuestas[9].palabra == correctas[9].palabra) {
-      iguales += 1;
+    if (respuestas[9].palabra == rimasCorrectas[9].palabra) {
+      correctas += 1;
     } else {
-      iguales += 0;
+      correctas += 0;
     }
-    if (respuestas[10].palabra == correctas[10].palabra) {
-      iguales += 1;
+    if (respuestas[10].palabra == rimasCorrectas[10].palabra) {
+      correctas += 1;
     } else {
-      iguales += 0;
+      correctas += 0;
     }
 
     //Chequeo por consola en que pregunta se equivoco el usuario
 
-    console.log(respuestas[1].palabra == correctas[1].palabra);
-    console.log(respuestas[2].palabra == correctas[2].palabra);
-    console.log(respuestas[3].palabra == correctas[3].palabra);
-    console.log(respuestas[4].palabra == correctas[4].palabra);
-    console.log(respuestas[5].palabra == correctas[5].palabra);
-    console.log(respuestas[6].palabra == correctas[6].palabra);
-    console.log(respuestas[7].palabra == correctas[7].palabra);
-    console.log(respuestas[8].palabra == correctas[8].palabra);
-    console.log(respuestas[9].palabra == correctas[9].palabra);
-    console.log(respuestas[10].palabra == correctas[10].palabra);
+    console.log(respuestas[1].palabra == rimasCorrectas[1].palabra);
+    console.log(respuestas[2].palabra == rimasCorrectas[2].palabra);
+    console.log(respuestas[3].palabra == rimasCorrectas[3].palabra);
+    console.log(respuestas[4].palabra == rimasCorrectas[4].palabra);
+    console.log(respuestas[5].palabra == rimasCorrectas[5].palabra);
+    console.log(respuestas[6].palabra == rimasCorrectas[6].palabra);
+    console.log(respuestas[7].palabra == rimasCorrectas[7].palabra);
+    console.log(respuestas[8].palabra == rimasCorrectas[8].palabra);
+    console.log(respuestas[9].palabra == rimasCorrectas[9].palabra);
+    console.log(respuestas[10].palabra == rimasCorrectas[10].palabra);
 
     // Declaro la variable puntaje que coincide con la variable iguales al ser 10 preguntas
 
-    let puntaje = iguales;
+    puntaje = correctas;
 
     // Invoco la funcion que determina el saludo en base al puntaje
     saludo = mensaje(puntaje);
@@ -340,6 +272,7 @@ function evaluarPoesia(event) {
   }
 }
 
+// Creo la matriz para crear objetos en base a las respuestas, pasando las mismas a minusculas y dandole el orden para luego ser comparadas con las correctas
 class Respuestas {
   constructor(palabra, orden) {
     this.palabra = palabra.toLowerCase();

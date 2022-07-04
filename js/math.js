@@ -5,43 +5,6 @@ let puntaje = 0;
 let correctas = 0;
 let saludo = "";
 
-// Creo una función para pasar la primera letra a mayúscula
-
-function primerLetraMayusc(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-// Creo una función para pintar de rojo el input con información no válida
-
-function pintarFondo(_num, color) {
-  casillero = document.body.getElementsByTagName("input")[_num];
-  casillero.style.background = color;
-  console.log(casillero);
-}
-
-// Creo una función para verficar que no se hayan dejado casilleros en blanco o usado números para completar
-
-function validarRespuesta(rta, _num) {
-  if (rta === "") {
-    error = alert(`¡No has ingresado nada en la pregunta número ${_num}! 
-    
-    Intenta de nuevo:`);
-    pintarFondo(_num, "#ff000073");
-    puntaje = 0;
-    correctas = 0;
-    return false;
-  }
-  if (rta == null || isNaN(rta)) {
-    error = alert(`¡Debes ingresar números en el casillero número ${_num}!
-
-    Intenta de nuevo:`);
-    pintarFondo(_num, "#ff000073");
-    puntaje = 0;
-    correctas = 0;
-    return false;
-  }
-}
-
 // Creo una función que determine el puntaje y la cantidad de respuestas correctas
 
 function pregunta(rta, _num) {
@@ -99,26 +62,6 @@ function pregunta(rta, _num) {
   }
 }
 
-// Creo una función que muestre un mensaje determinado en función del puntaje obtenido
-
-function mensaje(a) {
-  if (a == 10) {
-    saludo = "¡Felicitaciones, obtuviste un puntaje perfecto!";
-  }
-  if (a >= 8 && a < 10) {
-    saludo = "¡Felicitaciones, hiciste un gran trabajo, un poquito mas y es perfecto!";
-  }
-  if (a >= 7 && a < 8) {
-    saludo = "¡Felicitaciones, aprobaste, pero podes hacerlo aún mejor!";
-  }
-  if (a < 7) {
-    saludo =
-      "Sigue esforzandote! ¡Con paciencia y dedidación vas a lograr aprobar!";
-  }
-
-  return saludo;
-}
-
 // Pido al usuario que ingrese su nombre ( a futuro esto lo va a tomar del registro inicial )
 
 nombre = prompt("Por favor Ingresa tu nombre:");
@@ -140,23 +83,6 @@ alert(`${nombre} ¡Comencemos con la Evaluación de Matemáticas!`);
 
 // Creo una función que muestra la nota obtenida en el documento
 
-function darNota() {
-  const nota = document.createElement("p");
-
-  nota.innerHTML = `  <p style="font-size:2rem;">${nombre}:</p>
-                      <p>¡Obtuviste un total de: ${correctas} respuestas correctas!</p>
-                      <p style="font-size:2rem;">Tu nota es un: <strong style="font-size: 2.5rem;">${puntaje}</strong></p>
-                      <p>${saludo}</p>
-                    `;
-
-  const imprimeNota = document.getElementById("nota");
-  imprimeNota.appendChild(nota);
-
-  // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
-
-  formulario.removeEventListener("submit", evaluarActividad);
-}
-
 const formulario = document.getElementById("problemas");
 
 formulario.addEventListener("submit", evaluarActividad);
@@ -170,7 +96,7 @@ function evaluarActividad(e) {
     let rta = document.getElementById("rta1").value;
 
     // valido lo ingresado
-    if (validarRespuesta(rta, 1) == false) {
+    if (validarRespuestaNumero(rta, 1) == false) {
       return;
     } else {
       // Invoco la funcion para verificar si la respuesta es correcta o no
@@ -187,7 +113,7 @@ function evaluarActividad(e) {
     rta = document.getElementById("rta2").value;
 
     // valido lo ingresado
-    if (validarRespuesta(rta, 2) == false) {
+    if (validarRespuestaNumero(rta, 2) == false) {
       return;
     } else {
       // Invoco la funcion para verificar si la respuesta es correcta o no
@@ -203,7 +129,7 @@ function evaluarActividad(e) {
     rta = document.getElementById("rta3").value;
 
     // valido lo ingresado
-    if (validarRespuesta(rta, 3) == false) {
+    if (validarRespuestaNumero(rta, 3) == false) {
       return;
     } else {
       // Invoco la funcion para verificar si la respuesta es correcta o no
@@ -218,7 +144,7 @@ function evaluarActividad(e) {
     rta = document.getElementById("rta4").value;
 
     // valido lo ingresado
-    if (validarRespuesta(rta, 4) == false) {
+    if (validarRespuestaNumero(rta, 4) == false) {
       return;
     } else {
 
