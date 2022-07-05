@@ -94,7 +94,7 @@ function verAyuda() {
   const ayuda = document.createElement("span");
 
   ayuda.innerHTML = `
-                      <span> <i class="bi bi-info-lg"></i> Ayuda: la primer palabra es: <strong>Mañana</strong>  </span>
+                      <i class="bi bi-info-lg"></i> Ayuda: la primer palabra es: <strong>Mañana</strong>
                     `
   const muestraAyuda = document.getElementById("ayuda")
   muestraAyuda.appendChild(ayuda)

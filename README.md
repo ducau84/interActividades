@@ -5,8 +5,9 @@
 
 ## **Historial de Modificaciones**:
 
-### Versión 0.25 ( 04/07/2022 ):
+### Versión 0.25 ( 05/07/2022 ):
 - Extracción de las funciones **"comunes"** a ambas evaluaciones e inserción de las mismas en una nueva ***script*** llamada **common** para su reutilización.
+- Correcciones en el archivo ***style.css***.
 ### Versión 0.20 ( 04/07/2022 ):
 - Modificación de la ***script*** de bienvenida, luego de introducir el nombre, modifica el texto para que el saludo sea "personalizado".
 - Modificación de los archivos ***html, css y js*** de las secciones **Matemáticas** y **P.d.L.**, en ambos casos se modificaron las scripts originales, agregando la funciones ***addEventListener*** para caputurar botones e inputs y a su vez se inserta en el ***DOM***  el puntaje obtenido al finalizar la evaluación, junto con un saludo y el nombre del usuario.

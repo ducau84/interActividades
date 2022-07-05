@@ -249,10 +249,9 @@ strong {
     margin: auto 20px;
 }
 
-.navbar .logo img {
-    width: 100%;
-    max-width: 250px;
-    min-width: 125px;
+.navbar .navbar-brand img {
+    max-width: 100%;
+
 }
 
 .navbar .dropdown-menu {
@@ -626,7 +625,7 @@ a:visited {
     position: relative;
     right: -5px;
     margin: 0;
-    z-index: -1;
+    z-index: -2;
 }
 
 .estrofa input {
@@ -699,14 +698,21 @@ a:visited {
     h1 {
         font-size: 1.8rem;
     }
-
-    actividades h2 {
-        font-size: 1.0rem;
-    }
     p {
         font-size: 0.95rem;
     }
-    .poesia, .problemas {
+    .container {
+        padding: 0;
+    }
+    .navbar-brand img{
+        max-width: 80%;
+        width: 230px;
+        height: 43px
+    }
+    .poesia {
+        padding: 1rem;
+    }
+    .problemas {
         padding: 1rem;
     }
     .poesia .titulo, .problemas .titulo {
@@ -728,7 +734,7 @@ a:visited {
         width: 5rem;
     }
     .estrofa #palabra1 {
-        margin-right: 80px;
+        margin-right: 3.5rem;
     }
     .estrofa span {
         padding: 0 5px;
@@ -737,6 +743,7 @@ a:visited {
     }
     .poesia .btn_send, .problemas .btn_send {
         width: 30vh;
+        font-size: 1rem;
     }
     #nota {
         font-size: small;
