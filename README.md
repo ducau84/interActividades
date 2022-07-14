@@ -5,8 +5,17 @@
 
 ## **Historial de Modificaciones**:
 
+### Versión 0.30 ( 14/07/2022 ):
+- Impementación de módulos, las funciones reutilizables fueron alojadas en una nueva ***script*** llamada **commonFunctions.js**, de la cual todas sus funcionas son *exportadas* para su reutilización dentro del proyecto.
+- Utilización del **Session Storage**, para guardar el nombre del alumno, y la puntuación en las diferentes evaluaciones, información que luego es consultada para ser mostrada y/o validar.
+- Implementación de **Operadores Avanzados**, para la optimización y legibilidad del código Ej:
+    - ***script main.js*** ```Linea 11 / Linea 71 / Linea 76```.
+    - ***script pdl.js*** ```Linea 246 / Linea 25 / Linea 76```.
+    - ***script math.js*** ```Linea 78 / Linea 84```.
+- Implementación de **Sweet Alert** para estilar el manejo de los ***prompts*** y ***alerts***.  
+
 ### Versión 0.25 ( 05/07/2022 ):
-- Extracción de las funciones **"comunes"** a ambas evaluaciones e inserción de las mismas en una nueva ***script*** llamada **common** para su reutilización.
+- ~~Extracción de las funciones **"comunes"** a ambas evaluaciones e inserción de las mismas en una nueva ***script*** llamada **common** para su reutilización.~~
 - Correcciones en el archivo ***style.css***.
 ### Versión 0.20 ( 04/07/2022 ):
 - Modificación de la ***script*** de bienvenida, luego de introducir el nombre, modifica el texto para que el saludo sea "personalizado".

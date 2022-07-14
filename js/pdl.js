@@ -1,3 +1,14 @@
+// Importo las funciones necesarias
+
+import {
+  volverAlHome,
+  traerNombreStorage,
+  darNota,
+  mensaje,
+  validarRespuestaPalabra,
+  guardarPuntaje,
+} from "./commonFunctions.js";
+
 // declaro las variables globales
 
 let nombre = "";
@@ -8,7 +19,7 @@ let saludo = "";
 // Creo un array con las posibles respuestas, donde el orden indica que numero de respuesta es
 
 const rimas = [
-  {palabra: "mañana", orden: 1},
+  {palabra: "mañana", orden: 0},
   {palabra: "ventana", orden: 11},
   {palabra: "hermana", orden: 2},
   {palabra: "perro", orden: 0},
@@ -90,17 +101,17 @@ const ayuda1 = document.getElementById("ayuda");
 
 ayuda1.addEventListener("click", verAyuda);
 
-function verAyuda() { 
+function verAyuda() {
   const ayuda = document.createElement("span");
 
   ayuda.innerHTML = `
                       <i class="bi bi-info-lg"></i> Ayuda: la primer palabra es: <strong>Mañana</strong>
-                    `
-  const muestraAyuda = document.getElementById("ayuda")
-  muestraAyuda.appendChild(ayuda)
-// Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
-  
-ayuda1.removeEventListener ("click", verAyuda );
+                    `;
+  const muestraAyuda = document.getElementById("ayuda");
+  muestraAyuda.appendChild(ayuda);
+  // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
+
+  ayuda1.removeEventListener("click", verAyuda);
 }
 
 // Defino un event listener para el formulario activado cuando el usuario hace click sobre el boton submit e invoco la funcion para evaluar
@@ -109,7 +120,7 @@ const formulario = document.getElementById("poesia");
 
 formulario.addEventListener("submit", evaluarActividad);
 
- // Evito el comportamiento por defecto 
+// Evito el comportamiento por defecto
 
 function evaluarActividad(e) {
   {
@@ -149,7 +160,7 @@ function evaluarActividad(e) {
 
     // Creo objetos a partir de las respuestas
 
-    const respuesta1 = new Respuestas(palabra1, 1);
+    /*     const respuesta1 = new Respuestas(palabra1, 1); */
     const respuesta2 = new Respuestas(palabra2, 2);
     const respuesta3 = new Respuestas(palabra3, 3);
     const respuesta4 = new Respuestas(palabra4, 4);
@@ -161,24 +172,9 @@ function evaluarActividad(e) {
     const respuesta10 = new Respuestas(palabra10, 10);
     const respuesta11 = new Respuestas(palabra11, 11);
 
-    console.log(
-      respuesta1,
-      respuesta2,
-      respuesta3,
-      respuesta4,
-      respuesta5,
-      respuesta6,
-      respuesta7,
-      respuesta8,
-      respuesta9,
-      respuesta10,
-      respuesta11
-    );
-
     // Inserto los objetos creados anteriormente en el array Respuestas respetando el orden
 
     respuestas.push(
-      respuesta1,
       respuesta2,
       respuesta3,
       respuesta4,
@@ -191,61 +187,22 @@ function evaluarActividad(e) {
       respuesta11
     );
 
-    // comparo las respuestas del usuario con las correctas mediante la comparacion de objetos en el array omito el objeto 0 ya que no evaluo esa respuesta
+    // verifico las respuestas del usuario con las correctas mediante un bucle for que compara los objetos en los arrays
 
-    if (respuestas[1].palabra == rimasCorrectas[1].palabra) {
-      correctas += 1;
-    } else {
-      correctas += 0;
-    }
-    if (respuestas[2].palabra == rimasCorrectas[2].palabra) {
-      correctas += 1;
-    } else {
-      correctas += 0;
-    }
-    if (respuestas[3].palabra == rimasCorrectas[3].palabra) {
-      correctas += 1;
-    } else {
-      correctas += 0;
-    }
-    if (respuestas[4].palabra == rimasCorrectas[4].palabra) {
-      correctas += 1;
-    } else {
-      correctas += 0;
-    }
-    if (respuestas[5].palabra == rimasCorrectas[5].palabra) {
-      correctas += 1;
-    } else {
-      correctas += 0;
-    }
-    if (respuestas[6].palabra == rimasCorrectas[6].palabra) {
-      correctas += 1;
-    } else {
-      correctas += 0;
-    }
-    if (respuestas[7].palabra == rimasCorrectas[7].palabra) {
-      correctas += 1;
-    } else {
-      correctas += 0;
-    }
-    if (respuestas[8].palabra == rimasCorrectas[8].palabra) {
-      correctas += 1;
-    } else {
-      correctas += 0;
-    }
-    if (respuestas[9].palabra == rimasCorrectas[9].palabra) {
-      correctas += 1;
-    } else {
-      correctas += 0;
-    }
-    if (respuestas[10].palabra == rimasCorrectas[10].palabra) {
-      correctas += 1;
-    } else {
-      correctas += 0;
+    for (var i in respuestas) {
+      for (var j in respuestas) {
+        if (
+          JSON.stringify(respuestas[i]) == JSON.stringify(rimasCorrectas[j])
+        ) {
+          correctas++;
+        }
+      }
+      console.log(correctas);
     }
 
     //Chequeo por consola en que pregunta se equivoco el usuario
 
+    console.log(respuestas[0].palabra == rimasCorrectas[0].palabra);
     console.log(respuestas[1].palabra == rimasCorrectas[1].palabra);
     console.log(respuestas[2].palabra == rimasCorrectas[2].palabra);
     console.log(respuestas[3].palabra == rimasCorrectas[3].palabra);
@@ -255,7 +212,6 @@ function evaluarActividad(e) {
     console.log(respuestas[7].palabra == rimasCorrectas[7].palabra);
     console.log(respuestas[8].palabra == rimasCorrectas[8].palabra);
     console.log(respuestas[9].palabra == rimasCorrectas[9].palabra);
-    console.log(respuestas[10].palabra == rimasCorrectas[10].palabra);
 
     // Declaro la variable puntaje que coincide con la variable iguales al ser 10 preguntas
 
@@ -268,7 +224,13 @@ function evaluarActividad(e) {
     console.log(saludo);
 
     // Comunico al usuario el puntaje obtenido, cantidad de respuestas correctas y lo saludo en base al puntaje
-    darNota();
+    darNota(nombre, correctas, puntaje, saludo);
+
+    // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
+    formulario.removeEventListener("submit", evaluarActividad);
+
+    // Guardo el puntaje obtenido, junto con el área correspondiente para luego mostrarlo en el home.
+    guardarPuntaje("pdl", puntaje);
   }
 }
 
@@ -279,22 +241,27 @@ class Respuestas {
     this.orden = Number(orden);
   }
 }
-// Pido al usuario que ingrese su nombre ( a futuro esto lo va a tomar del registro inicial )
+// Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el session storage, lo mando al home para que lo ingrese
 
-nombre = prompt("Por favor Ingresa tu nombre:");
+sessionStorage.getItem("nombre")
+  ? (nombre = traerNombreStorage())
+  : volverAlHome();
 
-// Valido que el nombre no esté en blanco o utilice un número como nombre
+// Verifico que el Alumno no haya realizado la evaluación en esta sesión y muestro un mensaje acorde
 
-while (nombre == "" || nombre == null || !isNaN(nombre)) {
-  alert(`¡No has ingresado un nombre válido! Intenta de nuevo:`);
-  nombre = prompt("¡Bienvenido!, por favor ingrese su nombre:");
-}
-
-// Pongo en mayuscula la primera letra en caso que ingrese el nombre en minusculas
-
-nombre = primerLetraMayusc(nombre);
-
-// Saludo personalizado
-
-alert(`${nombre} ¡Comencemos con la Evaluación de Prácticas del Lenguaje!`);
-
+sessionStorage.getItem("pdl")
+  ? Swal.fire({
+      title: `${nombre}`,
+      text: `¡Ya has hecho la evaluación de Prácticas del Lenguaje!`,
+      icon: "error",
+    }).then(function () {
+      window.location = "../index.html";
+    })
+  : Swal.fire({
+      title: `${nombre}`,
+      text: `¡Comencemos con la Evaluación de Prácticas del Lenguaje!`,
+      imageUrl: "../img/seño pame.svg",
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: "Seño Pame",
+    });

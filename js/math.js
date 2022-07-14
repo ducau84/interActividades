@@ -1,3 +1,14 @@
+// Importo las funciones necesarias
+
+import {
+  volverAlHome,
+  traerNombreStorage,
+  darNota,
+  mensaje,
+  validarRespuestaNumero,
+  guardarPuntaje,
+} from "./commonFunctions.js";
+
 // Defino las variables globales
 
 let nombre = "";
@@ -62,24 +73,30 @@ function pregunta(rta, _num) {
   }
 }
 
-// Pido al usuario que ingrese su nombre ( a futuro esto lo va a tomar del registro inicial )
+// Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el session storage, lo mando al home para que lo ingrese
 
-nombre = prompt("Por favor Ingresa tu nombre:");
+sessionStorage.getItem("nombre")
+  ? (nombre = traerNombreStorage())
+  : volverAlHome();
 
-// Valido que el nombre no esté en blanco o utilice un número como nombre
+// Verifico que el Alumno no haya realizado la evaluación en esta sesión y muestro un mensaje acorde
 
-while (nombre == "" || nombre == null || !isNaN(nombre)) {
-  alert(`¡No has ingresado un nombre válido! Intenta de nuevo:`);
-  nombre = prompt("¡Bienvenido!, por favor ingrese su nombre:");
-}
-
-// Pongo en mayuscula la primera letra en caso que ingrese el nombre en minusculas
-
-nombre = primerLetraMayusc(nombre);
-
-// Saludo personalizado
-
-alert(`${nombre} ¡Comencemos con la Evaluación de Matemáticas!`);
+sessionStorage.getItem("math")
+  ? Swal.fire({
+      title: `${nombre}`,
+      text: `¡Ya has hecho la evaluación de Matemáticas!`,
+      icon: "error",
+    }).then(function () {
+      window.location = "../index.html";
+    })
+  : Swal.fire({
+      title: `${nombre}`,
+      text: `¡Comencemos con la Evaluación de Matemáticas!`,
+      imageUrl: "../img/seño pame.svg",
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: "Seño Pame",
+    });
 
 // Creo una función que muestra la nota obtenida en el documento
 
@@ -97,6 +114,8 @@ function evaluarActividad(e) {
 
     // valido lo ingresado
     if (validarRespuestaNumero(rta, 1) == false) {
+      puntaje = 0;
+      correctas = 0;
       return;
     } else {
       // Invoco la funcion para verificar si la respuesta es correcta o no
@@ -114,6 +133,8 @@ function evaluarActividad(e) {
 
     // valido lo ingresado
     if (validarRespuestaNumero(rta, 2) == false) {
+      puntaje = 0;
+      correctas = 0;
       return;
     } else {
       // Invoco la funcion para verificar si la respuesta es correcta o no
@@ -130,6 +151,8 @@ function evaluarActividad(e) {
 
     // valido lo ingresado
     if (validarRespuestaNumero(rta, 3) == false) {
+      puntaje = 0;
+      correctas = 0;
       return;
     } else {
       // Invoco la funcion para verificar si la respuesta es correcta o no
@@ -145,9 +168,10 @@ function evaluarActividad(e) {
 
     // valido lo ingresado
     if (validarRespuestaNumero(rta, 4) == false) {
+      puntaje = 0;
+      correctas = 0;
       return;
     } else {
-
       // Invoco la funcion para verificar si la respuesta es correcta o no
       pregunta(Number(rta), 4);
     }
@@ -161,8 +185,13 @@ function evaluarActividad(e) {
     // Verifico la salida
     console.log(saludo);
 
-    // Invoco la funcion que muestra el puntaje
+    // Comunico al usuario el puntaje obtenido, cantidad de respuestas correctas y lo saludo en base al puntaje
+    darNota(nombre, correctas, puntaje, saludo);
 
-    darNota();
+    // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
+    formulario.removeEventListener("submit", evaluarActividad);
+
+    // Guardo el puntaje obtenido, junto con el área correspondiente para luego mostrarlo en el home.
+    guardarPuntaje("math", puntaje);
   }
 }

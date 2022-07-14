@@ -13,6 +13,7 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>interActividades: Prácticas del Lenguaje</title>
 </head>
 
@@ -92,7 +93,8 @@
 
                         <p class="actividades__consigna">Completa los
                             casilleros en blanco de la poesía, con las
-                            siguientes palabras (cada palabra se puede usar sólo una vez):</p>
+                            siguientes palabras (cada palabra se puede usar
+                            sólo una vez):</p>
 
                         <div class="palabras__poesia" id="pistas">
 
@@ -104,45 +106,57 @@
                             <p class="titulo"><strong>Los Pajaritos</strong></p>
                             <div class="estrofa">
                                 <p id="ayuda">
-                                    Por mi ventana veo cada <input type="text" name="rima1" id="palabra1" placeholder="Palabra 1" />
+                                    Por mi ventana veo cada <input type="text" name="rima1" id="palabra1"
+                                        placeholder="Palabra 1" />
                                 </p>
                                 <p>Bellos y cantantes pajaritos</p>
                                 <p>
-                                    ¡Que no se despierte mi <input type="text" name="rima2" id="palabra2" placeholder="Palabra 2" />!
+                                    ¡Que no se despierte mi <input type="text" name="rima2" id="palabra2"
+                                        placeholder="Palabra 2" />!
                                 </p>
                                 <p>
-                                    ¡Que no la espanten sus <input type="text" name="rima3" id="palabra3" placeholder="Palabra 3" />!
+                                    ¡Que no la espanten sus <input type="text" name="rima3" id="palabra3"
+                                        placeholder="Palabra 3" />!
                                 </p>
                             </div>
                             <div class="estrofa">
                                 <p>
-                                    Yo los quiero <input type="text" name="rima4" id="palabra4" placeholder="Palabra 4" />
+                                    Yo los quiero <input type="text" name="rima4" id="palabra4"
+                                        placeholder="Palabra 4" />
                                 </p>
                                 <p>
-                                    Pero ellos vuelan tan <input type="text" name="rima5" id="palabra5" placeholder="Palabra 5" />
+                                    Pero ellos vuelan tan <input type="text" name="rima5" id="palabra5"
+                                        placeholder="Palabra 5" />
                                 </p>
                                 <p>
-                                    Solo los puedo <input type="text" name="rima6" id="palabra6" placeholder="Palabra 6" />
+                                    Solo los puedo <input type="text" name="rima6" id="palabra6"
+                                        placeholder="Palabra 6" />
                                 </p>
                                 <p>
-                                    Y escuchar su dulce <input type="text" name="rima7" id="palabra7" placeholder="Palabra 7" />
+                                    Y escuchar su dulce <input type="text" name="rima7" id="palabra7"
+                                        placeholder="Palabra 7" />
                                 </p>
                             </div>
                             <div class="estrofa">
                                 <p>
-                                    Me despiertan con su dulce <input type="text" name="rima8" id="palabra8" placeholder="Palabra 8" />
+                                    Me despiertan con su dulce <input type="text" name="rima8" id="palabra8"
+                                        placeholder="Palabra 8" />
                                 </p>
                                 <p>
-                                    Me levanto corriendo de la <input type="text" name="rima9" id="palabra9" placeholder="Palabra 9" />
+                                    Me levanto corriendo de la <input type="text" name="rima9" id="palabra9"
+                                        placeholder="Palabra 9" />
                                 </p>
                                 <p>
-                                    Yo los miro cada <input type="text" name="rima10" id="palabra10" placeholder="Palabra 10" />
+                                    Yo los miro cada <input type="text" name="rima10" id="palabra10"
+                                        placeholder="Palabra 10" />
                                 </p>
                                 <p>
-                                    entada detrás de mi <input type="text" name="rima11" id="palabra11" placeholder="Palabra 11" />
+                                    entada detrás de mi <input type="text" name="rima11" id="palabra11"
+                                        placeholder="Palabra 11" />
                                 </p>
                             </div>
-                            <button type="submit" class="btn_send">Evaluar Respuestas</button>
+                            <button type="submit" class="btn_send">Evaluar
+                                Respuestas</button>
                             <div id="nota">
                             </div>
                         </form>
@@ -150,6 +164,11 @@
                 </section>
             </div>
         </div>
+        <!-- botón volver arriba -->
+
+        <button type="button" class="btn btn-floating btn-sm" id="btn-back-to-top">
+            <i class="bi bi-arrow-up"></i>
+        </button>
     </main>
 
     <footer>
@@ -189,8 +208,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
         integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
         crossorigin="anonymous"></script>
-    <script src="../js/common.js"></script>    
-    <script src="../js/pdl.js"></script>
+    <script src="../js/back_to_top.js"></script>
+    <script type="module" src="../js/pdl.js"></script>
 </body>
 
 </html>

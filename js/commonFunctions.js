@@ -1,52 +1,47 @@
 // Creo una función para pasar la primera letra a mayúscula
 
-function primerLetraMayusc(string) {
+export function primerLetraMayusc(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // Creo una función para pintar de rojo el input con información no válida
 
-function pintarFondo(_num, color) {
-  casillero = document.body.getElementsByTagName("input")[_num];
+export function pintarFondo(_num, color) {
+  const casillero = document.body.getElementsByTagName("input")[_num];
   casillero.style.background = color;
-  console.log(casillero);
 }
 
 // Creo una función para verficar que no se hayan dejado casilleros en blanco o no usado números para completar
 
-function validarRespuestaNumero(rta, _num) {
+export function validarRespuestaNumero(rta, _num) {
   if (rta === "") {
-    error = alert(`¡No has ingresado nada en la pregunta número ${_num}! 
+    Swal.fire(`¡No has ingresado nada en la pregunta número ${_num}! 
     
     Intenta de nuevo:`);
     pintarFondo(_num, "#ff000073");
-    puntaje = 0;
-    correctas = 0;
     return false;
   }
   if (rta == null || isNaN(rta)) {
-    error = alert(`¡Debes ingresar números en el casillero número ${_num}!
+    Swal.fire(`¡Debes ingresar números en el casillero número ${_num}!
 
     Intenta de nuevo:`);
     pintarFondo(_num, "#ff000073");
-    puntaje = 0;
-    correctas = 0;
     return false;
   }
 }
 
 // Creo una función para verficar que no se hayan dejado casilleros en blanco o usado números para completar
 
-function validarRespuestaPalabra(rta, _num) {
+export function validarRespuestaPalabra(rta, _num) {
   if (rta === "") {
-    error = alert(`¡No has ingresado nada en el casillero número ${_num}! 
+    Swal.fire(`¡No has ingresado nada en el casillero número ${_num}! 
     
     Intenta de nuevo:`);
     pintarFondo(_num, "#ff000073");
     return false;
   }
   if (rta == null || !isNaN(rta)) {
-    error = alert(`¡No puedes ingresar números en el casillero número ${_num}!
+    Swal.fire(`¡No puedes ingresar números en el casillero número ${_num}!
 
     Intenta de nuevo:`);
     pintarFondo(_num, "#ff000073");
@@ -56,8 +51,8 @@ function validarRespuestaPalabra(rta, _num) {
 
 
 // Creo una función que muestre un mensaje determinado en función del puntaje obtenido
-
-function mensaje(a) {
+export function mensaje(a) {
+  let saludo = ""
   if (a == 10) {
     saludo = "¡Felicitaciones, lograste un puntaje perfecto!";
   }
@@ -71,23 +66,32 @@ function mensaje(a) {
     saludo =
       "Sigue esforzandote! ¡Con paciencia y dedidación vas a lograr aprobar!";
   }
-
   return saludo;
 }
 
-function darNota() {
+export function darNota(a, b, c, d, e) {
+
   const nota = document.createElement("p");
 
-  nota.innerHTML = `  <p style="font-size:2rem;">${nombre}:</p>
-                      <p>¡Obtuviste un total de: ${correctas} respuestas correctas!</p>
-                      <p style="font-size:2rem;">Tu nota es un: <strong style="font-size: 2.5rem;">${puntaje}</strong></p>
-                      <p>${saludo}</p>
+  nota.innerHTML = `  <p style="font-size:2rem;">${a}:</p>
+                      <p>¡Obtuviste un total de: ${b} respuestas correctas!</p>
+                      <p style="font-size:2rem;">Tu nota es un: <strong style="font-size: 2.5rem;">${c}</strong></p>
+                      <p>${d}</p>
                     `;
 
   const imprimeNota = document.getElementById("nota");
   imprimeNota.appendChild(nota);
+}
 
-  // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
+export function traerNombreStorage() {
+  let nombre = JSON.parse (sessionStorage.getItem("nombre"));
+  return nombre
+}
 
-  formulario.removeEventListener("submit", evaluarActividad);
+export function volverAlHome() {
+  window.location.assign("../index.html");
+}
+
+export function guardarPuntaje(a, p) {
+  sessionStorage.setItem(a, p);
 }
