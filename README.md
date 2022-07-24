@@ -5,8 +5,15 @@
 
 ## **Historial de Modificaciones**:
 
+## Versión 0.50 ( 22/07/2022 ):
+- Se creó la sección de **Ciencias Sociales**, donde se implementó una evaluación realizada con imágenes que contienen un ***input del tipo select***, las cuales son inocadas en la ***script*** **sociales.js** mediante una petición ***fetch*** al archivo **zonas.json** con lo que se simula una petición a un servidor de los mismos. 
+
+### Versión 0.40 ( 18/07/2022 ):
+- Rediseño del sitio:
+    - Se reemplazó la ***barra de navegación*** por un encabezado que simula un pizarrón escolar, y dos botones de navegación que resultan menos invasivos para la navegación.
+    - Se rediseñó el ***footer*** para complementar el nuevo estilo del sitio. 
 ### Versión 0.30 ( 14/07/2022 ):
-- Impementación de módulos, las funciones reutilizables fueron alojadas en una nueva ***script*** llamada **commonFunctions.js**, de la cual todas sus funcionas son *exportadas* para su reutilización dentro del proyecto.
+- Impementación de módulos, las funciones reutilizables fueron alojadas en una nueva ***script*** llamada **app.js**, de la cual todas sus funcionas son *exportadas* para su reutilización dentro del proyecto.
 - Utilización del **Session Storage**, para guardar el nombre del alumno, y la puntuación en las diferentes evaluaciones, información que luego es consultada para ser mostrada y/o validar.
 - Implementación de **Operadores Avanzados**, para la optimización y legibilidad del código Ej:
     - ***script main.js*** ```Linea 11 / Linea 71 / Linea 76```.

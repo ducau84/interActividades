@@ -14,85 +14,52 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>¡Bienvenidos a INTERactividades!</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="./img/logo.png" alt="logo" height="50" /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav me-auto my-2 my-lg-0
-                            navbar-nav-scroll" style="--bs-scroll-height:
-                            400px">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./pages/about.html">Sobre
-                                este sitio...</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Fichas INTERactivas
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li>
-                                    <a class="dropdown-item disabled" href="#">Fichas por Área</a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="./pages/pdl.html">Prácticas
-                                        del Lenguaje</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="./pages/matematicas.html">Matemáticas</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item disabled" href="#">Ciencias Sociales</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item disabled" href="#">Ciencias Naturales</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item disabled" href="#">Inglés</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar fichas interActivas"
-                            aria-label="Search" />
-                        <button class="btn btn-danger" type="submit">
-                            <i class="bi bi-search"></i>
-                        </button>
-                    </form>
-                </div>
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <a href="./index.html" class="btn btn-success">Home</a>
+          
+            <div class="btn-group" role="group">
+              <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Áreas
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <li><a class="dropdown-item" href="./pages/pdl.html">Prácticas del Lenguaje</a></li>
+                <li><a class="dropdown-item" href="./pages/matematicas.html">Matemáticas</a></li>
+                <li><a class="dropdown-item" href="./pages/sociales.html">Ciencias Sociales</a></li>
+                <li><a class="dropdown-item" href="./pages/naturales.html">Ciencias Naturales</a></li>
+              </ul>
             </div>
-        </nav>
-    </header>
-
-    <main>
+          </div>
         <div class="container">
             <div class="row">
                 <section class="col-12 titulo" data-aos="fade-down">
-                    <h1>¡Bienvenidos a INTERactividades!</h1>
+                    <h1>¡Bienvenidos a INTER<span class="red">actividades!</span></h1>
+                    <h2 id="alumno">Alumno</h2><button type="button" id="desloguear">No soy yo</button>
                 </section>
             </div>
         </div>
+    </header>
 
+    <main>
+        <div data-aos="flip-up" class="descripcion row">
+            <div class="col intro">
+                <p>
+                    INTERactividades, es una plataforma que te permite realizar
+                    diferentes actividades, y obtener una evaluación con nota de manera
+                    inmediata. Además de esto, nuestras actividades INTERactivas
+                    aprovechan las ventajas que nos ofrecen las nuevas tecnologías, para
+                    brindarte una experiencia ágil y entretenida.
+                </p>
+            </div>
+        </div>
         <section class="areas">
-            <h2 id="alumno">Alumno</h2>
-            <h3>Seleccioná el área:</h3>
+            <h3>Seleccioná el área a evaluar:</h3>
             <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2">
                 <div class="col">
                     <div class="card" style="width: 18rem">
@@ -103,13 +70,20 @@
                                 <a href="./pages/pdl.html">Prácticas del
                                     Lenguaje</a>
                             </h5>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Aliquid rem deleniti
-                                eveniet
-                                quo, quasi quibusdam fugit omnis quae
-                                voluptatum voluptatem!
-                            </p>
+                            <p id="objetivosPdlShow">Ver Objetivos...</p>
+                            <div id="objetivosPdl">
+                                <p class="card-text">En las evaluaciones de INTERactividades se plantearán los
+                                    siguientes objetivos: </p>
+                                <ul>
+                                    <li>Reconocer las características del leguaje poético.</li>
+                                    <li>Identificar verso, estrofa y rima.</li>
+                                    <li>Identificar y emplear recursos poéticos.</li>
+                                    <li>Interpretar la función póetica, jugando con las rimas, desarrollando
+                                        metáforas y juegos del lenguaje.</li>
+                                    <li>Conocer y diferenciar copias.</li>
+                                </ul>
+                                <p id="objetivosPdlHide">Ocultar Objetivos</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -121,28 +95,57 @@
                             <h5 class="card-title">
                                 <a href="./pages/matematicas.html">Matemáticas</a>
                             </h5>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Tenetur, nam perferendis?
-                                Consequatur aspernatur quia ipsam
-                                exercitationem nulla consequuntur voluptates
-                                natus.
-                            </p>
+                            <p id="objetivosMathShow">Ver Objetivos...</p>
+                            <div id="objetivosMath">
+                                <p class="card-text">
+                                    En las evaluaciones de INTERactividades se
+                                    plantearán los siguientes objetivos:
+                                </p>
+                                <ul>
+                                    <li>Resolver Problemas que involucren los
+                                        casos más sencillos de suma y resta
+                                        utilizando
+                                        diferentes estrategias de cálculo y
+                                        fundamentando sus respuestas.</li>
+                                    <li>Explorar la serie numérica en diferentes
+                                        contextos de uso social de los números
+                                        extiendo las regularidades de la serie
+                                        numérica.</li>
+                                    <li>Resolver situaciones problemáticas que
+                                        involucran el reconocimiento en lenguaje
+                                        escrito, oral y simbólico de los números
+                                        Naturales.</li>
+                                </ul>
+                                <p id="objetivosMathHide">Ocultar Objetivos</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card" style="width: 18rem">
-                        <img src="./img/areas/sociales.png" class="card-img-top" alt="Ciencias Sociales" />
+                        <a href="./pages/sociales.html"><img src="./img/areas/sociales.png" class="card-img-top" alt="Ciencias Sociales" /></a>
                         <div class="card-body">
-                            <h5 class="card-title">Ciencias Sociales</h5>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Asperiores officia
-                                corrupti
-                                consectetur hic, dignissimos alias quidem
-                                iure minus? Consequuntur, quis?
-                            </p>
+                            <h5 class="card-title"><a href="./pages/sociales.html">Ciencias Sociales</a></h5>
+                            <p id="objetivosSocShow">Ver Objetivos...</p>
+                            <div id="objetivosSoc">
+                                <p class="card-text">
+                                    En las evaluaciones de INTERactividades se
+                                    plantearán los siguientes objetivos:
+                                </p>
+                                <ul>
+                                    <li>Comprender que en diferentes ámbitos de
+                                        la vida en sociedad y a lo largo del
+                                        tiempo,
+                                        los sujetos crean y transforman pautas
+                                        con la que intentan regular algunas
+                                        características de sus relaciones.</li>
+                                    <li>Establecer relaciones entre las
+                                        posibilidades de acceso a servicios y la
+                                        calidad de
+                                        vida de la población.</li>
+                                </ul>
+                                <p id="objetivosSocHide">Ocultar Objetivos</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -151,13 +154,27 @@
                         <img src="./img/areas/naturales.png" class="card-img-top" alt="Ciencias Naturales" />
                         <div class="card-body">
                             <h5 class="card-title">Ciencias Naturales</h5>
+                            <p id="objetivosNatShow">Ver Objetivos...</p>
+                            <div id="objetivosNat">
                             <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Porro tenetur sapiente
-                                nihil.
-                                Impedit recusandae est ducimus? Ad harum
-                                fuga veniam!
+                                En las evaluaciones de INTERactividades se
+                                plantearán los siguientes objetivos:
                             </p>
+                            <ul>
+                                <li>Recuperar los conocimientos inciales de
+                                    los alumnos, identificándolos y
+                                    promoviendo
+                                    situaciones de enseñanza que favorezcan
+                                    su enriqucimiento desde la mirada
+                                    científica.</li>
+                                <li>Enseñar a plantear preguntas que lleven
+                                    a la reflexión y a la socialización de
+                                    sus
+                                    anticipaciones basadas en los saberes
+                                    previos de los niños.</li>
+                            </ul>
+                            <p id="objetivosNatHide">Ocultar Objetivos</p>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -170,40 +187,71 @@
         </button>
     </main>
 
-    <footer>
-        <div class="footer__info">
-            <div class="redes">
-                <p>
-                    <i class="bi bi-link"></i>Seguinos en Nuestras Redes:
-                </p>
-                <a class="facebook" href="https://www.facebook.com/maharani.indumentaria" target="blank">
-                    <i class="bi bi-facebook"></i>/senio.pame</a>
-                <a class="instagram" href="https://www.instagram.com/maharani.indumentaria/" target="blank">
-                    <i class="bi bi-instagram"></i>/senio.pame</a>
-                <a class="twitter" href="https://twitter.com/MaharaniIndume1" target="blank">
-                    <i class="bi bi-twitter"></i>/Seniopame</a>
-            </div>
-            <div class="telefono">
-                <p>
-                    <i class="bi bi-phone"></i>Teléfono:
-                </p>
-                <p class="whatsapp">
-                    <a href="https://api.whatsapp.com/send?phone=5492923584787" target="blank">
-                        <i class="bi bi-whatsapp"></i>
-                    </a>
-                    <a href="tel:+5492923584787">02923 - 15 - 584787</a>
-                </p>
-            </div>
+    <footer class="overlay-bg bg-light text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <div class="mb-4">
+            <!-- Facebook -->
+            <a
+              class="btn-floating m-1"
+              href="https://www.facebook.com/pame.chavez.96" target=_blank
+              role="button"
+              ><i class="bi bi-facebook"></i></a>
+      
+            <!-- Twitter -->
+            <a
+              class="btn-floating m-1"
+              href="https://twitter.com/tatitachavez" target=_blank
+              role="button"
+              ><i class="bi bi-twitter"></i
+            ></a>
+      
+            <!-- Whatsapp -->
+            <a
+              class="btn-floating m-1"
+              href="https://walink.co/4a81e1" target=_blank
+              role="button"
+              ><i class="bi bi-whatsapp"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a
+              class="btn-floating m-1"
+              href="https://www.instagram.com/pame_chavez90/" target="_blank"
+              role="button"
+              ><i class="bi bi-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a
+              class="btn-floating m-1"
+              href="https://www.linkedin.com/in/martin-ducau/" target="_blank"
+              role="button"
+              ><i class="bi bi-linkedin"></i
+            ></a>
+            <!-- Github -->
+            <a
+              class="btn-floating m-1"
+              href="https://github.com/ducau84" target="_blank"
+              role="button"
+              ><i class="bi bi-github"></i
+            ></a>
+              </div>
+          <!-- Section: Social media -->
         </div>
-        <div class="footer__copyRigth">
-            <strong>SeñoPame &copy; 2022</strong>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.438);">
+            <p>SeñoPame &copy; 2022</p>
             <p>
                 República Argentina 537, (7540) Coronel Suárez, Provincia de
                 Buenos
                 Aires.
             </p>
         </div>
-    </footer>
+      </footer>
 
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

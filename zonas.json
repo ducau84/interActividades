@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "nombre": "colectivo",
+        "zona": "Urbano",
+        "img": "../img/areas/sociales/bondi.png"
+    },
+    {
+        "id": 2,
+        "nombre": "semáforo",
+        "zona": "Urbano",
+        "img": "../img/areas/sociales/semaforo.png"
+    },
+    {
+        "id": 3,
+        "nombre": "cosechadora",
+        "zona": "Rural",
+        "img": "../img/areas/sociales/cosechadora.png"
+    },
+    {
+        "id": 4,
+        "nombre": "taxi",
+        "zona": "Urbano",
+        "img": "../img/areas/sociales/taxi.png"
+    },
+    {
+        "id": 5,
+        "nombre": "caballo",
+        "zona": "Rural",
+        "img": "../img/areas/sociales/caballo.png"
+    },
+    {
+        "id": 6,
+        "nombre": "tractor",
+        "zona": "Rural",
+        "img": "../img/areas/sociales/tractor.png"
+    }
+]

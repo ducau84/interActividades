@@ -1,17 +1,25 @@
 // Importo las funciones necesarias
 
 import {
-  volverAlHome,
-  traerNombreStorage,
+  alumnoLogueado,
+  nombreEnStorage,
   darNota,
   mensaje,
   validarRespuestaNumero,
   guardarPuntaje,
-} from "./commonFunctions.js";
+  desloguear,
+} from "./app.js";
+
+// Muestro el nombre del alumno en el pizarrón
+
+let nombre = nombreEnStorage();
+
+// Boton borrador para desloguear
+
+desloguear();
 
 // Defino las variables globales
 
-let nombre = "";
 let puntaje = 0;
 let correctas = 0;
 let saludo = "";
@@ -75,9 +83,7 @@ function pregunta(rta, _num) {
 
 // Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el session storage, lo mando al home para que lo ingrese
 
-sessionStorage.getItem("nombre")
-  ? (nombre = traerNombreStorage())
-  : volverAlHome();
+alumnoLogueado(nombre);
 
 // Verifico que el Alumno no haya realizado la evaluación en esta sesión y muestro un mensaje acorde
 
@@ -92,10 +98,10 @@ sessionStorage.getItem("math")
   : Swal.fire({
       title: `${nombre}`,
       text: `¡Comencemos con la Evaluación de Matemáticas!`,
-      imageUrl: "../img/seño pame.svg",
+      imageUrl: "../img/modales/matematicas.png",
       imageWidth: 400,
-      imageHeight: 200,
-      imageAlt: "Seño Pame",
+      imageHeight: 264,
+      imageAlt: "Matematicas"
     });
 
 // Creo una función que muestra la nota obtenida en el documento

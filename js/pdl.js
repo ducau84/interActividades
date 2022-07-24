@@ -2,16 +2,24 @@
 
 import {
   volverAlHome,
-  traerNombreStorage,
   darNota,
   mensaje,
   validarRespuestaPalabra,
   guardarPuntaje,
-} from "./commonFunctions.js";
+  nombreEnStorage,
+  desloguear
+} from "./app.js";
+
+// Muestro el nombre del alumno en el pizarrón
+
+let nombre = nombreEnStorage();
+
+// Boton borrador para desloguear
+
+desloguear();
 
 // declaro las variables globales
 
-let nombre = "";
 let puntaje = 0;
 let correctas = 0;
 let saludo = "";
@@ -244,7 +252,7 @@ class Respuestas {
 // Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el session storage, lo mando al home para que lo ingrese
 
 sessionStorage.getItem("nombre")
-  ? (nombre = traerNombreStorage())
+  ? (nombre = nombreEnStorage())
   : volverAlHome();
 
 // Verifico que el Alumno no haya realizado la evaluación en esta sesión y muestro un mensaje acorde
@@ -260,8 +268,8 @@ sessionStorage.getItem("pdl")
   : Swal.fire({
       title: `${nombre}`,
       text: `¡Comencemos con la Evaluación de Prácticas del Lenguaje!`,
-      imageUrl: "../img/seño pame.svg",
+      imageUrl: "../img/modales/pdl.png",
       imageWidth: 400,
-      imageHeight: 200,
-      imageAlt: "Seño Pame",
+      imageHeight: 264,
+      imageAlt: "Practicas del Lenguaje"
     });
