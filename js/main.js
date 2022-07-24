@@ -55,7 +55,8 @@ function muestraPuntajes() {
   Swal.fire({
     title: `${nombre}, tus puntajes obtenidos son los siguientes:`,
     html: `Matemáticas: ${math}<br>Prácticas del Lenguaje: ${pdl}<br>Ciencias Sociales: ${soc}<br>Ciencias Naturales: ${nat}`,
-    icon: "info",
+    imageUrl: "img/logo.png",
+    imageAlt: "Logo",
   });
 }
 
