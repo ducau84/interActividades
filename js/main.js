@@ -17,7 +17,7 @@ sessionStorage.getItem("nombre") ? nombreEnStorage() : preguntarNombre();
 function preguntarNombre() {
   Swal.fire({
     title: "¡Bienvenid@!",
-    imageUrl: "../img/logo.png",
+    imageUrl: "img/logo.png",
     imageAlt: "Logo",
     input: "text",
     inputLabel:
