@@ -5,7 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arima&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('../fonts/Chalk\ Board.ttf');
+@font-face {
+
+    font-family: 'Chalk Board';
+    
+    src: url("../fonts/Chalk\ Board.ttf");
+    
+    }
 
 /* ----------------Animaciones-------------- */
 
