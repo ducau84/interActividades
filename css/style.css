@@ -132,6 +132,9 @@ header {
     max-width: 1400px;
     border: #792712 10px groove;
     box-shadow: 2px 2px 0 #992b0f8e, 2px -2px 0 #992b0f8e, -2px 2px 0 #992b0f8e, -2px -2px 0 #992b0f8e, 2px 0px 0 #992b0f8e, 0px 2px 0 #ffffff, -2px 0px 0 #992b0f8e, 0px -2px 0 #992b0f8e;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
 }
 
 .titulo h1 {
@@ -677,4 +680,9 @@ footer .bi {
     #nota {
         font-size: small;
     }
+}
+
+.swal2-input-label {
+    color: #ffffff;
+    margin: 1rem;
 }
