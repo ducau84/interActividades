@@ -269,7 +269,7 @@ sessionStorage.getItem("pdl")
       title: `${nombre}`,
       text: `¡Comencemos con la Evaluación de Prácticas del Lenguaje!`,
       imageUrl: "../img/modales/pdl.png",
-      imageWidth: 400,
-      imageHeight: 264,
+      imageWidth: 350,
+      imageHeight: 231,
       imageAlt: "Practicas del Lenguaje"
     });

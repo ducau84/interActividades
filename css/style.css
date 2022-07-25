@@ -147,18 +147,6 @@ header {
     text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 2px 0px 0 #ffffff, 0px 2px 0 #ffffff, -2px 0px 0 #ffffff, 0px -2px 0 #ffffff;
 }
 
-.volver {
-    font-family: 'Chalk Board', cursive;
-    color: white;
-    text-decoration: none;
-    margin: 1rem 0.5rem;
-}
-
-.bi-arrow-left-square-fill {
-    font-size: 1.4rem;
-    color: #ffffff;
-}
-
 .dropdown-item:hover {
     animation: resaltado 1000ms linear 3ms infinite
 }
@@ -166,6 +154,11 @@ header {
 .btn-success {
     background-color: #3a6a4a;
     border-color: #ffffff;
+}
+.btn-success:hover {
+    background-color: #ffffff;
+    border-color: #3a6a4a;
+    color: #3a6a4a;
 }
 
 /* ----------------Pie de página-------------- */
@@ -178,7 +171,6 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    border-top: #742c1a solid 0.5rem;
     color: white;
     text-transform: uppercase;
     text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
@@ -201,44 +193,6 @@ footer .bi {
     font-size: 1.4rem;
     margin: 0.25rem;
     color: white;
-}
-
-footer .footer__info {
-    margin-top: 1rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
-    justify-content: space-evenly;
-}
-
-footer .footer__info .redes {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: column;
-    flex-flow: column;
-    font-size: 0.7rem;
-}
-
-footer .footer__copyRigth {
-    font-size: 1.2rem;
-    font-weight: 100;
-    text-align: center;
-    text-transform: none;
-}
-
-footer .footer__copyRigth p {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white;
-    font-size: 0.9rem;
 }
 
 .bi-twitter:hover {
@@ -289,22 +243,6 @@ footer .footer__copyRigth p {
 
     footer .bi {
         margin: 0.5rem;
-    }
-
-    footer .footer__info .bi-link,
-    footer .footer__info .telefono {
-        display: none;
-    }
-
-    footer .footer__info .redes {
-        margin: 1rem;
-        font-size: 0;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-flow: row;
-        flex-flow: row;
-        width: 100%;
-        height: auto;
     }
 
     footer .footer__info .redes p {
@@ -465,9 +403,23 @@ footer .footer__copyRigth p {
     font-size: 1rem;
 }
 
+.actividades__pdl {
+    max-width: 100%;
+}
+
 .actividades h3 {
     font-family: 'Arima', cursive;
     font-size: 2rem;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 600;
+    color: #00185c;
+    margin-bottom: 2rem;
+}
+
+.actividades h4 {
+    font-family: 'Arima', cursive;
+    font-size: 1.5rem;
     text-transform: uppercase;
     text-decoration: underline;
     font-weight: 600;
@@ -587,7 +539,9 @@ footer .footer__copyRigth p {
     html {
         font-size: 15px;
     }
-
+    main {
+        width: 100%;
+    }
     .titulo h1 {
         font-size: 3rem;
     }
@@ -598,12 +552,6 @@ footer .footer__copyRigth p {
 
     .container {
         padding: 0;
-    }
-
-    .navbar-brand img {
-        max-width: 80%;
-        width: 230px;
-        height: 43px
     }
 
     .poesia {
@@ -758,7 +706,7 @@ footer .footer__copyRigth p {
     #contenedorZonas {
         grid-template-columns: 1fr;
     }
-    .multChoice, .multChoice legend{
+    .multChoice, .poesia, .multChoice legend{
         margin: 1rem 0;
         font-size: 0.9rem;
     }

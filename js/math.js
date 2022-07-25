@@ -99,8 +99,8 @@ sessionStorage.getItem("math")
       title: `${nombre}`,
       text: `¡Comencemos con la Evaluación de Matemáticas!`,
       imageUrl: "../img/modales/matematicas.png",
-      imageWidth: 400,
-      imageHeight: 264,
+      imageWidth: 350,
+      imageHeight: 231,
       imageAlt: "Matematicas"
     });
 

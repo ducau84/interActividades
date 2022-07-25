@@ -19,6 +19,8 @@ function preguntarNombre() {
     title: "¡Bienvenid@!",
     imageUrl: "img/logo.png",
     imageAlt: "Logo",
+    imageWidth: 300,
+    imageHeight: 50,
     input: "text",
     inputLabel:
       "Ingresa tu nombre para que tengas una experiencia personalizada:",
@@ -57,6 +59,8 @@ function muestraPuntajes() {
     html: `Matemáticas: ${math}<br>Prácticas del Lenguaje: ${pdl}<br>Ciencias Sociales: ${soc}<br>Ciencias Naturales: ${nat}`,
     imageUrl: "img/logo.png",
     imageAlt: "Logo",
+    imageWidth: 300,
+    imageHeight: 50,
   });
 }
 

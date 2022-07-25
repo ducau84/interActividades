@@ -128,7 +128,7 @@ export function darNota(a, b, c, d) {
 }
 
 export function volverAlHome() {
-  window.location.assign("index.html");
+  window.location.assign("https://ducau84.github.io/interActividades/index.html");
 }
 
 export function guardarPuntaje(a, p) {
