@@ -219,49 +219,6 @@ footer .bi {
     color: #0082ca;
 }
 
-@media screen and (max-width: 576px) {
-    .logo {
-        max-width: 50%;
-    }
-}
-
-@media (min-width: 576px) and (max-width: 863px) {
-    html {
-        font-size: 80%;
-    }
-
-    .footer__info,
-    .footer__copyRight {
-        padding: 0;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    html {
-        font-size: 75%;
-    }
-
-    footer .bi {
-        margin: 0.5rem;
-    }
-
-    footer .footer__info .redes p {
-        display: none;
-    }
-}
-
-@media (min-width: 576px) and (max-width: 1400px) {
-    #btn-back-to-top {
-        right: 2rem;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    #btn-back-to-top {
-        right: 1rem;
-    }
-}
-
 /* ----------------Index-------------- */
 
 .intro {
@@ -270,7 +227,6 @@ footer .bi {
     padding: 1.5rem;
     color: #000000;
     font-size: 1.5rem;
-    -webkit-box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.534);
@@ -387,7 +343,8 @@ footer .bi {
 }
 
 .poesia,
-.problemas {
+.problemas,
+.vidaCampoCiudad {
     padding: 2rem 5rem;
     background-color: #ffffff66;
     font-family: 'Arima', cursive;
@@ -502,12 +459,14 @@ footer .bi {
 }
 
 .poesia .btn_send:active,
-.problemas .btn_send:active {
+.problemas .btn_send:active,
+.vidaCampoCiudad .btn_send:active {
     border: white 0.2rem solid;
 }
 
 .poesia .btn_send:hover,
-.problemas .btn_send:hover {
+.problemas .btn_send:hover, 
+.vidaCampoCiudad .btn_send:hover {
     color: white;
     background-color: #006432;
 }
@@ -535,7 +494,116 @@ footer .bi {
     font-weight: 500;
 }
 
-@media screen and (max-width: 767px) {
+
+/* --------------Sociales-------------- */
+
+.green {
+    color: #006432;
+}
+.red{
+    color: #ff0000;
+}
+
+.vidaCampoCiudad {
+    padding: 1rem;
+}
+
+#contenedorZonas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+    max-width: 100%;
+}
+
+.imagenSelect {
+    max-width: 320px;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .zonasImg {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    border: #00185c 3px solid;
+    border-radius: 25px;
+  }
+  .zonasSelect {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 800;
+    width: 50%;
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    border: 3px #006432 solid;
+    border-radius: 25px;
+    font-size: 0.8rem;
+  }  
+
+  .multChoice, .multChoice legend{
+    font-size: 1rem;
+    margin: 1rem;
+  }
+
+  .vidaCampoCiudad #nota {
+    position: absolute;
+    top: 85rem;
+    right: 27rem;
+    transform: rotate(25deg);
+}
+.multChoice .radioSelect > input[type="radio"] {
+    display: none;
+  }
+  
+  .multChoice .radioSelect > input[type="radio"] + *::before {
+    content: "";
+    display: inline-block;
+    vertical-align: bottom;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.3rem;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-color: black;
+  }
+  
+  .multChoice .radioSelect > input[type="radio"]:checked + * {
+    color: #006432;
+  }
+  
+  .multChoice .radioSelect > input[type="radio"]:checked + *::before {
+    background: radial-gradient(#006432 0%, #006432 40%, transparent 50%, transparent);
+    border-color: #006432;
+  }
+
+/* --------------Media Queries-------------- */
+
+@media (min-width: 576px) and (max-width: 1400px) {
+    #btn-back-to-top {
+        right: 2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #btn-back-to-top {
+        right: 1rem;
+    }
+}
+
+  @media screen and (max-width: 560px){
+    #contenedorZonas {
+        grid-template-columns: 1fr;
+    }
+    .multChoice, .poesia, .multChoice legend{
+        margin: 1rem 0;
+        font-size: 0.9rem;
+    }
+  }
+
+  @media screen and (max-width: 820px) {
     html {
         font-size: 15px;
     }
@@ -610,104 +678,3 @@ footer .bi {
         font-size: small;
     }
 }
-
-/* --------------Sociales-------------- */
-
-.green {
-    color: #006432;
-}
-.red{
-    color: #ff0000;
-}
-
-.vidaCampoCiudad {
-    padding: 1rem;
-    background-color: #ffffff66;
-    font-family: 'Arima', cursive;
-    box-shadow: 0px 3px 3px #929292b9;
-    font-size: 1.3rem;
-    font-weight: 600;
-    border-radius: 25px;
-    max-width: 100%;
-}
-
-#contenedorZonas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    justify-items: center;
-    max-width: 100%;
-}
-
-.imagenSelect {
-    max-width: 320px;
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-  .zonasImg {
-    width: 100%;
-    position: relative;
-    top: 0;
-    left: 0;
-    border: #00185c 3px solid;
-    border-radius: 25px;
-  }
-  .zonasSelect {
-    font-family: 'Fira Sans Condensed', sans-serif;
-    font-weight: 800;
-    width: 50%;
-    position: absolute;
-    bottom: 10px;
-    right: 30px;
-    border: 3px #006432 solid;
-    border-radius: 25px;
-    font-size: 0.8rem;
-  }  
-
-  .multChoice, .multChoice legend{
-    font-size: 1rem;
-    margin: 1rem;
-  }
-
-  .vidaCampoCiudad #nota {
-    position: absolute;
-    top: 85rem;
-    right: 30rem;
-    transform: rotate(25deg);
-}
-.multChoice .radioSelect > input[type="radio"] {
-    display: none;
-  }
-  
-  .multChoice .radioSelect > input[type="radio"] + *::before {
-    content: "";
-    display: inline-block;
-    vertical-align: bottom;
-    width: 1rem;
-    height: 1rem;
-    margin-right: 0.3rem;
-    border-radius: 50%;
-    border-style: solid;
-    border-width: 0.1rem;
-    border-color: black;
-  }
-  
-  .multChoice .radioSelect > input[type="radio"]:checked + * {
-    color: #006432;
-  }
-  
-  .multChoice .radioSelect > input[type="radio"]:checked + *::before {
-    background: radial-gradient(#006432 0%, #006432 40%, transparent 50%, transparent);
-    border-color: #006432;
-  }
-
-  @media screen and (max-width: 560px){
-    #contenedorZonas {
-        grid-template-columns: 1fr;
-    }
-    .multChoice, .poesia, .multChoice legend{
-        margin: 1rem 0;
-        font-size: 0.9rem;
-    }
-  }
