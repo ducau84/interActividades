@@ -476,7 +476,7 @@ footer .bi {
     text-align: center;
     font-weight: 600;
     background: transparent;
-    border: hwb(234 20% 20%) solid 1px;
+    border: #006432 solid 1px;
     border-radius: 5px;
 }
 
