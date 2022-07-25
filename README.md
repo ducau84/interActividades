@@ -6,7 +6,7 @@
 ## **Historial de Modificaciones**:
 
 ## Versión 0.50 ( 22/07/2022 ):
-- Se creó la sección de **Ciencias Sociales**, donde se implementó una evaluación realizada con imágenes que contienen un ***input del tipo select***, las cuales son inocadas en la ***script*** **sociales.js** mediante una petición ***fetch*** al archivo **zonas.json** con lo que se simula una petición a un servidor de los mismos. 
+- Se creó la sección de **Ciencias Sociales**, donde se implementó una evaluación realizada con imágenes que contienen un ***input del tipo select***, las cuales son invocadas en la ***script*** **sociales.js** mediante una petición ***fetch*** al archivo **zonas.json** con lo que se simula una petición a un servidor de los mismos. 
 
 ### Versión 0.40 ( 18/07/2022 ):
 - Rediseño del sitio:
