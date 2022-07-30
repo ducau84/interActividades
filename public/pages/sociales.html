@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>interActividades: Ciencias Sociales</title>
+</head>
+
+<body>
+  <header>
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+      <a href="../index.html" class="btn btn-success">Home</a>
+
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Áreas
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <li><a class="dropdown-item" href="./pdl.html">Prácticas del Lenguaje</a></li>
+          <li><a class="dropdown-item" href="./matematicas.html">Matemáticas</a></li>
+          <li><a class="dropdown-item" href="./sociales.html">Ciencias Sociales</a></li>
+          <li><a class="dropdown-item" href="./naturales.html">Ciencias Naturales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <section class="col-12 titulo" data-aos="fade-down">
+          <h1>Ciencias Sociales</h1>
+          <h2 id="alumno">Alumno</h2><button type="button" id="desloguear">No soy yo</button>
+        </section>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="row">
+        <section class="actividades actividades__soc">
+          <h2 class="actividades__titulo">Evaluación sobre: </h2>
+          <article class="vidaCampoCiudad">
+            <h3 class="actividad titulo">La vida en el Campo y en La ciudad</h3>
+            <p class="actividades__consigna"><b class="red">1. </b>Observa las imágenes y selecciona en cada una si
+              pertenece a
+              una zona <b class="green">Rural</b> o <b class="red">Urbana</b> según te parezca: </p>
+            <form id="campoCiudad" autocomplete="off">
+
+              <div id="contenedorZonas" class="estrofa">
+
+              </div>
+              <div class="estrofa">
+                <p class="actividades__consigna"><b class="red">2. </b>Elige la opción correcta para continuar la
+                  oración:
+                </p>
+
+                <fieldset class="multChoice" id="socP1">
+                  <legend>&#128204;<b class="green">A.- </b>En los trabajos rurales se puede...</legend>
+                  <div class="radioSelect">
+                    <input type="radio" id="socP1O1" name="Preg1" value="comBcos">
+                    <label for="socP1O1">...trabajar en comercios y bancos.</label>
+                  </div>
+                  <div class="radioSelect">
+                    <input type="radio" id="socP1O2" name="Preg1" value="comServ">
+                    <label for="socP1O2">...trabajar en la construccion y los servicios.</label>
+                  </div>
+                  <div class="radioSelect">
+                    <input type="radio" id="socP1O3" name="Preg1" value="criaCult">
+                    <label for="socP1O3">...cultivar, criar animales o extraer minerales.</label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="multChoice" id="socP2">
+                  <legend>&#128204;<b class="green">B.- </b>La mayoría de las personas que viven en las zonas rurales...
+                  </legend>
+                  <div class="radioSelect">
+                    <input type="radio" id="socP2O1" name="Preg2" value="trabCiud">
+                    <label for="socP2O1">...trabajar la ciudad.</label>
+                  </div>
+                  <div class="radioSelect">
+                    <input type="radio" id="socP2O2" name="Preg2" value="vago">
+                    <label for="socP2O2">...no trabaja.</label>
+                  </div>
+                  <div class="radioSelect">
+                    <input type="radio" id="socP2O3" name="Preg2" value="trabCamp">
+                    <label for="socP2O3">...trabaja en los campos cercanos.</label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="multChoice" id="socP3">
+                  <legend>&#128204;<b class="green">C.- </b>Para comprar y hacer trámites en el banco las personas que
+                    viven en las zonas rurales...</legend>
+                  <div class="radioSelect">
+                    <input type="radio" id="socP3O1" name="Preg3" value="trasla">
+                    <label for="socP3O1">...deben trasladarse al pueblo más cercano o a la capital.</label>
+                  </div>
+                  <div class="radioSelect">
+                    <input type="radio" id="socP3O2" name="Preg3" value="notras">
+                    <label for="socP3O2">...no necesitan trasladarse.</label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="multChoice" id="socP4">
+                  <legend>&#128204;<b class="green">D.- </b>En los espacios urbanos se puede:</legend>
+                  <div class="radioSelect">
+                    <input type="radio" id="socP4O1" name="Preg4" value="comBcos">
+                    <label for="socP4O1">...hacer compras en shoppings y centros comerciales.</label>
+                  </div>
+                  <div class="radioSelect">
+                    <input type="radio" id="socP4O2" name="Preg4" value="comServ">
+                    <label for="socP4O2">...trabajar en la agricultura y ganadería.</label>
+                  </div>
+                </fieldset>
+
+              </div>
+              <button type="submit" class="btn_send">Evaluar Respuestas</button>
+              <div id="nota">
+              </div>
+            </form>
+          </article>
+        </section>
+      </div>
+    </div>
+    <!-- botón volver arriba -->
+
+    <button type="button" class="btn btn-floating btn-sm" id="btn-back-to-top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+  </main>
+
+  <footer class="overlay-bg bg-light text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <div class="mb-4">
+        <!-- Facebook -->
+        <a class="btn-floating m-1" href="https://www.facebook.com/pame.chavez.96" target=_blank role="button"><i
+            class="bi bi-facebook"></i></a>
+
+        <!-- Twitter -->
+        <a class="btn-floating m-1" href="https://twitter.com/tatitachavez" target=_blank role="button"><i
+            class="bi bi-twitter"></i></a>
+
+        <!-- Whatsapp -->
+        <a class="btn-floating m-1" href="https://walink.co/4a81e1" target=_blank role="button"><i
+            class="bi bi-whatsapp"></i></a>
+
+        <!-- Instagram -->
+        <a class="btn-floating m-1" href="https://www.instagram.com/pame_chavez90/" target="_blank" role="button"><i
+            class="bi bi-instagram"></i></a>
+
+        <!-- Linkedin -->
+        <a class="btn-floating m-1" href="https://www.linkedin.com/in/martin-ducau/" target="_blank" role="button"><i
+            class="bi bi-linkedin"></i></a>
+        <!-- Github -->
+        <a class="btn-floating m-1" href="https://github.com/ducau84" target="_blank" role="button"><i
+            class="bi bi-github"></i></a>
+      </div>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.438);">
+      <p>SeñoPame &copy; 2022</p>
+      <p>
+        República Argentina 537, (7540) Coronel Suárez, Provincia de
+        Buenos
+        Aires.
+      </p>
+    </div>
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
+  <script src="/src/back_to_top.js"></script>
+  <script type="module" src="/src/App.js"></script>
+  <script type="module" src="/src/components/sociales.js"></script>
+  <script type="module" src="/src/components/controllers/getData.js"></script>
+  <script type="module" src="/src/components/utils/modalsSwal.js"></script>
+</body>
+
+</html>

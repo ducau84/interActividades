@@ -8,7 +8,11 @@ import {
   validarRespuestaNumero,
   guardarPuntaje,
   desloguear,
-} from "./app.js";
+} from "../App.js";
+
+import {
+  bienvenidoArea
+} from "./utils/modalsSwal.js"
 
 // Muestro el nombre del alumno en el pizarrón
 
@@ -87,22 +91,7 @@ alumnoLogueado(nombre);
 
 // Verifico que el Alumno no haya realizado la evaluación en esta sesión y muestro un mensaje acorde
 
-sessionStorage.getItem("math")
-  ? Swal.fire({
-      title: `${nombre}`,
-      text: `¡Ya has hecho la evaluación de Matemáticas!`,
-      icon: "error",
-    }).then(function () {
-      window.location = "../index.html";
-    })
-  : Swal.fire({
-      title: `${nombre}`,
-      text: `¡Comencemos con la Evaluación de Matemáticas!`,
-      imageUrl: "../img/modales/matematicas.png",
-      imageWidth: 350,
-      imageHeight: 231,
-      imageAlt: "Matematicas"
-    });
+bienvenidoArea("math", "Matemáticas", nombre);
 
 // Creo una función que muestra la nota obtenida en el documento
 

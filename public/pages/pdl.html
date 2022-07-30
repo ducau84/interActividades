@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>interActividades: Ciencias Sociales</title>
+    <title>interActividades: Prácticas del Lenguaje</title>
 </head>
 
 <body>
@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row">
                 <section class="col-12 titulo" data-aos="fade-down">
-                    <h1>Ciencias Sociales</h1>
+                    <h1>Prácticas del Lenguaje</h1>
                     <h2 id="alumno">Alumno</h2><button type="button" id="desloguear">No soy yo</button>
                 </section>
             </div>
@@ -47,79 +47,77 @@
     <main>
         <div class="container">
             <div class="row">
-                <section class="actividades actividades__soc">
+                <section class="actividades actividades__pdl">
                     <h2 class="actividades__titulo">Evaluación sobre: </h2>
-                    <article class="vidaCampoCiudad">
-                        <h3 class="actividad titulo">La vida en el Campo y en La ciudad</h3>
-                        <p class="actividades__consigna"><b class="red">1. </b>Observa las imágenes y selecciona en cada una si pertenece a
-                            una zona <b class="green">Rural</b> o <b class="red">Urbana</b> según te parezca: </p>
-                        <form id="campoCiudad" autocomplete="off">
+                    <article class="poesia">
+                        <h3 class="actividades titulo">Poesía</h3>
 
-                            <div id="contenedorZonas" class="estrofa">
+                        <p class="actividades__consigna">Completa los
+                            casilleros en blanco de la poesía, con las
+                            siguientes palabras (cada palabra se puede usar
+                            sólo una vez):</p>
 
+                        <div class="palabras__poesia" id="pistas">
+
+                        </div>
+                        <span>Recordá colocar las <strong>tildes</strong> en
+                            las palabras correspondenties, sino te las
+                            tomará como <strong>incorrectas</strong></span>
+                        <form id="poesia" autocomplete="off">
+                            <h4 class="actividades titulo">Los Pajaritos</h4>
+                            <div class="estrofa">
+                                <p id="ayuda">
+                                    Por mi ventana veo cada <input type="text" name="rima1" id="palabra1"
+                                        placeholder="Palabra 1" />
+                                </p>
+                                <p>Bellos y cantantes pajaritos</p>
+                                <p>
+                                    ¡Que no se despierte mi <input type="text" name="rima2" id="palabra2"
+                                        placeholder="Palabra 2" />!
+                                </p>
+                                <p>
+                                    ¡Que no la espanten sus <input type="text" name="rima3" id="palabra3"
+                                        placeholder="Palabra 3" />!
+                                </p>
                             </div>
                             <div class="estrofa">
-                                <p class="actividades__consigna"><b class="red">2. </b>Elige la opción correcta para continuar la oración:
+                                <p>
+                                    Yo los quiero <input type="text" name="rima4" id="palabra4"
+                                        placeholder="Palabra 4" />
                                 </p>
-
-                                <fieldset class="multChoice" id="socP1">
-                                    <legend>&#128204;<b class="green">A.- </b>En los trabajos rurales se puede...</legend>
-                                    <div class="radioSelect">
-                                      <input type="radio" id="socP1O1" name="Preg1" value="comBcos">
-                                      <label for="socP1O1">...trabajar en comercios y bancos.</label>
-                                    </div>
-                                    <div class="radioSelect">
-                                        <input type="radio" id="socP1O2" name="Preg1" value="comServ">
-                                        <label for="socP1O2">...trabajar en la construccion y los servicios.</label>
-                                    </div>
-                                    <div class="radioSelect">
-                                        <input type="radio" id="socP1O3" name="Preg1" value="criaCult">
-                                        <label for="socP1O3">...cultivar, criar animales o extraer minerales.</label>
-                                    </div>
-                                </fieldset>
-
-                                <fieldset class="multChoice" id="socP2">
-                                    <legend>&#128204;<b class="green">B.- </b>La mayoría de las personas que viven en las zonas rurales...</legend>
-                                    <div class="radioSelect">
-                                      <input type="radio" id="socP2O1" name="Preg2" value="trabCiud">
-                                      <label for="socP2O1">...trabajar la ciudad.</label>
-                                    </div>
-                                    <div class="radioSelect">
-                                        <input type="radio" id="socP2O2" name="Preg2" value="vago">
-                                        <label for="socP2O2">...no trabaja.</label>
-                                    </div>
-                                    <div class="radioSelect">
-                                        <input type="radio" id="socP2O3" name="Preg2" value="trabCamp">
-                                        <label for="socP2O3">...trabaja en los campos cercanos.</label>
-                                    </div>
-                                </fieldset>
-
-                                <fieldset class="multChoice" id="socP3">
-                                    <legend>&#128204;<b class="green">C.- </b>Para comprar y hacer trámites en el banco las personas que viven en las zonas rurales...</legend>
-                                    <div class="radioSelect">
-                                      <input type="radio" id="socP3O1" name="Preg3" value="trasla">
-                                      <label for="socP3O1">...deben trasladarse al pueblo más cercano o a la capital.</label>
-                                    </div>
-                                    <div class="radioSelect">
-                                        <input type="radio" id="socP3O2" name="Preg3" value="notras">
-                                        <label for="socP3O2">...no necesitan trasladarse.</label>
-                                    </div>
-                                </fieldset>
-
-                                <fieldset class="multChoice" id="socP4">
-                                    <legend>&#128204;<b class="green">D.- </b>En los espacios urbanos se puede:</legend>
-                                    <div class="radioSelect">
-                                      <input type="radio" id="socP4O1" name="Preg4" value="comBcos">
-                                      <label for="socP4O1">...hacer compras en shoppings y centros comerciales.</label>
-                                    </div>
-                                    <div class="radioSelect">
-                                        <input type="radio" id="socP4O2" name="Preg4" value="comServ">
-                                        <label for="socP4O2">...trabajar en la agricultura y ganadería.</label>
-                                    </div>
-                                </fieldset>
-
+                                <p>
+                                    Pero ellos vuelan tan <input type="text" name="rima5" id="palabra5"
+                                        placeholder="Palabra 5" />
+                                </p>
+                                <p>
+                                    Solo los puedo <input type="text" name="rima6" id="palabra6"
+                                        placeholder="Palabra 6" />
+                                </p>
+                                <p>
+                                    Y escuchar su dulce <input type="text" name="rima7" id="palabra7"
+                                        placeholder="Palabra 7" />
+                                </p>
                             </div>
-                            <button type="submit" class="btn_send">Evaluar Respuestas</button>
+                            <div class="estrofa">
+                                <p>
+                                    Me despiertan con su dulce <input type="text" name="rima8" id="palabra8"
+                                        placeholder="Palabra 8" />
+                                </p>
+                                <p>
+                                    Me levanto corriendo de la <input type="text" name="rima9" id="palabra9"
+                                        placeholder="Palabra 9" />
+                                </p>
+                                <p>
+                                    Yo los miro cada <input type="text" name="rima10" id="palabra10"
+                                        placeholder="Palabra 10" />
+                                </p>
+                                <p>
+                                    Sentada detrás de mi <input type="text" name="rima11" id="palabra11"
+                                        placeholder="Palabra 11" />
+                                </p>
+                            </div>
+                            <button type="submit" class="btn_send">Evaluar
+                                Respuestas</button>
                             <div id="nota">
                             </div>
                         </form>
@@ -134,7 +132,7 @@
         </button>
     </main>
 
-        <footer class="overlay-bg bg-light text-center text-white">
+    <footer class="overlay-bg bg-light text-center text-white">
         <!-- Grid container -->
         <div class="container p-4 pb-0">
           <!-- Section: Social media -->
@@ -211,8 +209,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
         integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
         crossorigin="anonymous"></script>
-    <script src="../js/back_to_top.js"></script>
-    <script type="module" src="../js/sociales.js"></script>
+    <script src="/src/back_to_top.js"></script>
+    <script type="module" src="/src/App.js"></script>
+    <script type="module" src="/src/components/pdl.js"></script>
+    <script type="module" src="/src/components/controllers/getData.js"></script>
+    <script type="module" src="/src/components/utils/modalsSwal.js"></script>
 </body>
 
 </html>

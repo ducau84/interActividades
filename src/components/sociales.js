@@ -9,7 +9,11 @@ import {
   nombreEnStorage,
   desloguear,
   validarRadio,
-} from "./app.js";
+} from "../App.js";
+
+import getData from "./controllers/getData.js";
+
+import {bienvenidoArea} from "./utils/modalsSwal.js";
 
 // Muestro el nombre del alumno en el pizarrón
 
@@ -33,42 +37,28 @@ sessionStorage.getItem("nombre")
 
 // Verifico que el Alumno no haya realizado la evaluación en esta sesión y muestro un mensaje acorde
 
-sessionStorage.getItem("soc")
-  ? Swal.fire({
-      title: `${nombre}`,
-      text: `¡Ya has hecho la evaluación de Ciencias Sociales!`,
-      icon: "error",
-    }).then(function () {
-      window.location = "../index.html";
-    })
-  : Swal.fire({
-      title: `${nombre}`,
-      text: `¡Comencemos con la Evaluación de Ciencias Sociales!`,
-      imageUrl: "../img/modales/sociales.png",
-      imageWidth: 400,
-      imageHeight: 264,
-      imageAlt: "Sociales"
-    });
+bienvenidoArea("soc", "Ciencias Sociales", nombre);
 
-//Invoco del archivo zonas.json los objetos que se mostrarán en la consigna número 1
+//Al cargar el HTML Invoco del archivo zonas.json los objetos que se mostrarán en la consigna número 1
 
-fetch("../zonas.json")
-  .then((respuesta) => respuesta.json())
-  .then((zonas) => {
-    const contenedor = document.getElementById("contenedorZonas");
-    zonas.forEach((zona) => {
-      const div = document.createElement("div");
-      div.classList.add("imagenSelect");
-      div.innerHTML = `<img class="zonasImg" src=${zona.img}>
-                              <select class="zonasSelect" id="zonas${zona.id}">
-                                  <option selected disabled>Selecciona la zona</option>
-                                  <option value="rural">&#128004; Rural</option>
-                                  <option value="urbano">&#127980; Urbano</option>
-                              </select>
-                              `;
-      contenedor.appendChild(div);
-    });
+window.addEventListener("DOMContentLoaded", async () => {
+  const datos = "/src/data/zonas.json";
+  const zonas = await getData(datos);
+  const contenedor = document.getElementById("contenedorZonas");
+
+  zonas.forEach((zona) => {
+    const div = document.createElement("div");
+    div.classList.add("imagenSelect");
+    div.innerHTML = `<img class="zonasImg" src=${zona.img}>
+                                <select class="zonasSelect" id="zonas${zona.id}">
+                                    <option selected disabled>Selecciona la zona</option>
+                                    <option value="rural">&#128004; Rural</option>
+                                    <option value="urbano">&#127980; Urbano</option>
+                                </select>
+                                `;
+    contenedor.appendChild(div);
   });
+});
 
 // Defino un event listener para el formulario activado cuando el usuario hace click sobre el boton submit e invoco la funcion para evaluar
 

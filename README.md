@@ -5,6 +5,14 @@
 
 ## **Historial de Modificaciones**:
 
+## Versión 0.70 ( 30/07/2022 ):
+- En la sección **P.d.L.**, se modifico la forma en la que se define el array de objetos que forma las rimas a utilizar, previamente las mismas eran hardcodeadas en un array de objetos, mientras que ahora aprovechan los conocimiento obtenidos para traerlos desde un archivo (**rimas.json**, ubicado en **/src/components/data**), simulando una petición a un servidor, mediante la script **getData.js**, ubicada en **/src/components/controllers**.
+
+## Versión 0.60 ( 28/07/2022 ):
+- Reestructuración del proyecto, ordenando el mismo en una estructura de directorios que permite su mejor escalabilidad y legibilidad del mismo.
+    - Se modularizaron todas las scripts para disminuir las líneas de código de las mismas y asi optimizar el funcionamiento del sitio.
+    - La implementación de la librería **Sweet Alert 2** se localizo en la ***script*** **modalsSwal.js**, dentro del directorio **/src/components/utils**.
+
 ## Versión 0.50 ( 22/07/2022 ):
 - Se creó la sección de **Ciencias Sociales**, donde se implementó una evaluación realizada con imágenes que contienen un ***input del tipo select***, las cuales son invocadas en la ***script*** **sociales.js** mediante una petición ***fetch*** al archivo **zonas.json** con lo que se simula una petición a un servidor de los mismos. 
 

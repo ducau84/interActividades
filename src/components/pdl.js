@@ -7,51 +7,49 @@ import {
   validarRespuestaPalabra,
   guardarPuntaje,
   nombreEnStorage,
-  desloguear
-} from "./app.js";
+  desloguear,
+} from "../App.js";
 
-// Muestro el nombre del alumno en el pizarrón
+import getData from "./controllers/getData.js";
 
-let nombre = nombreEnStorage();
-
-// Boton borrador para desloguear
-
-desloguear();
+import {bienvenidoArea} from "./utils/modalsSwal.js";
 
 // declaro las variables globales
 
 let puntaje = 0;
 let correctas = 0;
 let saludo = "";
+let nombre = "";
+let rimas = [];
+/* let rimasCorrectas = []; */
 
-// Creo un array con las posibles respuestas, donde el orden indica que numero de respuesta es
+// Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el session storage, lo mando al home para que lo ingrese
 
-const rimas = [
-  {palabra: "mañana", orden: 0},
-  {palabra: "ventana", orden: 11},
-  {palabra: "hermana", orden: 2},
-  {palabra: "perro", orden: 0},
-  {palabra: "mitos", orden: 0},
-  {palabra: "gritos", orden: 3},
-  {palabra: "cama", orden: 9},
-  {palabra: "mirar", orden: 6},
-  {palabra: "melodía", orden: 8},
-  {palabra: "agarrar", orden: 4},
-  {palabra: "canto", orden: 7},
-  {palabra: "bajo", orden: 0},
-  {palabra: "piar", orden: 0},
-  {palabra: "alto", orden: 5},
-  {palabra: "ver", orden: 0},
-  {palabra: "silla", orden: 0},
-  {palabra: "día", orden: 10},
-  {palabra: "llanto", orden: 0},
-  {palabra: "atardecer", orden: 0},
-  {palabra: "tía", orden: 0},
-];
+sessionStorage.getItem("nombre")
+  ? (nombre = nombreEnStorage())
+  : volverAlHome();
 
-// Enumero las opciones para no tener que repetirlas una a una en el prompt
+// Verifico que el Alumno no haya realizado aún la evaluación en esta sesión y muestro un mensaje acorde
 
-function addPistas() {
+bienvenidoArea("pdl", "Prácticas del Lenguaje", nombre);
+
+// Boton "borrador" para desloguear
+
+desloguear();
+
+// Del archivo rimas.json obtengo las posibles respuestas, donde el orden indica que numero de respuesta es
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const datos = "/src/data/rimas.json";
+  rimas = await getData(datos);
+  addPistas(rimas);
+  ordenarRimas(rimas);
+  filtrarCorrectas(rimas);
+});
+
+// Creo una función para agregar una tabla con las palabras utilizables como posibles respuestas
+
+const addPistas = (rimas) => {
   const contPalabras = document.createElement("table");
 
   contPalabras.innerHTML = `<table>
@@ -89,27 +87,35 @@ function addPistas() {
                           `;
   const pistas = document.getElementById("pistas");
   pistas.appendChild(contPalabras);
-}
+};
 
-addPistas();
-// Creo un array vacio para contener posteriormente las respuestas del usuario
+//Defino un array vacio para contener posteriormente las respuestas del usuario
+
 const respuestas = [];
 
-// ordeno el array "rimas" en base al numero de la propiedad orden de cada objeto
-rimas.sort(function (a, b) {
-  return a.orden - b.orden;
-});
+// ordeno el array "rimas" en base al numero de la propiedad orden de cada objeto y luego lo filtro eliminando las incorrectas ( el valor de orden es 0)
 
-// filtro el array "rimas" eliminando las incorrectas ( el valor de orden es 0)
-const rimasCorrectas = rimas.filter((elemento) => elemento.orden != 0);
+const ordenarRimas = (rimas) => {
+  rimas.sort((a, b) => {
+    return a.orden - b.orden;
+  });
+  console.log(rimas);
+  return rimas;
+};
+
+const filtrarCorrectas = (rimasCorrectas) => {
+  rimasCorrectas = rimas.filter((elemento) => elemento.orden > 0);
+
+  //Guardo el array filtrado en el storage para accederlo luego al evaluar la actividad
+
+  sessionStorage.setItem("rimas", JSON.stringify(rimasCorrectas));
+};
 
 // Defino un event listener para el primer input, que al ser activado muestra su solución a modo de Ayuda
 
 const ayuda1 = document.getElementById("ayuda");
 
-ayuda1.addEventListener("click", verAyuda);
-
-function verAyuda() {
+ayuda1.addEventListener("click", (verAyuda) => {
   const ayuda = document.createElement("span");
 
   ayuda.innerHTML = `
@@ -120,7 +126,7 @@ function verAyuda() {
   // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
 
   ayuda1.removeEventListener("click", verAyuda);
-}
+});
 
 // Defino un event listener para el formulario activado cuando el usuario hace click sobre el boton submit e invoco la funcion para evaluar
 
@@ -195,7 +201,11 @@ function evaluarActividad(e) {
       respuesta11
     );
 
-    // verifico las respuestas del usuario con las correctas mediante un bucle for que compara los objetos en los arrays
+    // Accedo al array guardado previamente en el storage para compararlo con las respuestas del alumno
+    const rimasCorrectas = JSON.parse(sessionStorage.getItem("rimas"));
+    console.log(rimasCorrectas);
+
+    // Verifico las respuestas del usuario con las correctas mediante un bucle for que compara los objetos en los arrays
 
     for (var i in respuestas) {
       for (var j in respuestas) {
@@ -205,7 +215,6 @@ function evaluarActividad(e) {
           correctas++;
         }
       }
-      console.log(correctas);
     }
 
     //Chequeo por consola en que pregunta se equivoco el usuario
@@ -221,15 +230,12 @@ function evaluarActividad(e) {
     console.log(respuestas[8].palabra == rimasCorrectas[8].palabra);
     console.log(respuestas[9].palabra == rimasCorrectas[9].palabra);
 
-    // Declaro la variable puntaje que coincide con la variable iguales al ser 10 preguntas
+    // Designo que el valor de la variable puntaje coincide con la variable iguales al ser 10 preguntas
 
     puntaje = correctas;
 
     // Invoco la funcion que determina el saludo en base al puntaje
     saludo = mensaje(puntaje);
-
-    // Verifico la salida
-    console.log(saludo);
 
     // Comunico al usuario el puntaje obtenido, cantidad de respuestas correctas y lo saludo en base al puntaje
     darNota(nombre, correctas, puntaje, saludo);
@@ -249,27 +255,3 @@ class Respuestas {
     this.orden = Number(orden);
   }
 }
-// Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el session storage, lo mando al home para que lo ingrese
-
-sessionStorage.getItem("nombre")
-  ? (nombre = nombreEnStorage())
-  : volverAlHome();
-
-// Verifico que el Alumno no haya realizado la evaluación en esta sesión y muestro un mensaje acorde
-
-sessionStorage.getItem("pdl")
-  ? Swal.fire({
-      title: `${nombre}`,
-      text: `¡Ya has hecho la evaluación de Prácticas del Lenguaje!`,
-      icon: "error",
-    }).then(function () {
-      window.location = "../index.html";
-    })
-  : Swal.fire({
-      title: `${nombre}`,
-      text: `¡Comencemos con la Evaluación de Prácticas del Lenguaje!`,
-      imageUrl: "../img/modales/pdl.png",
-      imageWidth: 350,
-      imageHeight: 231,
-      imageAlt: "Practicas del Lenguaje"
-    });

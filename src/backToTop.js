@@ -1,4 +1,4 @@
-// Botón
+// capturo el elemento 
 let mybutton = document.getElementById("btn-back-to-top");
 
 // Cuando el usuario scrollea 20 px aparece el botón
@@ -17,6 +17,7 @@ function scrollFunction() {
   }
 }
 // Cuando el usuario hace clic en el boton, subier hasta arriba del documento
+
 mybutton.addEventListener("click", backToTop);
 
 function backToTop() {

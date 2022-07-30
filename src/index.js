@@ -1,12 +1,13 @@
 // Importo las funciones que voy a necesitar
 
 import {
-  primerLetraMayusc,
   nombreEnStorage,
-  saludoPersonalizado,
-  desloguear
-} from "./app.js";
+  desloguear,
+  primerLetraMayusc,
+  saludoPersonalizado
+} from "./App.js";
 
+import {puntObtenidos} from "./components/utils/modalsSwal.js";
 
 // Verifico si ya hay cargado un nombre en el Session Storage, si es asi ejecuto la funcion para mostrarlo, caso contrario ejecuto la función para pedirlo
 
@@ -14,7 +15,7 @@ sessionStorage.getItem("nombre") ? nombreEnStorage() : preguntarNombre();
 
 // Utilizando la libreria SweetAlert2 pido al Alumno que ingrese su nombre, lo guardo en el Session Storage y lo muestro en el HTML
 
-function preguntarNombre() {
+export function preguntarNombre() {
   Swal.fire({
     title: "¡Bienvenid@!",
     imageUrl: "img/logo.png",
@@ -43,31 +44,29 @@ function preguntarNombre() {
       preguntarNombre();
     }
   });
-}
+};
 
-// Creo una función que muestre los puntajes obtenidos en base a lo guardado en el Storage (Funcion momentánea luego se mostrará en el HTML)
+// Creo una función que muestre un modal con los puntajes obtenidos en base a lo guardado en el Storage
 
 function muestraPuntajes() {
   const nombre = JSON.parse(sessionStorage.getItem("nombre"));
-  // En caso de no encontrar uno de las dos evaluaciones, muestra el string aún no evaluado
+
+  // En caso de no encontrar uno de las evaluaciones, muestra el string aún no evaluado
+
   const pdl = JSON.parse(sessionStorage.getItem("pdl")) || "Aún no evaluado";
   const math = JSON.parse(sessionStorage.getItem("math")) || "Aún no evaluado";
   const nat = JSON.parse(sessionStorage.getItem("nat")) || "Aún no evaluado";
   const soc = JSON.parse(sessionStorage.getItem("soc")) || "Aún no evaluado";
-  Swal.fire({
-    title: `${nombre}, tus puntajes obtenidos son los siguientes:`,
-    html: `Matemáticas: ${math}<br>Prácticas del Lenguaje: ${pdl}<br>Ciencias Sociales: ${soc}<br>Ciencias Naturales: ${nat}`,
-    imageUrl: "img/logo.png",
-    imageAlt: "Logo",
-    imageWidth: 300,
-    imageHeight: 50,
-  });
+  puntObtenidos(nombre, math, pdl, soc, nat);
 }
 
 // En caso de haber tomado las evaluaciones de Matemáticas y/o las de Prácticas del Lenguaje muestro los puntajes obtenidos
 
 const evaluaciones =
-  sessionStorage.getItem("pdl") || sessionStorage.getItem("math") || sessionStorage.getItem("soc") || sessionStorage.getItem("nat")
+  sessionStorage.getItem("pdl") ||
+  sessionStorage.getItem("math") ||
+  sessionStorage.getItem("soc") ||
+  sessionStorage.getItem("nat")
     ? true
     : false;
 
