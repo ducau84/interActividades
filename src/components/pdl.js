@@ -40,7 +40,7 @@ desloguear();
 // Del archivo rimas.json obtengo las posibles respuestas, donde el orden indica que numero de respuesta es
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const datos = "/src/data/rimas.json";
+  const datos = "../data/rimas.json";
   rimas = await getData(datos);
   addPistas(rimas);
   ordenarRimas(rimas);
