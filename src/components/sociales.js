@@ -42,7 +42,7 @@ bienvenidoArea("soc", "Ciencias Sociales", nombre);
 //Al cargar el HTML Invoco del archivo zonas.json los objetos que se mostrarán en la consigna número 1
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const datos = "../data/zonas.json";
+  const datos = "../../src/data/zonas.json";
   const zonas = await getData(datos);
   const contenedor = document.getElementById("contenedorZonas");
 
