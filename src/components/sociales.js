@@ -29,6 +29,10 @@ let puntaje = 0;
 let correctas = 0;
 let saludo = "";
 
+//Defino un array vacio para contener posteriormente las respuestas del usuario
+
+const respuestas = [];
+
 // Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el session storage, lo mando al home para que lo ingrese
 
 sessionStorage.getItem("nombre")
@@ -44,6 +48,7 @@ bienvenidoArea("soc", "Ciencias Sociales", nombre);
 window.addEventListener("DOMContentLoaded", async () => {
   const datos = "../../src/data/zonas.json";
   const zonas = await getData(datos);
+  sessionStorage.setItem("zonas", JSON.stringify(zonas));
   const contenedor = document.getElementById("contenedorZonas");
 
   zonas.forEach((zona) => {
@@ -94,12 +99,7 @@ function evaluarActividad(e) {
     const radioP4O1 = document.getElementById("socP4O1").checked;
     const radioP4O2 = document.getElementById("socP4O2").checked;
 
-    //valido que no hayan quedado evaluarRtass sin responder
-
-    validarRadio(radioP4O1, radioP4O2, false, "D");
-    validarRadio(radioP3O1, radioP3O2, false, "C");
-    validarRadio(radioP2O1, radioP2O2, radioP2O3, "B");
-    validarRadio(radioP1O1, radioP1O2, radioP1O3, "A");
+    //valido que no hayan quedado items sin responder
 
     if (
       validarSeleccion(zona1, 0) == false ||
@@ -107,23 +107,55 @@ function evaluarActividad(e) {
       validarSeleccion(zona3, 2) == false ||
       validarSeleccion(zona4, 3) == false ||
       validarSeleccion(zona5, 4) == false ||
-      validarSeleccion(zona6, 5) == false
+      validarSeleccion(zona6, 5) == false ||
+      validarRadio(radioP1O1, radioP1O2, radioP1O3, "A") == false ||
+      validarRadio(radioP2O1, radioP2O2, radioP2O3, "B") == false ||
+      validarRadio(radioP3O1, radioP3O2, false, "C") == false ||
+      validarRadio(radioP4O1, radioP4O2, false, "D") == false
     ) {
       return;
-    }
+    };
 
-    //Evalúo las respuestas del primer ejercicio
+    //Evalúo las respuestas del primer ejercicio, creando primero objetos con las propiedades id y zona y luego armando un array con ellas para compararlo con los datos traidos desde el "servidor" (archivo zonas.json)
 
-    evaluarRtas(zona1, 1);
-    evaluarRtas(zona2, 2);
-    evaluarRtas(zona3, 3);
-    evaluarRtas(zona4, 4);
-    evaluarRtas(zona5, 5);
-    evaluarRtas(zona6, 6);
-    evaluarRtas(radioP1O3, 7);
-    evaluarRtas(radioP2O3, 7);
-    evaluarRtas(radioP3O1, 7);
-    evaluarRtas(radioP4O1, 7);
+    const respuesta1 = new Respuestas(zona1, 1);
+    const respuesta2 = new Respuestas(zona2, 2);
+    const respuesta3 = new Respuestas(zona3, 3);
+    const respuesta4 = new Respuestas(zona4, 4);
+    const respuesta5 = new Respuestas(zona5, 5);
+    const respuesta6 = new Respuestas(zona6, 6);
+    
+    respuestas.push(
+      respuesta1,
+      respuesta2,
+      respuesta3,
+      respuesta4,
+      respuesta5,
+      respuesta6
+    );
+    
+
+let respuestasAlumno = respuestas.map( function (elem) {
+  let rtasAlumno = { id: elem.id, zona: elem.zona};
+    return rtasAlumno;
+});
+
+    for (var i in respuestas) {
+      for (var j in respuestas) {
+        if (
+          JSON.stringify(respuestasAlumno[i]) == JSON.stringify(zonasCorrectas[j])
+        ) {
+          puntaje += 1;
+          correctas++;
+        }
+      }
+    };
+    console.log(puntaje, correctas);
+    
+    evaluarRtas(radioP1O3);
+    evaluarRtas(radioP2O3);
+    evaluarRtas(radioP3O1);
+    evaluarRtas(radioP4O1);
 
     // Invoco la funcion que determina el saludo en base al puntaje
     saludo = mensaje(puntaje);
@@ -142,88 +174,27 @@ function evaluarActividad(e) {
   }
 }
 
-//Creo una función para evaluar las respuestas del primer inciso
+//Defino los parametros para evaluar las respuestas del primer inciso
 
-function evaluarRtas(rta, _num) {
-  if (_num == 1) {
-    switch (rta) {
-      case "urbano":
-        puntaje += 1;
-        correctas++;
-        break;
-
-      default:
-        puntaje += 0;
-        break;
-    }
-    return puntaje;
+// Creo la matriz para crear objetos en base a las respuestas seleccionadas, pasando las mismas a minusculas y definiendo la propiedad "id", que seran guardados en un array, para luego ser comparadas con las previamente almacenadas en el Storage
+class Respuestas {
+  constructor(zona, id) {
+    this.id = id;
+    this.zona = zona;
   }
-  if (_num == 2) {
-    switch (rta) {
-      case "urbano":
-        puntaje += 1;
-        correctas++;
-        break;
+};
 
-      default:
-        puntaje += 0;
-        break;
-    }
-    return puntaje;
-  }
-  if (_num == 3) {
-    switch (rta) {
-      case "rural":
-        puntaje += 1;
-        correctas++;
-        break;
+const zonasStorage = JSON.parse(sessionStorage.getItem("zonas"));
 
-      default:
-        puntaje += 0;
-        break;
-    }
-    return puntaje;
-  }
-  if (_num == 4) {
-    switch (rta) {
-      case "urbano":
-        puntaje += 1;
-        correctas++;
-        break;
+let zonasCorrectas = zonasStorage.map( function (elem) {
+  let zonasCorrectas = { id: elem.id, zona: elem.zona.toLowerCase()};
+    return zonasCorrectas;
+});
 
-      default:
-        puntaje += 0;
-        break;
-    }
-    return puntaje;
-  }
-  if (_num == 5) {
-    switch (rta) {
-      case "rural":
-        puntaje += 1;
-        correctas++;
-        break;
+// Creo una función para evaluar las respuestas del segundo inciso
 
-      default:
-        puntaje += 0;
-        break;
-    }
-    return puntaje;
-  }
-  if (_num == 6) {
-    switch (rta) {
-      case "rural":
-        puntaje += 1;
-        correctas++;
-        break;
-
-      default:
-        puntaje += 0;
-        break;
-    }
-  }
-  if (_num == 7) {
-    switch (rta) {
+function evaluarRtas(rta) {
+  switch (rta) {
       case true:
         puntaje += 1;
         correctas++;
@@ -233,6 +204,5 @@ function evaluarRtas(rta, _num) {
         puntaje += 0;
         break;
     }
-  }
   return puntaje;
-}
+};

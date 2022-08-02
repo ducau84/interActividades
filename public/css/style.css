@@ -119,6 +119,43 @@ strong {
     display: none;
 }
 
+/* ----------------Modals---------------- */
+.swal2-title {
+    font-family: 'Pacifico', cursive;
+    font-weight: 200;
+    color: #fc2f2f;
+    text-shadow: 1px 1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 1px 1px 0 #ffffff, 0px 1px 0 #ffffff, -1px 0px 0 #ffffff, 0px -1px 0 #ffffff;
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.swal2-styled.swal2-confirm, .swal2-confirm .swal2-styled {
+    background-color: #006432;
+}
+
+.swal2-html-container {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.swal2-popup .swal2-modal .swal2-show{
+    background: #ececec;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.swal2-input-label {
+    color: #ececec;
+    margin: 0 1rem;
+}
+
+body.swal2-shown > [aria-hidden="true"] {
+    transition: 0.1s filter;
+    filter: blur(10px);
+  }
+
 /* ----------------Encabezado-------------- */
 
 header {
@@ -445,31 +482,48 @@ footer .bi {
 }
 
 .btn_send {
-    display: inline-block;
-    width: 22rem;
-    height: 3rem;
-    margin: 0.5rem;
-    color: white;
-    background: #00185c;
-    border-radius: 10px;
-    text-decoration: none;
+    font-family: 'Fira Sans Condensed', sans-serif;
     text-transform: uppercase;
-    text-align: center;
-    -webkit-transition: all 333ms;
-    transition: all 333ms;
-}
+    font-weight: 500;
+    min-width: 300px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    z-index: 0;
+    background: #fff;
+    overflow: hidden;
+    border: 2px solid #d90429;
+    color: #d90429;
+  }
+  .btn_send:hover {
+    color: #fff;
+  }
+  .btn_send:hover:after {
+    height: 100%;
+  }
+  .btn_send:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s ease;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background: #d90429;
+  }
 
 .poesia .btn_send:active,
 .problemas .btn_send:active,
 .vidaCampoCiudad .btn_send:active {
     border: white 0.2rem solid;
-}
-
-.poesia .btn_send:hover,
-.problemas .btn_send:hover, 
-.vidaCampoCiudad .btn_send:hover {
-    color: white;
-    background-color: #006432;
 }
 
 .poesia #nota {
@@ -680,7 +734,3 @@ footer .bi {
     }
 }
 
-.swal2-input-label {
-    color: #ffffff;
-    margin: 1rem;
-}

@@ -37,9 +37,10 @@ export function pintarFondoSelect(_num, color) {
 
 export function validarRespuestaNumero(rta, _num) {
   if (rta === "") {
-    Swal.fire(`¡No has ingresado nada en la pregunta número ${_num}! 
-    
-    Intenta de nuevo:`);
+    Swal.fire({
+      icon: "error",
+      html: `<p>¡No has ingresado nada en la pregunta número <b class="red">${_num}</b>!</p><br><p>Intenta de nuevo:</p>`
+      });
     pintarFondo(_num, "#ff000073");
     return false;
   }
@@ -56,9 +57,10 @@ export function validarRespuestaNumero(rta, _num) {
 
 export function validarRespuestaPalabra(rta, _num) {
   if (rta === "") {
-    Swal.fire(`¡No has ingresado nada en el casillero número ${_num}! 
-    
-    Intenta de nuevo:`);
+    Swal.fire({
+      icon: "error",
+      html: `<p>¡No has ingresado nada en la pregunta número <b class="red">${_num}</b>!</p><br><p>Intenta de nuevo:</p>`
+      });
     pintarFondo(_num, "#ff000073");
     return false;
   }
@@ -66,7 +68,7 @@ export function validarRespuestaPalabra(rta, _num) {
     Swal.fire(`¡No puedes ingresar números en el casillero número ${_num}!
 
     Intenta de nuevo:`);
-    pintarFondo(_num, "#ff000073");
+    pintarFondo(_num-1, "#ff000073");
     return false;
   }
 };
@@ -75,9 +77,10 @@ export function validarRespuestaPalabra(rta, _num) {
 
 export function validarSeleccion (sel, _num) {
   if (sel === "Selecciona la zona") {
-    Swal.fire(`¡No has seleccionado nada en la imágen número ${_num+1}!
-    
-    Intenta de nuevo:`);
+    Swal.fire({
+      icon: "error",
+      html: `<p>¡No has seleccionado nada en la imágen número ${_num+1}!</p><br><p>Intenta de nuevo:</p>`
+      });
     pintarFondoSelect(_num, "#ff000073");
     return false;
   }
@@ -87,10 +90,11 @@ export function validarSeleccion (sel, _num) {
 
 export function validarRadio (radio1, radio2, radio3, string) {
   if (radio1 == false && radio2 == false && radio3 == false) {
-    Swal.fire(`¡No has seleccionado nada en la pregunta "${string}"!
-  
-          Intenta de nuevo:`);
-    return;
+    Swal.fire({
+      icon: "error",
+      html: `<p>¡No has seleccionado nada en la pregunta "${string}"!</p><br><p>Intenta de nuevo:</p>`
+      });
+    return false;
   }
 };
 
@@ -111,7 +115,7 @@ export function mensaje(a) {
       "Sigue esforzandote! ¡Con paciencia y dedidación vas a lograr aprobar!";
   }
   return saludo;
-}
+};
 
 export function darNota(a, b, c, d) {
 
@@ -133,7 +137,7 @@ export function volverAlHome() {
 
 export function guardarPuntaje(a, p) {
   sessionStorage.setItem(a, p);
-}
+};
 
 //Creo una funcioón  para desloguear al alumno
 export function desloguear () {
@@ -143,7 +147,7 @@ desloguear.addEventListener("click", () => {
   sessionStorage.clear();
   volverAlHome(); 
 });
-}
+};
 
 //Creo una función para verificar que el alumno se haya logueado antes de comenzar una evaluacion
 

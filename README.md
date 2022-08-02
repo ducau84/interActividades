@@ -5,6 +5,9 @@
 
 ## **Historial de Modificaciones**:
 
+## Versión 0.80 ( 01/08/2022 ):
+- En la sección **Ciencias Sociales** se modificó la forma que se evaluán las selecciónes del primer inciso, aprovechando la información que se obtiene desde el archivo (**zonas.json**, ubicado en **/src/components/data**), utilizando las propiedades *"id"* y *"zona"* de cada objeto para ser comparado con las respuestas dadas por el alumno.
+- Se persolizó el estilo de los modales para que esté acorde al diseño del sitio (fuentes y colores).
 ## Versión 0.70 ( 30/07/2022 ):
 - En la sección **P.d.L.**, se modifico la forma en la que se define el array de objetos que forma las rimas a utilizar, previamente las mismas eran hardcodeadas en un array de objetos, mientras que ahora aprovechan los conocimiento obtenidos para traerlos desde un archivo (**rimas.json**, ubicado en **/src/components/data**), simulando una petición a un servidor, mediante la script **getData.js**, ubicada en **/src/components/controllers**.
 

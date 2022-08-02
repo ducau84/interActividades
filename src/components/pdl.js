@@ -157,24 +157,23 @@ function evaluarActividad(e) {
     // valido lo ingresado
 
     if (
-      validarRespuestaPalabra(palabra1, 1) == false ||
-      validarRespuestaPalabra(palabra2, 2) == false ||
-      validarRespuestaPalabra(palabra3, 3) == false ||
-      validarRespuestaPalabra(palabra4, 4) == false ||
-      validarRespuestaPalabra(palabra5, 5) == false ||
-      validarRespuestaPalabra(palabra6, 6) == false ||
-      validarRespuestaPalabra(palabra7, 7) == false ||
-      validarRespuestaPalabra(palabra8, 8) == false ||
-      validarRespuestaPalabra(palabra9, 9) == false ||
-      validarRespuestaPalabra(palabra10, 10) == false ||
-      validarRespuestaPalabra(palabra11, 11) == false
+      validarRespuestaPalabra(palabra1, 0) == false ||
+      validarRespuestaPalabra(palabra2, 1) == false ||
+      validarRespuestaPalabra(palabra3, 2) == false ||
+      validarRespuestaPalabra(palabra4, 3) == false ||
+      validarRespuestaPalabra(palabra5, 4) == false ||
+      validarRespuestaPalabra(palabra6, 5) == false ||
+      validarRespuestaPalabra(palabra7, 6) == false ||
+      validarRespuestaPalabra(palabra8, 7) == false ||
+      validarRespuestaPalabra(palabra9, 8) == false ||
+      validarRespuestaPalabra(palabra10, 9) == false ||
+      validarRespuestaPalabra(palabra11, 10) == false
     ) {
       return;
     }
 
-    // Creo objetos a partir de las respuestas
-
-    /*     const respuesta1 = new Respuestas(palabra1, 1); */
+    // Creo objetos a partir de las respuestas (ignoro la palabra 1, ya que la respuesta es mostrada a modo de ayuda)
+    
     const respuesta2 = new Respuestas(palabra2, 2);
     const respuesta3 = new Respuestas(palabra3, 3);
     const respuesta4 = new Respuestas(palabra4, 4);
@@ -203,7 +202,6 @@ function evaluarActividad(e) {
 
     // Accedo al array guardado previamente en el storage para compararlo con las respuestas del alumno
     const rimasCorrectas = JSON.parse(sessionStorage.getItem("rimas"));
-    console.log(rimasCorrectas);
 
     // Verifico las respuestas del usuario con las correctas mediante un bucle for que compara los objetos en los arrays
 

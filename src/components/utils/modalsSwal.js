@@ -30,4 +30,4 @@ export function puntObtenidos(nombre, area1, area2, area3, area4) {
   imageWidth: 300,
   imageHeight: 50,
 });
-}
+};
