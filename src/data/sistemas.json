@@ -1,0 +1,50 @@
+[
+    {
+      "organo": "nariz",
+      "orden": 3
+    },
+    {
+      "organo": "venas",
+      "orden": 1
+    },
+    {
+      "organo": "riñones",
+      "orden": 6
+    },
+    {
+      "organo": "boca",
+      "orden": 8
+    },
+    {
+      "organo": "pulmones",
+      "orden": 4
+    },
+    {
+      "organo": "hígado",
+      "orden": 0
+    },
+    {
+      "organo": "estómago",
+      "orden": 9
+    },
+    {
+      "organo": "tráquea",
+      "orden": 5
+    },
+    {
+      "organo": "corazón",
+      "orden": 2
+    },
+    {
+      "organo": "vejiga",
+      "orden": 7
+    },
+    {
+      "organo": "intestinos",
+      "orden": 10
+    },
+    {
+      "organo": "artérias",
+      "orden": 0
+    }
+  ]

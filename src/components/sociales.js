@@ -2,18 +2,18 @@
 
 import {
   volverAlHome,
-  darNota,
   mensaje,
   validarSeleccion,
   guardarPuntaje,
   nombreEnStorage,
   desloguear,
   validarRadio,
+  removerTemp
 } from "../App.js";
 
 import getData from "./controllers/getData.js";
 
-import {bienvenidoArea} from "./utils/modalsSwal.js";
+import {bienvenidoArea, darNota} from "./utils/modalsSwal.js";
 
 // Muestro el nombre del alumno en el pizarrón
 
@@ -33,9 +33,9 @@ let saludo = "";
 
 const respuestas = [];
 
-// Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el session storage, lo mando al home para que lo ingrese
+// Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el local storage, lo mando al home para que lo ingrese
 
-sessionStorage.getItem("nombre")
+localStorage.getItem("nombre")
   ? (nombre = nombreEnStorage())
   : volverAlHome();
 
@@ -62,19 +62,19 @@ window.addEventListener("DOMContentLoaded", async () => {
                                 </select>
                                 `;
     contenedor.appendChild(div);
-  });
+  });  
+  // Defino un event listener para el formulario activado cuando el usuario hace click sobre el boton submit e invoco la funcion para evaluar
+
+  const formulario = document.getElementById("campoCiudad");
+
+  formulario.addEventListener("submit", evaluarActividad);
 });
 
-// Defino un event listener para el formulario activado cuando el usuario hace click sobre el boton submit e invoco la funcion para evaluar
-
-const formulario = document.getElementById("campoCiudad");
-
-formulario.addEventListener("submit", evaluarActividad);
-
-// Evito el comportamiento por defecto
+//Creo la función para evaluar la actividad
 
 function evaluarActividad(e) {
   {
+// Evito el comportamiento por defecto
     e.preventDefault();
 
     // capturo los select y los asigno una constante
@@ -114,7 +114,7 @@ function evaluarActividad(e) {
       validarRadio(radioP4O1, radioP4O2, false, "D") == false
     ) {
       return;
-    };
+    }
 
     //Evalúo las respuestas del primer ejercicio, creando primero objetos con las propiedades id y zona y luego armando un array con ellas para compararlo con los datos traidos desde el "servidor" (archivo zonas.json)
 
@@ -124,7 +124,7 @@ function evaluarActividad(e) {
     const respuesta4 = new Respuestas(zona4, 4);
     const respuesta5 = new Respuestas(zona5, 5);
     const respuesta6 = new Respuestas(zona6, 6);
-    
+
     respuestas.push(
       respuesta1,
       respuesta2,
@@ -133,25 +133,35 @@ function evaluarActividad(e) {
       respuesta5,
       respuesta6
     );
-    
 
-let respuestasAlumno = respuestas.map( function (elem) {
-  let rtasAlumno = { id: elem.id, zona: elem.zona};
-    return rtasAlumno;
-});
+    let respuestasAlumno = respuestas.map(function (elem) {
+      let rtasAlumno = {id: elem.id, zona: elem.zona};
+      return rtasAlumno;
+    });
+
+    //Creo un nuevo array filtrando el previamente guardado en el Storage, tomando del mismo las propiedades "zona" e "id", para luego ser comparados con las respuestas provistas por el alumno
+
+    const zonasStorage = JSON.parse(sessionStorage.getItem("zonas"));
+
+    let zonasCorrectas = zonasStorage.map(function (elem) {
+      let zonasCorrectas = {id: elem.id, zona: elem.zona.toLowerCase()};
+      return zonasCorrectas;
+    });
 
     for (var i in respuestas) {
       for (var j in respuestas) {
         if (
-          JSON.stringify(respuestasAlumno[i]) == JSON.stringify(zonasCorrectas[j])
+          JSON.stringify(respuestasAlumno[i]) ==
+          JSON.stringify(zonasCorrectas[j])
         ) {
           puntaje += 1;
           correctas++;
-        }
-      }
+        };
+      };
     };
+
     console.log(puntaje, correctas);
-    
+
     evaluarRtas(radioP1O3);
     evaluarRtas(radioP2O3);
     evaluarRtas(radioP3O1);
@@ -160,49 +170,39 @@ let respuestasAlumno = respuestas.map( function (elem) {
     // Invoco la funcion que determina el saludo en base al puntaje
     saludo = mensaje(puntaje);
 
-    // Verifico la salida
-    console.log(saludo);
+  // Remuevo del Session Storage los datos guardados para realizar esta evaluacion
+  removerTemp("zonas");
 
     // Comunico al usuario el puntaje obtenido, cantidad de respuestas correctas y lo saludo en base al puntaje
     darNota(nombre, correctas, puntaje, saludo);
 
-    // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
-    formulario.removeEventListener("submit", evaluarActividad);
-
     // Guardo el puntaje obtenido, junto con el área correspondiente para luego mostrarlo en el home.
     guardarPuntaje("soc", puntaje);
-  }
-}
 
-//Defino los parametros para evaluar las respuestas del primer inciso
+  };
+};
 
-// Creo la matriz para crear objetos en base a las respuestas seleccionadas, pasando las mismas a minusculas y definiendo la propiedad "id", que seran guardados en un array, para luego ser comparadas con las previamente almacenadas en el Storage
+// Creo la matriz para crear objetos en base a las respuestas seleccionadas
+
 class Respuestas {
   constructor(zona, id) {
     this.id = id;
     this.zona = zona;
   }
-};
-
-const zonasStorage = JSON.parse(sessionStorage.getItem("zonas"));
-
-let zonasCorrectas = zonasStorage.map( function (elem) {
-  let zonasCorrectas = { id: elem.id, zona: elem.zona.toLowerCase()};
-    return zonasCorrectas;
-});
+}
 
 // Creo una función para evaluar las respuestas del segundo inciso
 
 function evaluarRtas(rta) {
   switch (rta) {
-      case true:
-        puntaje += 1;
-        correctas++;
-        break;
+    case true:
+      puntaje += 1;
+      correctas++;
+      break;
 
-      default:
-        puntaje += 0;
-        break;
-    }
+    default:
+      puntaje += 0;
+      break;
+  }
   return puntaje;
-};
+}

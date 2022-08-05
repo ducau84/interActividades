@@ -3,7 +3,6 @@
 import {
   alumnoLogueado,
   nombreEnStorage,
-  darNota,
   mensaje,
   validarRespuestaNumero,
   guardarPuntaje,
@@ -11,12 +10,19 @@ import {
 } from "../App.js";
 
 import {
+  darNota,
   bienvenidoArea
 } from "./utils/modalsSwal.js"
 
 // Muestro el nombre del alumno en el pizarrón
 
 let nombre = nombreEnStorage();
+
+// Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el local storage, lo mando al home para que lo ingrese
+
+localStorage.getItem("nombre")
+  ? (nombre = nombreEnStorage())
+  : volverAlHome();
 
 // Boton borrador para desloguear
 
@@ -182,9 +188,6 @@ function evaluarActividad(e) {
 
     // Comunico al usuario el puntaje obtenido, cantidad de respuestas correctas y lo saludo en base al puntaje
     darNota(nombre, correctas, puntaje, saludo);
-
-    // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
-    formulario.removeEventListener("submit", evaluarActividad);
 
     // Guardo el puntaje obtenido, junto con el área correspondiente para luego mostrarlo en el home.
     guardarPuntaje("math", puntaje);

@@ -14,32 +14,37 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="../css/style.css" />
-  <title>interActividades: Ciencias Sociales</title>
+  <title>INTERactividades: Ciencias Naturales</title>
 </head>
 
 <body>
   <header>
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+    <div class="btn-group" role="group" aria-label="Button group with nested
+        dropdown">
       <a href="../index.html" class="btn btn-success">Home</a>
 
       <div class="btn-group" role="group">
-        <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
-          aria-expanded="false">
+        <button id="btnGroupDrop1" type="button" class="btn btn-success
+            dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           Áreas
         </button>
         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-          <li><a class="dropdown-item" href="./pdl.html">Prácticas del Lenguaje</a></li>
+          <li><a class="dropdown-item" href="./pdl.html">Prácticas del
+              Lenguaje</a></li>
           <li><a class="dropdown-item" href="./matematicas.html">Matemáticas</a></li>
-          <li><a class="dropdown-item" href="./sociales.html">Ciencias Sociales</a></li>
-          <li><a class="dropdown-item" href="./naturales.html">Ciencias Naturales</a></li>
+          <li><a class="dropdown-item" href="./sociales.html">Ciencias
+              Sociales</a></li>
+          <li><a class="dropdown-item" href="./naturales.html">Ciencias
+              Naturales</a></li>
         </ul>
       </div>
     </div>
     <div class="container">
       <div class="row">
         <section class="col-12 titulo" data-aos="fade-down">
-          <h1>Ciencias Sociales</h1>
-          <h2 id="alumno">Alumno</h2><button type="button" id="desloguear">No soy yo</button>
+          <h1>Ciencias Naturales</h1>
+          <h2 id="alumno">Alumno</h2><button type="button" id="desloguear">No
+            soy yo</button>
         </section>
       </div>
     </div>
@@ -48,85 +53,84 @@
   <main>
     <div class="container">
       <div class="row">
-        <section class="actividades actividades__soc">
+        <section class="actividades actividades__nat">
           <h2 class="actividades__titulo">Evaluación sobre: </h2>
-          <article class="vidaCampoCiudad">
-            <h3 class="actividad titulo">La vida en el Campo y en La ciudad</h3>
-            <p class="actividades__consigna"><b class="red">1. </b>Observa las imágenes y selecciona en cada una si
-              pertenece a
-              una zona <b class="green">Rural</b> o <b class="red">Urbana</b> según te parezca: </p>
-            <form id="campoCiudad" autocomplete="off">
+          <article class="sistemasCuerpo">
+            <h3 class="actividad titulo">Sistemas del Cuerpo Humano</h3>
+            <p class="actividades__consigna"><b class="red">1. </b>Observa
+              atentamente y completa los órganos
+              correspondientes: </p>
+            <form id="sistemasCuerpo" autocomplete="off">
 
-              <div id="contenedorZonas" class="estrofa">
+              <div class="estrofa sistemas">
 
-              </div>
-              <div class="estrofa">
-                <p class="actividades__consigna"><b class="red">2. </b>Elige la opción correcta para continuar la
-                  oración:
+                <img src="../img/areas/naturales/circulatorio.png" alt="Aparato Circulatorio">
+                <p>El <b class="green">sistema circulatorio</b> transporta
+                  sangre con nutrientes o residuos a través de
+                  las
+                  <sup class="indice">1</sup><select class="sistemasSelect" id="circ1">
+
+                    <option selected disabled>Selecciona</option>
+                  </select> 
+                  y <b class="red">arterias</b>, gracias a la fuerza del 
+                  <sup class="indice">2</sup><select class="sistemasSelect" id="circ2">
+
+                    <option selected disabled>Selecciona</option>
+                    </select>.
                 </p>
+              </div>
 
-                <fieldset class="multChoice" id="socP1">
-                  <legend>&#128204;<b class="green">A.- </b>En los trabajos rurales se puede...</legend>
-                  <div class="radioSelect">
-                    <input type="radio" id="socP1O1" name="Preg1" value="comBcos">
-                    <label for="socP1O1">...trabajar en comercios y bancos.</label>
-                  </div>
-                  <div class="radioSelect">
-                    <input type="radio" id="socP1O2" name="Preg1" value="comServ">
-                    <label for="socP1O2">...trabajar en la construccion y los servicios.</label>
-                  </div>
-                  <div class="radioSelect">
-                    <input type="radio" id="socP1O3" name="Preg1" value="criaCult">
-                    <label for="socP1O3">...cultivar, criar animales o extraer minerales.</label>
-                  </div>
-                </fieldset>
+              <div class="estrofa sistemas">
+                <p>El <b class="green">sistema respiratorio</b> toma aire del ambiente por la 
+                  <sup class="indice">3</sup><select class="sistemasSelect" id="resp1">
+                    <option selected disabled>Selecciona</option>
 
-                <fieldset class="multChoice" id="socP2">
-                  <legend>&#128204;<b class="green">B.- </b>La mayoría de las personas que viven en las zonas rurales...
-                  </legend>
-                  <div class="radioSelect">
-                    <input type="radio" id="socP2O1" name="Preg2" value="trabCiud">
-                    <label for="socP2O1">...trabajar la ciudad.</label>
-                  </div>
-                  <div class="radioSelect">
-                    <input type="radio" id="socP2O2" name="Preg2" value="vago">
-                    <label for="socP2O2">...no trabaja.</label>
-                  </div>
-                  <div class="radioSelect">
-                    <input type="radio" id="socP2O3" name="Preg2" value="trabCamp">
-                    <label for="socP2O3">...trabaja en los campos cercanos.</label>
-                  </div>
-                </fieldset>
+                  </select> 
+                  y lo lleva a los 
+                  <sup class="indice">4</sup><select class="sistemasSelect" id="resp2">
+                    <option selected disabled>Selecciona</option>
 
-                <fieldset class="multChoice" id="socP3">
-                  <legend>&#128204;<b class="green">C.- </b>Para comprar y hacer trámites en el banco las personas que
-                    viven en las zonas rurales...</legend>
-                  <div class="radioSelect">
-                    <input type="radio" id="socP3O1" name="Preg3" value="trasla">
-                    <label for="socP3O1">...deben trasladarse al pueblo más cercano o a la capital.</label>
-                  </div>
-                  <div class="radioSelect">
-                    <input type="radio" id="socP3O2" name="Preg3" value="notras">
-                    <label for="socP3O2">...no necesitan trasladarse.</label>
-                  </div>
-                </fieldset>
+                    </select>
+                a través de la
+                <sup class="indice">5</sup><select class="sistemasSelect" id="resp3">
+                  <option selected disabled>Selecciona</option>
+          
+                  </select>. 
+                  </p>
+                  <img src="../img/areas/naturales/respiratorio.png" alt="Aparato Respiratorio">
+              </div>
 
-                <fieldset class="multChoice" id="socP4">
-                  <legend>&#128204;<b class="green">D.- </b>En los espacios urbanos se puede:</legend>
-                  <div class="radioSelect">
-                    <input type="radio" id="socP4O1" name="Preg4" value="comBcos">
-                    <label for="socP4O1">...hacer compras en shoppings y centros comerciales.</label>
-                  </div>
-                  <div class="radioSelect">
-                    <input type="radio" id="socP4O2" name="Preg4" value="comServ">
-                    <label for="socP4O2">...trabajar en la agricultura y ganadería.</label>
-                  </div>
-                </fieldset>
+              <div class="estrofa sistemas">
+                <img src="../img/areas/naturales/excretor.png" alt="Aparato Urinario">
+                <p>El <b class="green">sistema urinario</b> elimina los residuos de nuestro cuerpo a través de la orina que se forma en los
+                  <sup class="indice">6</sup><select class="sistemasSelect" id="urin1">
+                    <option selected disabled>Selecciona</option>
+                  </select> 
+                  y se almacena en la  
+                  <sup class="indice">7</sup><select class="sistemasSelect" id="urin2">
+                    <option selected disabled>Selecciona</option>
+                    </select>.
+                </p>
+              </div>
 
+              <div class="estrofa sistemas">
+                <p>El <b class="green">sistema digestivo</b> incorpora alimentos a través de la  
+                  <sup class="indice">8</sup><select class="sistemasSelect" id="dige1">
+                    <option selected disabled>Selecciona</option>
+                  </select> 
+                  y, con ayuda del 
+                  <sup class="indice">9</sup><select class="sistemasSelect" id="dige2">
+                    <option selected disabled>Selecciona</option>
+                    </select>
+                    , el <b class="red">hígado</b>, y los
+                    <sup class="indice">10</sup><select class="sistemasSelect" id="dige3">
+                  <option selected disabled>Selecciona</option>
+                  </select>, extrae de ellos todos los nutrientes necesarios. 
+                  </p>
+                  <img src="../img/areas/naturales/digestivo.png" alt="Aparato Digestivo">
               </div>
               <button type="submit" class="btn_send">Evaluar Respuestas</button>
-              <div id="nota">
-              </div>
+
             </form>
           </article>
         </section>
@@ -172,7 +176,8 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.438);">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0,
+          0.438);">
       <p>SeñoPame &copy; 2022</p>
       <p>
         República Argentina 537, (7540) Coronel Suárez, Provincia de

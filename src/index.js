@@ -1,66 +1,33 @@
 // Importo las funciones que voy a necesitar
 
-import {
-  nombreEnStorage,
-  desloguear,
-  primerLetraMayusc,
-  saludoPersonalizado
-} from "./App.js";
+import {nombreEnStorage, desloguear} from "./App.js";
 
-import {puntObtenidos} from "./components/utils/modalsSwal.js";
+import {preguntarNombre} from "./components/utils/modalsSwal.js";
 
-// Verifico si ya hay cargado un nombre en el Session Storage, si es asi ejecuto la funcion para mostrarlo, caso contrario ejecuto la función para pedirlo
+// Verifico si ya hay cargado un nombre en el Local Storage, si es asi ejecuto la funcion para mostrarlo, caso contrario ejecuto la función para pedirlo
 
-sessionStorage.getItem("nombre") ? nombreEnStorage() : preguntarNombre();
-
-// Utilizando la libreria SweetAlert2 pido al Alumno que ingrese su nombre, lo guardo en el Session Storage y lo muestro en el HTML
-
-export function preguntarNombre() {
-  Swal.fire({
-    title: "¡Bienvenid@!",
-    imageUrl: "img/logo.png",
-    imageAlt: "Logo",
-    imageWidth: 300,
-    imageHeight: 50,
-    input: "text",
-    inputLabel:
-      "Ingresa tu nombre para que tengas una experiencia personalizada:",
-    showCancelButton: false,
-    allowOutsideClick: false,
-    confirmButtonText: "Confirmar",
-    inputValidator: (nombre) => {
-      if (!nombre) {
-        return "Por favor escribe tu nombre";
-      } else {
-        return undefined;
-      }
-    },
-  }).then((resultado) => {
-    if (resultado.value !== undefined) {
-      let nombre = primerLetraMayusc(resultado.value);
-      saludoPersonalizado(nombre);
-      sessionStorage.setItem("nombre", JSON.stringify(nombre));
-    } else {
-      preguntarNombre();
-    }
-  });
-};
+localStorage.getItem("nombre") ? nombreEnStorage() : preguntarNombre();
 
 // Creo una función que muestre un modal con los puntajes obtenidos en base a lo guardado en el Storage
 
 function muestraPuntajes() {
-  const nombre = JSON.parse(sessionStorage.getItem("nombre"));
-
   // En caso de no encontrar uno de las evaluaciones, muestra el string aún no evaluado
+  const pdl =
+    sessionStorage.getItem("pdl") ||
+    console.log("PDL: Aún no evaluado");
+  const math =
+    sessionStorage.getItem("math") ||
+    console.log("MAT: Aún no evaluado");
+  const nat =
+    sessionStorage.getItem("nat") ||
+    console.log("NAT: Aún no evaluado");
+  const soc =
+    sessionStorage.getItem("soc") ||
+    console.log("SOC: Aún no evaluado");
+  puntObtenidos(pdl, math, soc, nat);
+};
 
-  const pdl = JSON.parse(sessionStorage.getItem("pdl")) || "Aún no evaluado";
-  const math = JSON.parse(sessionStorage.getItem("math")) || "Aún no evaluado";
-  const nat = JSON.parse(sessionStorage.getItem("nat")) || "Aún no evaluado";
-  const soc = JSON.parse(sessionStorage.getItem("soc")) || "Aún no evaluado";
-  puntObtenidos(nombre, math, pdl, soc, nat);
-}
-
-// En caso de haber tomado las evaluaciones de Matemáticas y/o las de Prácticas del Lenguaje muestro los puntajes obtenidos
+// En caso de haber tomado alguna de las 4 evaluaciones activo la función que muestra los puntajes obtenidos.
 
 const evaluaciones =
   sessionStorage.getItem("pdl") ||
@@ -72,11 +39,49 @@ const evaluaciones =
 
 evaluaciones ? muestraPuntajes() : console.log("Aun no hizo evaluaciones");
 
-// Creo un boton para borrar los datos del usuario del Session Storage
+// Creo una funcion que muestra el puntaje obtenido sobre la card de ingreso al área, bloqueando asi que se ingrese nuevamente hasta la proxima Session
+
+function puntObtenidos(area1, area2, area3, area4) {
+  if (area1 != undefined) {
+    const notaPdl = document.createElement("p");
+    notaPdl.classList.add("notaPortada");
+    notaPdl.innerText = `Calificación: 
+                        ${area1}`;
+    const areaPdl = document.getElementById("notaPdl");
+    areaPdl.appendChild(notaPdl);
+  }
+  if (area2 != undefined) {
+    const notaMat = document.createElement("p");
+    notaMat.classList.add("notaPortada");
+    notaMat.innerText = `Calificación: 
+                        ${area2}`;
+    const areaMat = document.getElementById("notaMat");
+    areaMat.appendChild(notaMat);
+  }
+  if (area3 != undefined) {
+    const notaSoc = document.createElement("p");
+    notaSoc.classList.add("notaPortada");
+    notaSoc.innerText = `Calificación: 
+                        ${area3}`;
+    const areaSoc = document.getElementById("notaSoc");
+    areaSoc.appendChild(notaSoc);
+  }
+  if (area4 != undefined) {
+    const notaNat = document.createElement("p");
+    notaNat.classList.add("notaPortada");
+    notaNat.innerText = `Calificación: 
+                          ${area4}`;
+    const areaNat = document.getElementById("notaNat");
+    areaNat.appendChild(notaNat);
+  };
+};
+
+// Llamo a la funcion borrar los datos del alumno del Local Storage
 
 desloguear();
 
 // Creo un boton para mostrar u ocultar los objetivos de cada área modificando el atributo display
+
 const objetivosPdl = document.getElementById("objetivosPdl");
 const objetivosPdlShow = document.getElementById("objetivosPdlShow");
 const objetivosPdlHide = document.getElementById("objetivosPdlHide");

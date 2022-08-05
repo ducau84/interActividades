@@ -2,17 +2,19 @@
 
 import {
   volverAlHome,
-  darNota,
   mensaje,
   validarRespuestaPalabra,
   guardarPuntaje,
   nombreEnStorage,
   desloguear,
+  ordenarArray,
+  filtrarCorrectas,
+  removerTemp,
 } from "../App.js";
 
 import getData from "./controllers/getData.js";
 
-import {bienvenidoArea} from "./utils/modalsSwal.js";
+import {bienvenidoArea, darNota} from "./utils/modalsSwal.js";
 
 // declaro las variables globales
 
@@ -21,11 +23,10 @@ let correctas = 0;
 let saludo = "";
 let nombre = "";
 let rimas = [];
-/* let rimasCorrectas = []; */
 
-// Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el session storage, lo mando al home para que lo ingrese
+// Verifico que el Alumno haya ingresado su nombre en la pantalla home y en caso de no encontrarlo en el local storage, lo mando al home para que lo ingrese
 
-sessionStorage.getItem("nombre")
+localStorage.getItem("nombre")
   ? (nombre = nombreEnStorage())
   : volverAlHome();
 
@@ -43,16 +44,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   const datos = "../../src/data/rimas.json";
   rimas = await getData(datos);
   addPistas(rimas);
-  ordenarRimas(rimas);
-  filtrarCorrectas(rimas);
-});
+  ordenarArray(rimas);
+  filtrarCorrectas(rimas, "rimas");
 
-// Creo una función para agregar una tabla con las palabras utilizables como posibles respuestas
+  // Creo una función para agregar una tabla con las palabras utilizables como posibles respuestas
 
-const addPistas = (rimas) => {
-  const contPalabras = document.createElement("table");
+  function addPistas(rimas) {
+    const contPalabras = document.createElement("table");
 
-  contPalabras.innerHTML = `<table>
+    contPalabras.innerHTML = `<table>
                           <tr>
                               <td>${rimas[0].palabra}</td>
                               <td>${rimas[1].palabra}</td>
@@ -85,39 +85,37 @@ const addPistas = (rimas) => {
                           </tr>
                           </table>
                           `;
-  const pistas = document.getElementById("pistas");
-  pistas.appendChild(contPalabras);
-};
+    const pistas = document.getElementById("pistas");
+    pistas.appendChild(contPalabras);
+  }
+  // Defino un event listener para el formulario activado cuando el usuario hace click sobre el boton submit e invoco la funcion para evaluar
+
+  const formulario = document.getElementById("poesia");
+
+  formulario.addEventListener("submit", evaluarActividad);
+});
 
 //Defino un array vacio para contener posteriormente las respuestas del usuario
 
 const respuestas = [];
 
-// ordeno el array "rimas" en base al numero de la propiedad orden de cada objeto y luego lo filtro eliminando las incorrectas ( el valor de orden es 0)
-
-const ordenarRimas = (rimas) => {
-  rimas.sort((a, b) => {
-    return a.orden - b.orden;
-  });
-  console.log(rimas);
-  return rimas;
-};
-
-const filtrarCorrectas = (rimasCorrectas) => {
-  rimasCorrectas = rimas.filter((elemento) => elemento.orden > 0);
-
-  //Guardo el array filtrado en el storage para accederlo luego al evaluar la actividad
-
-  sessionStorage.setItem("rimas", JSON.stringify(rimasCorrectas));
-};
-
-// Defino un event listener para el primer input, que al ser activado muestra su solución a modo de Ayuda
-
+// Capturo la primera casilla y la vinculo mediante un eventlistener "click" a la función para mostrar la ayuda de la primera palabra de la poesía
 const ayuda1 = document.getElementById("ayuda");
 
-ayuda1.addEventListener("click", (verAyuda) => {
-  const ayuda = document.createElement("span");
+ayuda1.addEventListener("click", verAyuda);
 
+// Creo la matriz para crear objetos en base a las respuestas, pasando las mismas a minusculas y dandole el orden para luego ser comparadas con las correctas
+class Respuestas {
+  constructor(palabra, orden) {
+    this.palabra = palabra.toLowerCase();
+    this.orden = Number(orden);
+  };
+};
+
+// Defino una función para que muestre la palabra correspondiente a la primera casilla cuando el alumno haga click sobre ella
+
+function verAyuda() {
+  const ayuda = document.createElement("span");
   ayuda.innerHTML = `
                       <i class="bi bi-info-lg"></i> Ayuda: la primer palabra es: <strong>Mañana</strong>
                     `;
@@ -126,17 +124,12 @@ ayuda1.addEventListener("click", (verAyuda) => {
   // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
 
   ayuda1.removeEventListener("click", verAyuda);
-});
-
-// Defino un event listener para el formulario activado cuando el usuario hace click sobre el boton submit e invoco la funcion para evaluar
-
-const formulario = document.getElementById("poesia");
-
-formulario.addEventListener("submit", evaluarActividad);
+}
 
 // Evito el comportamiento por defecto
 
 function evaluarActividad(e) {
+  // Evito el comportamiento por defecto
   {
     e.preventDefault();
 
@@ -173,7 +166,7 @@ function evaluarActividad(e) {
     }
 
     // Creo objetos a partir de las respuestas (ignoro la palabra 1, ya que la respuesta es mostrada a modo de ayuda)
-    
+
     const respuesta2 = new Respuestas(palabra2, 2);
     const respuesta3 = new Respuestas(palabra3, 3);
     const respuesta4 = new Respuestas(palabra4, 4);
@@ -235,21 +228,14 @@ function evaluarActividad(e) {
     // Invoco la funcion que determina el saludo en base al puntaje
     saludo = mensaje(puntaje);
 
+    // Remuevo del Session Storage los datos guardados para realizar esta evaluacion
+    removerTemp("rimas");
+    
     // Comunico al usuario el puntaje obtenido, cantidad de respuestas correctas y lo saludo en base al puntaje
     darNota(nombre, correctas, puntaje, saludo);
 
-    // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
-    formulario.removeEventListener("submit", evaluarActividad);
-
     // Guardo el puntaje obtenido, junto con el área correspondiente para luego mostrarlo en el home.
     guardarPuntaje("pdl", puntaje);
-  }
-}
 
-// Creo la matriz para crear objetos en base a las respuestas, pasando las mismas a minusculas y dandole el orden para luego ser comparadas con las correctas
-class Respuestas {
-  constructor(palabra, orden) {
-    this.palabra = palabra.toLowerCase();
-    this.orden = Number(orden);
-  }
-}
+  };
+};
