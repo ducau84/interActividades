@@ -8,7 +8,6 @@ import {
 
 export function preguntarNombre() {
   Swal.fire({
-    allowOutsideClick: false,
     title: "¡Bienvenid@!",
     imageUrl: "./img/logo.png",
     imageAlt: "Logo",

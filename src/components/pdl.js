@@ -14,7 +14,10 @@ import {
 
 import getData from "./controllers/getData.js";
 
-import {bienvenidoArea, darNota} from "./utils/modalsSwal.js";
+import {
+  bienvenidoArea, 
+  darNota
+} from "./utils/modalsSwal.js";
 
 // declaro las variables globales
 
@@ -49,39 +52,39 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Creo una función para agregar una tabla con las palabras utilizables como posibles respuestas
 
-  function addPistas(rimas) {
+  function addPistas(array) {
     const contPalabras = document.createElement("table");
 
     contPalabras.innerHTML = `<table>
                           <tr>
-                              <td>${rimas[0].palabra}</td>
-                              <td>${rimas[1].palabra}</td>
-                              <td>${rimas[2].palabra}</td>
-                              <td>${rimas[3].palabra}</td>
+                              <td>${array[0].palabra}</td>
+                              <td>${array[1].palabra}</td>
+                              <td>${array[2].palabra}</td>
+                              <td>${array[3].palabra}</td>
                           </tr>
                           <tr>
-                              <td>${rimas[4].palabra}</td>
-                              <td>${rimas[5].palabra}</td>
-                              <td>${rimas[6].palabra}</td>
-                              <td>${rimas[7].palabra}</td>
+                              <td>${array[4].palabra}</td>
+                              <td>${array[5].palabra}</td>
+                              <td>${array[6].palabra}</td>
+                              <td>${array[7].palabra}</td>
                           </tr>
                           <tr>
-                              <td>${rimas[8].palabra}</td>
-                              <td>${rimas[9].palabra}</td>
-                              <td>${rimas[10].palabra}</td>
-                              <td>${rimas[11].palabra}</td>
+                              <td>${array[8].palabra}</td>
+                              <td>${array[9].palabra}</td>
+                              <td>${array[10].palabra}</td>
+                              <td>${array[11].palabra}</td>
                           </tr>
                           <tr>
-                              <td>${rimas[12].palabra}</td>
-                              <td>${rimas[13].palabra}</td>
-                              <td>${rimas[14].palabra}</td>
-                              <td>${rimas[15].palabra}</td>
+                              <td>${array[12].palabra}</td>
+                              <td>${array[13].palabra}</td>
+                              <td>${array[14].palabra}</td>
+                              <td>${array[15].palabra}</td>
                           </tr>
                           <tr>
-                              <td>${rimas[16].palabra}</td>
-                              <td>${rimas[17].palabra}</td>
-                              <td>${rimas[18].palabra}</td>
-                              <td>${rimas[19].palabra}</td>
+                              <td>${array[16].palabra}</td>
+                              <td>${array[17].palabra}</td>
+                              <td>${array[18].palabra}</td>
+                              <td>${array[19].palabra}</td>
                           </tr>
                           </table>
                           `;

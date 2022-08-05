@@ -53,7 +53,7 @@
                         <h3 class="actividades titulo">Problemas</h3>
                         <form id="problemas" autocomplete="off">
                             <div class="estrofa">
-                                <p><b>1.- </b>En un avión viajan <b>436</b> pasajeros. <b>215</b> son mujeres y el resto
+                                <p><b>1.- </b>En un avión viajan <b id="pasajeros"></b> pasajeros. <b id="mujeres"></b> son mujeres y el resto
                                     son
                                     hombres.
                                 </p>
@@ -62,9 +62,9 @@
 
                             </div>
                             <div class="estrofa">
-                                <p><b>2.- </b>En una caja de galletitas de chocolate vienen <b>5</b> paquetes. Si cada
+                                <p><b>2.- </b>En una caja de galletitas de chocolate vienen <b id="paquetes"></b> paquetes. Si cada
                                     paquete tiene
-                                    <b>29</b> galletitas.
+                                    <b id="galletitas"></b> galletitas.
                                 </p>
                                 <p>¿Cuántas galletitas contiene toda la caja?: <input type="text" inputmode="numeric"
                                         name="rta2" id="rta2" placeholder="Respuesta"></p>
@@ -72,16 +72,15 @@
                             </div>
                             <div class="estrofa">
                                 <p><b>3.- </b>Manuel y su padre han hecho este fin de semana tres salidas en bici:</p>
-                                <p>El viernes pedalearon <b>16 Km.</b></p>
-                                <p>El sábado pedalearon <b>37 Km.</b></p>
-                                <p>El Domingo pedalearon <b>43 Km.</b></p>
+                                <p>El viernes pedalearon <b id="viernes"></b><b> Km.</b></p>
+                                <p>El sábado pedalearon <b id="sabado"></b><b> Km.</b></p>
+                                <p>El Domingo pedalearon <b id="domingo"></b><b> Km.</b></p>
                                 <p>¿Cuántos Kilómetros han recorrido en tres días? <input type="text"
                                         inputmode="numeric" name="rta3" id="rta3" placeholder="Respuesta"></p>
 
                             </div>
                             <div class="estrofa">
-                                <p><b>4.-</b>Julián tenía ahorrados <b>$ 25.269,00</b>. El lunes gastó <b>$
-                                        22.178,00</b> en
+                                <p><b>4.-</b>Julián tenía ahorrados <b>$ </b><b id="ahorros"></b>. El lunes gastó <b>$ </b><b id="tablet"></b> en
                                     la compra
                                     de una
                                     tablet.</p>
@@ -184,6 +183,7 @@
     <script src="../../src/backToTop.js"></script>
     <script type="module" src="../../src/components/math.js"></script>
     <script type="module" src="../../src/App.js"></script>
+    <script type="module" src="../../src/components/controllers/getData.js"></script>
     <script type="module" src="../../src/components/utils/modalsSwal.js"></script>
 </body>
 
