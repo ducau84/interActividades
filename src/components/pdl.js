@@ -41,10 +41,10 @@ bienvenidoArea("pdl", "Prácticas del Lenguaje", nombre);
 
 desloguear();
 
-// Del archivo rimas.json obtengo las posibles respuestas, donde el orden indica que numero de respuesta es
+// Hago una petición al servidor y de la base de datos obtengo las posibles respuestas, donde el orden indica que numero de respuesta es
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const datos = "../../src/data/rimas.json";
+  const datos = "https://interactividades-server.herokuapp.com/Rimas";
   rimas = await getData(datos);
   addPistas(rimas);
   ordenarArray(rimas);
@@ -124,12 +124,13 @@ function verAyuda() {
                     `;
   const muestraAyuda = document.getElementById("ayuda");
   muestraAyuda.appendChild(ayuda);
-  // Evito que ante un doble submit se vuelva a ejecutar la función añadiendo el puntaje e imprimiendo nuevamente el resultado
+
+  // Evito que ante un mas de un click se vuelva a ejecutar la función acumulando elementos span
 
   ayuda1.removeEventListener("click", verAyuda);
-}
+};
 
-// Evito el comportamiento por defecto
+// Creo la función para evaluar la actividad 
 
 function evaluarActividad(e) {
   // Evito el comportamiento por defecto
@@ -150,7 +151,7 @@ function evaluarActividad(e) {
     const palabra10 = document.getElementById("palabra10").value;
     const palabra11 = document.getElementById("palabra11").value;
 
-    // valido lo ingresado
+    // Valido lo ingresado ( no pueden quedar casilleros en blanco, ni se pueden usar números para responder )
 
     if (
       validarRespuestaPalabra(palabra1, 0) == false ||
@@ -166,7 +167,7 @@ function evaluarActividad(e) {
       validarRespuestaPalabra(palabra11, 10) == false
     ) {
       return;
-    }
+    };
 
     // Creo objetos a partir de las respuestas (ignoro la palabra 1, ya que la respuesta es mostrada a modo de ayuda)
 
@@ -207,9 +208,9 @@ function evaluarActividad(e) {
           JSON.stringify(respuestas[i]) == JSON.stringify(rimasCorrectas[j])
         ) {
           correctas++;
-        }
-      }
-    }
+        };
+      };
+    };
 
     //Chequeo por consola en que pregunta se equivoco el usuario
 

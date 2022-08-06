@@ -1,8 +1,15 @@
 // Importo las funciones que voy a necesitar
 
-import {nombreEnStorage, desloguear} from "./App.js";
+import {
+  nombreEnStorage, 
+  desloguear, 
+  final} 
+  from "./App.js";
 
-import {preguntarNombre} from "./components/utils/modalsSwal.js";
+import {
+  preguntarNombre, 
+  valoracionFinal
+} from "./components/utils/modalsSwal.js";
 
 // Verifico si ya hay cargado un nombre en el Local Storage, si es asi ejecuto la funcion para mostrarlo, caso contrario ejecuto la función para pedirlo
 
@@ -11,7 +18,7 @@ localStorage.getItem("nombre") ? nombreEnStorage() : preguntarNombre();
 // Creo una función que muestre un modal con los puntajes obtenidos en base a lo guardado en el Storage
 
 function muestraPuntajes() {
-  // En caso de no encontrar uno de las evaluaciones, muestra el string aún no evaluado
+  // En caso de no encontrar uno de las evaluaciones, muestra el string aún no evaluado por consola
   const pdl =
     sessionStorage.getItem("pdl") ||
     console.log("PDL: Aún no evaluado");
@@ -38,6 +45,31 @@ const evaluaciones =
     : false;
 
 evaluaciones ? muestraPuntajes() : console.log("Aun no hizo evaluaciones");
+
+
+// En caso de haber finalizado 4 evaluaciones activo la función muestra una valoración final y permite volver a intentar o finalizar la experiencia.
+
+function finalizarExperiencia(){
+  const nombre = nombreEnStorage();
+  const pdl = ~~sessionStorage.getItem("pdl");
+  const math = ~~sessionStorage.getItem("math");
+  const nat = ~~sessionStorage.getItem("nat");
+  const soc = ~~sessionStorage.getItem("soc");
+  const promedio = (pdl + math + nat + soc)/4;
+  const valoracion = final(promedio);
+  valoracionFinal(valoracion, nombre);
+};
+
+
+const finalizadas =
+  sessionStorage.getItem("pdl") &&
+  sessionStorage.getItem("math") &&
+  sessionStorage.getItem("soc") &&
+  sessionStorage.getItem("nat")
+    ? true
+    : false;
+
+finalizadas ? finalizarExperiencia() : console.log("Evaluaciones pendientes");
 
 // Creo una funcion que muestra el puntaje obtenido sobre la card de ingreso al área, bloqueando asi que se ingrese nuevamente hasta la proxima Session
 
@@ -115,11 +147,11 @@ function mostrarObjetivos(objBoton, obj) {
     obj.style.display = "block";
     objBoton.style.display = "none";
   });
-}
+};
 
 function ocultarObjetivos(objBoton, obj, objShow) {
   objBoton.addEventListener("click", () => {
     obj.style.display = "none";
     objShow.style.display = "block";
   });
-}
+};

@@ -7,11 +7,15 @@ import {
   validarRespuestaNumero,
   guardarPuntaje,
   desloguear,
+  removerTemp
 } from "../App.js";
 
 import getData from "./controllers/getData.js";
 
-import {darNota, bienvenidoArea} from "./utils/modalsSwal.js";
+import {
+  darNota, 
+  bienvenidoArea
+} from "./utils/modalsSwal.js";
 
 // Muestro el nombre del alumno en el pizarrón
 
@@ -34,12 +38,12 @@ let problemas = [];
 
 // Creo una función que determine el puntaje y la cantidad de respuestas correctas
 
-// Del archivo problemas.json obtengo las posibles respuestas, donde el id indica a que problema pertenecen
-
 document.addEventListener("DOMContentLoaded", async () => {
-  const datos = "../../src/data/problemas.json";
+
+  // De la base de datos del servidor obtengo las posibles respuestas, donde el id indica a que problema pertenecen
+  
+  const datos = "https://interactividades-server.herokuapp.com/Problemas";
   problemas = await getData(datos);
-  console.log(problemas);
 
   //Represento en el documento los datos cargados desde el archivo problemas.json
 
@@ -48,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     campo.innerText = datos;
   };
 
-  //Creo una función para añadir un separador (.)cada tres cifras
+  //Creo una función para añadir un separador (.) cada tres cifras
 
   const separaTres = (number) => {
     const exp = /(\d)(?=(\d{3})+(?!\d))/g;
@@ -66,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     datosProblemas("domingo", separaTres(problemas[2].dato3));
     datosProblemas("ahorros", separaTres(problemas[3].dato1));
     datosProblemas("tablet", separaTres(problemas[3].dato2));
-  }
+  };
 
   //Invoco la funcion
 
@@ -83,12 +87,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   const rta4 = problemas[3].dato1 - problemas[3].dato2;
   sessionStorage.setItem("r4", rta4);
 
+  // Defino un event listener para el formulario activado cuando el usuario hace click sobre el boton submit e invoco la funcion para evaluar
+
+  const formulario = document.getElementById("problemas");
+
+  formulario.addEventListener("submit", evaluarActividad);
+
 });
 
 //Defino una función para obtener los resultados previamente guardados y los convierto a número anteponiendo ~~
 
 const getRtas = ans => {
-  const result = ~~sessionStorage.getItem(ans)
+  const result = ~~sessionStorage.getItem(ans);
   return result;
 };
 
@@ -103,7 +113,7 @@ function pregunta(rta, _num) {
       default:
         puntaje += 0;
         break;
-    }
+    };
     return puntaje;
   }
   if (_num == 2) {
@@ -116,7 +126,7 @@ function pregunta(rta, _num) {
       default:
         puntaje += 0;
         break;
-    }
+    };
     return puntaje;
   }
   if (_num == 3) {
@@ -129,7 +139,7 @@ function pregunta(rta, _num) {
       default:
         puntaje += 0;
         break;
-    }
+    };
     return puntaje;
   }
   if (_num == 4) {
@@ -142,7 +152,7 @@ function pregunta(rta, _num) {
       default:
         puntaje += 0;
         break;
-    }
+    };
     return puntaje;
   };
 };
@@ -155,11 +165,7 @@ alumnoLogueado(nombre);
 
 bienvenidoArea("math", "Matemáticas", nombre);
 
-// Creo una función que muestra la nota obtenida en el documento
-
-const formulario = document.getElementById("problemas");
-
-formulario.addEventListener("submit", evaluarActividad);
+// Creo la función para evaluar la actividad
 
 function evaluarActividad(e) {
   {
@@ -172,7 +178,7 @@ function evaluarActividad(e) {
 
     // valido lo ingresado
 
-    if (validarRespuestaNumero(rta, 1) == false) {
+    if (validarRespuestaNumero(rta, 0) == false) {
       puntaje = 0;
       correctas = 0;
       return;
@@ -188,7 +194,7 @@ function evaluarActividad(e) {
 
     // valido lo ingresado
     
-    if (validarRespuestaNumero(rta, 2) == false) {
+    if (validarRespuestaNumero(rta, 1) == false) {
       puntaje = 0;
       correctas = 0;
       return;
@@ -204,7 +210,7 @@ function evaluarActividad(e) {
 
     // valido lo ingresado
     
-    if (validarRespuestaNumero(rta, 3) == false) {
+    if (validarRespuestaNumero(rta, 2) == false) {
       puntaje = 0;
       correctas = 0;
       return;
@@ -219,7 +225,7 @@ function evaluarActividad(e) {
     rta = document.getElementById("rta4").value;
 
     // valido lo ingresado
-    if (validarRespuestaNumero(rta, 4) == false) {
+    if (validarRespuestaNumero(rta, 3) == false) {
       puntaje = 0;
       correctas = 0;
       return;

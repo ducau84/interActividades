@@ -36,15 +36,22 @@ export function validarRespuestaNumero(rta, _num) {
   if (rta === "") {
     Swal.fire({
       icon: "error",
-      html: `<p>¡No has ingresado nada en la pregunta número <b class="red">${_num}</b>!</p><br><p>Intenta de nuevo:</p>`,
+      html: `<p>¡No has ingresado nada en la pregunta número <b class="red">${_num + 1}</b>!</p><br><p>Intenta de nuevo:</p>`,
+      showClass : {
+        popup: 'animate__animated animate__tada'
+      }
     });
     pintarFondo(_num, "#ff000073");
     return false;
   }
   if (rta == null || isNaN(rta)) {
-    Swal.fire(`¡Debes ingresar números en el casillero número ${_num}!
-
-    Intenta de nuevo:`);
+    Swal.fire({
+      icon: "error",
+      html: `<p>¡Debes ingresar números en el casillero número <b class="red">${_num + 1}</b>!</p><br><p>Intenta de nuevo:</p>`,
+      showClass : {
+        popup: 'animate__animated animate__tada'
+      }
+    });
     pintarFondo(_num, "#ff000073");
     return false;
   };
@@ -56,17 +63,26 @@ export function validarRespuestaPalabra(rta, _num) {
   if (rta === "") {
     Swal.fire({
       icon: "error",
-      html: `<p>¡No has ingresado nada en la pregunta número <b class="red">${
-        _num + 1
-      }</b>!</p><br><p>Intenta de nuevo:</p>`,
+      html: `<p>¡No has ingresado nada en la pregunta número <b class="red">${_num + 1}</b>!</p>
+            <br>
+            <p>Intenta de nuevo:</p>`,
+      showClass : {
+        popup: 'animate__animated animate__tada'
+      }
     });
     pintarFondo(_num, "#ff000073");
     return false;
   }
   if (rta == null || !isNaN(rta)) {
-    Swal.fire(`¡No puedes ingresar números en el casillero número ${_num + 1}!
-
-    Intenta de nuevo:`);
+    Swal.fire({
+      icon: "error",
+      html: `<p>¡No puedes ingresar números en el casillero número <b class="red">${_num + 1}</b>!</p>
+            <br>
+            <p>Intenta de nuevo:</p>`,
+      showClass : {
+        popup: 'animate__animated animate__tada'
+      }
+    });
     pintarFondo(_num, "#ff000073");
     return false;
   };
@@ -79,9 +95,12 @@ export function validarSeleccion(sel, _num) {
     case "Selecciona la zona":
       Swal.fire({
         icon: "error",
-        html: `<p>¡No has seleccionado nada en la imágen número ${
-          _num + 1
-        }!</p><br><p>Intenta de nuevo:</p>`,
+        html: `<p>¡No has seleccionado nada en la imágen número ${_num + 1}!</p>
+        <br>
+        <p>Intenta de nuevo:</p>`,
+        showClass : {
+          popup: 'animate__animated animate__tada'
+        }
       });
       pintarFondoSelect(_num, "#ff000073");
       return false;
@@ -89,14 +108,17 @@ export function validarSeleccion(sel, _num) {
     case "Selecciona":
       Swal.fire({
         icon: "error",
-        html: `<p>¡No has seleccionado nada en la casilla ${
-          _num + 1
-        }!</p><br><p>Intenta de nuevo:</p>`,
+        html: `<p>¡No has seleccionado nada en la casilla ${_num + 1}!</p>
+        <br>
+        <p>Intenta de nuevo:</p>`,
+        showClass : {
+          popup: 'animate__animated animate__tada'
+        }
       });
       pintarFondoSelect(_num, "#ff000073");
       return false;
-  }
-}
+  };
+};
 
 // Creo una función para determinar que no se hayan dejado selects sin elegir valor
 
@@ -104,7 +126,12 @@ export function validarRadio(radio1, radio2, radio3, string) {
   if (radio1 == false && radio2 == false && radio3 == false) {
     Swal.fire({
       icon: "error",
-      html: `<p>¡No has seleccionado nada en la pregunta "${string}"!</p><br><p>Intenta de nuevo:</p>`,
+      html: `<p>¡No has seleccionado nada en la pregunta "${string}"!</p>
+      <br>
+      <p>Intenta de nuevo:</p>`,
+      showClass : {
+        popup: 'animate__animated animate__tada'
+      }
     });
     return false;
   };
@@ -119,14 +146,14 @@ export function mensaje(a) {
   }
   if (a >= 8 && a < 10) {
     saludo =
-      "¡Felicitaciones, hiciste un gran trabajo, un poquito mas y es perfecto!";
+      "¡Felicitaciones, hiciste un gran trabajo, un poquito más y es perfecto!";
   }
   if (a >= 7 && a < 8) {
     saludo = "¡Felicitaciones, aprobaste, pero podes hacerlo aún mejor!";
   }
   if (a < 7) {
     saludo =
-      "Sigue esforzandote! ¡Con paciencia y dedidación vas a lograr aprobar!";
+      "¡Sigue esforzandote! ¡Con paciencia y dedidación vas a lograr aprobar!";
   }
   return saludo;
 };
@@ -183,7 +210,27 @@ export function filtrarCorrectas(array, string) {
 //Creo una función para remover los elementos temporales almacenados en el session storage
 
 export function removerTemp(string) {
-//remuevo el array filtrado en el storage para luego de haber evaluado la actividad
 
   sessionStorage.removeItem(string);
+};
+
+// Creo una función que muestre una valoración final del trabajo realizado por el alumno 
+
+export function final(a) {
+  let valoracion = "";
+  if (a == 10) {
+    valoracion = "¡Felicitaciones! Tu desempeño en las evaluaciones ha sido Excelente. Has logrado resolver las actividades a la perfección.";
+  }
+  if (a >= 8 && a < 10) {
+    valoracion =
+      "¡Muy bien! Tu desempeño ha sido muy bueno. Cada actividad realizada demostró tu compromiso y esmero.";
+  }
+  if (a >= 7 && a < 8) {
+    valoracion = "¡Bien! Tu desempeño ha sido bueno. Valoro el esfuerzo para realizar las evaluaciones. ¡Continúa esforzándote!"
+  }
+  if (a < 7) {
+    valoracion =
+    "¡Vos podés! Valoro que hayas intentando realizar las evaluaciones. Sigue practicando y lograrás realizarlas con éxito.";
+  }
+  return valoracion;
 };

@@ -13,7 +13,10 @@ import {
 
 import getData from "./controllers/getData.js";
 
-import {bienvenidoArea, darNota} from "./utils/modalsSwal.js";
+import {
+  bienvenidoArea, 
+  darNota
+} from "./utils/modalsSwal.js";
 
 // Muestro el nombre del alumno en el pizarrón
 
@@ -43,10 +46,10 @@ localStorage.getItem("nombre")
 
 bienvenidoArea("soc", "Ciencias Sociales", nombre);
 
-//Al cargar el HTML Invoco del archivo zonas.json los objetos que se mostrarán en la consigna número 1
+//Al cargar el HTML hago una petición al servidor y traigo de la base de datos los objetos que se mostrarán en la consigna número 1
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const datos = "../../src/data/zonas.json";
+  const datos = "https://interactividades-server.herokuapp.com/Zonas";
   const zonas = await getData(datos);
   sessionStorage.setItem("zonas", JSON.stringify(zonas));
   const contenedor = document.getElementById("contenedorZonas");
@@ -70,7 +73,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   formulario.addEventListener("submit", evaluarActividad);
 });
 
-//Creo la función para evaluar la actividad
+// Creo la función para evaluar la actividad 
 
 function evaluarActividad(e) {
   {
@@ -114,7 +117,7 @@ function evaluarActividad(e) {
       validarRadio(radioP4O1, radioP4O2, false, "D") == false
     ) {
       return;
-    }
+    };
 
     //Evalúo las respuestas del primer ejercicio, creando primero objetos con las propiedades id y zona y luego armando un array con ellas para compararlo con los datos traidos desde el "servidor" (archivo zonas.json)
 

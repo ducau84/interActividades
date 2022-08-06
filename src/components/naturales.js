@@ -14,7 +14,10 @@ import {
 
 import getData from "./controllers/getData.js";
 
-import {bienvenidoArea, darNota} from "./utils/modalsSwal.js";
+import {
+  bienvenidoArea, 
+  darNota
+} from "./utils/modalsSwal.js";
 
 // Muestro el nombre del alumno en el pizarrón
 
@@ -44,10 +47,10 @@ localStorage.getItem("nombre")
 
 bienvenidoArea("nat", "Ciencias Naturales", nombre);
 
-//Defino el origen de los datos simulando la carga desde un servidor y muestro las opciones en cada campo "Select"
-
 window.addEventListener("DOMContentLoaded", async () => {
-  const datos = "../../src/data/sistemas.json";
+
+  //Defino el origen de los datos simulando la carga desde un servidor y muestro las opciones en cada campo "Select"
+  const datos = "https://interactividades-server.herokuapp.com/Sistemas";
   const sistemas = await getData(datos);
   const selects = document.querySelectorAll(".sistemasSelect");
 
@@ -72,7 +75,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   formulario.addEventListener("submit", evaluarActividad);
 });
 
-//Creo la función para evaluar la actividad
+// Creo la función para evaluar la actividad
 
 function evaluarActividad(e) {
   {
@@ -109,7 +112,7 @@ function evaluarActividad(e) {
       return;
     };
 
-    //Evalúo las respuestas del primer ejercicio, creando primero objetos con las propiedades id y zona y luego armando un array con ellas, filtrándolo y ordenándolo para compararlo con los datos traidos desde el "servidor" (archivo sistemas.json)
+    //Evalúo las respuestas del primer ejercicio, creando primero objetos con las propiedades id y zona y luego armando un array con ellas, filtrándolo y ordenándolo para compararlo con los datos traidos desde la base de datos del servidor
 
     const respuesta1 = new Respuestas(sist1, 1);
     const respuesta2 = new Respuestas(sist2, 2);

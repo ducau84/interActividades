@@ -1,5 +1,6 @@
 import {
   primerLetraMayusc,
+  removerTemp,
   saludoPersonalizado,
   volverAlHome,
 } from "../../App.js";
@@ -19,12 +20,18 @@ export function preguntarNombre() {
     showCancelButton: false,
     allowOutsideClick: false,
     confirmButtonText: "Confirmar",
+    showClass: {
+      popup: "animate__animated animate__zoomInDown",
+    },
+    hideClass: {
+      popup: "animate__animated animate__zoomOut",
+    },
     inputValidator: (nombre) => {
       if (!nombre) {
         return "Por favor escribe tu nombre";
       } else {
         return undefined;
-      }
+      };
     },
   }).then((resultado) => {
     if (resultado.value !== undefined) {
@@ -33,7 +40,7 @@ export function preguntarNombre() {
       localStorage.setItem("nombre", JSON.stringify(nombre));
     } else {
       preguntarNombre();
-    }
+    };
   });
 };
 
@@ -46,6 +53,9 @@ export function bienvenidoArea(area, areaString, nombre) {
         title: `${nombre}`,
         text: `¡Ya has hecho la evaluación de ${areaString}!`,
         icon: "error",
+        showClass: {
+          popup: "animate__animated animate__tada",
+        },
       }).then(function () {
         window.location = "../index.html";
       })
@@ -57,6 +67,12 @@ export function bienvenidoArea(area, areaString, nombre) {
         imageWidth: 350,
         imageHeight: 231,
         imageAlt: `${areaString}`,
+        showClass: {
+          popup: "animate__animated animate__zoomInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__zoomOut",
+        },
       });
 };
 
@@ -76,9 +92,88 @@ export function darNota(a, b, c, d) {
     showCancelButton: false,
     background: "#292a2d",
     confirmButtonColor: "#006432",
-    confirmButtonText: "¡Genial!, volvamos al Inicio",
+    confirmButtonText: "¡GENIAL! VOLVAMOS AL INICIO",
+    showClass: {
+      popup: "animate__animated animate__zoomInDown",
+    },
+    hideClass: {
+      popup: "animate__animated animate__zoomOut",
+    },
   }).then((result) => {
     if (result.isConfirmed) {
+      volverAlHome();
+    };
+  });
+};
+
+//Creo el modal final que muestra la valoración, y permite volver a intentar o finalizar la experiencia
+
+export function valoracionFinal(valoracion, nombre) {
+  Swal.fire({
+    allowOutsideClick: false,
+    imageUrl: "./img/logo.png",
+    imageAlt: "Logo",
+    imageWidth: 300,
+    imageHeight: 50,
+    background: "#292a2d",
+    title: "&#127881 ¡Felicitaciones! &#127881",
+    html: ` <p style="font-size: 1.5rem; color: white">¡Has completado todas las Evaluaciones!</p>
+            <p style="font-weight: 400; font-size: 3rem; color: red; font-family: 'Pacifico', cursive; text-transform: capitalize; text-shadow: 1px 1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 1px 1px 0 #ffffff, 0px 1px 0 #ffffff, -1px 0px 0 #ffffff, 0px -1px 0 #ffffff;">${nombre}</p>
+            <p style="padding: 0 1rem; color: white;">${valoracion}</p>`,
+    showCancelButton: true,
+    confirmButtonColor: "#006432",
+    cancelButtonColor: "#fc2f2f",
+    confirmButtonText: "Finalizar",
+    cancelButtonText: "Volver a Intentar",
+    showClass: {
+      popup: "animate__animated animate__zoomInDown",
+    },
+    hideClass: {
+      popup: "animate__animated animate__zoomOut",
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        allowOutsideClick: false,
+        imageUrl: "./img/logo.png",
+        imageAlt: "Logo",
+        imageWidth: 300,
+        imageHeight: 50,
+        background: "#292a2d",
+        confirmButtonText: "Aceptar",
+        showCancelButton: false,
+        title: "¡Muchas gracias por visitarnos!",
+        html: `<p style="padding: 0 1rem; color: white;">¡Síguenos en nuestras redes para enterarte de todas las novedades!</p>`,
+        showClass: {
+          popup: "animate__animated animate__zoomInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__zoomOut",
+        }
+      });
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire({
+        allowOutsideClick: false,
+        imageUrl: "./img/logo.png",
+        imageAlt: "Logo",
+        imageWidth: 300,
+        imageHeight: 50,
+        background: "#292a2d",
+        confirmButtonText: "Aceptar",
+        showCancelButton: false,
+        title: "¡Vamos a probar de nuevo!",
+        html: `<p style="color: white;">¡Vámos que puedes hacerlo mejor!</p>`,
+        showClass: {
+          popup: "animate__animated animate__zoomInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__zoomOut",
+        }
+      });
+      removerTemp("pdl");
+      removerTemp("math");
+      removerTemp("soc");
+      removerTemp("nat");
       volverAlHome();
     };
   });

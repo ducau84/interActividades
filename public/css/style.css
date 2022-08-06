@@ -5,13 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arima&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 @font-face {
 
     font-family: 'Chalk Board';
-    
+
     src: url("../fonts/Chalk\ Board.ttf");
-    
-    }
+
+}
 
 /* ----------------Animaciones-------------- */
 
@@ -120,16 +121,18 @@ strong {
 
 /* ----------------Modals---------------- */
 .swal2-title {
-    font-family: 'Pacifico', cursive;
-    font-weight: 200;
+    font-family: 'Chalk Board';
+    font-weight: 400;
     color: #fc2f2f;
-    text-shadow: 1px 1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 1px 1px 0 #ffffff, 0px 1px 0 #ffffff, -1px 0px 0 #ffffff, 0px -1px 0 #ffffff;
+    text-shadow: 0.5px 0.5px 0 #ffffff, 0.5px -0.5px 0 #ffffff, -0.5px 0.5px 0 #ffffff, -0.5px -0.5px 0 #ffffff, 0.5px 0.5px 0 #ffffff, 0px 0.5px 0 #ffffff, -0.5px 0px 0 #ffffff, 0px -1px 0 #ffffff;
     margin: 0;
-    padding: 0.5rem;
-    font-size: 2.5rem;
+    padding: 0;
+    padding-top: 1rem;
+    font-size: 3rem;
 }
 
-.swal2-styled.swal2-confirm, .swal2-confirm .swal2-styled {
+.swal2-styled.swal2-confirm,
+.swal2-confirm .swal2-styled {
     background-color: #006432;
     border: #ffffff 1px solid;
 }
@@ -139,9 +142,10 @@ strong {
     font-weight: 600;
     text-transform: uppercase;
     margin: 0;
+    padding-top: 0;
 }
 
-.swal2-popup .swal2-modal .swal2-show{
+.swal2-popup .swal2-modal .swal2-show {
     background: #ececec;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
@@ -151,10 +155,17 @@ strong {
     margin: 0 1rem;
 }
 
-body.swal2-shown > [aria-hidden="true"] {
+body.swal2-shown>[aria-hidden="true"] {
     transition: 0.1s filter;
     filter: blur(10px);
-  }
+}
+
+/* ----------------Animate.css-------------- */
+
+:root {
+    --animate-duration: 100ms;
+    --animate-delay: 0ms;
+}
 
 /* ----------------Encabezado-------------- */
 
@@ -193,6 +204,7 @@ header {
     background-color: #3a6a4a;
     border-color: #ffffff;
 }
+
 .btn-success:hover {
     background-color: #ffffff;
     border-color: #3a6a4a;
@@ -246,7 +258,7 @@ footer .bi {
 }
 
 .bi-instagram:hover {
-    color: #bc1888; 
+    color: #bc1888;
 }
 
 .bi-whatsapp:hover {
@@ -270,6 +282,7 @@ footer .bi {
     background-color: rgba(255, 255, 255, 0.534);
     text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
 }
+
 .areas {
     margin: 10px;
 }
@@ -367,7 +380,7 @@ footer .bi {
     box-shadow: rgba(255, 255, 255, 0.4) 0px 2px 4px, rgba(255, 255, 255, 0.3) 0px 7px 13px -3px, rgba(255, 255, 255, 0.2) 0px -3px 0px inset;
 }
 
-.notaPortada{
+.notaPortada {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -379,19 +392,19 @@ footer .bi {
     font-size: 3rem;
     color: #fc2f2f;
     text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 2px 0px 0 #ffffff, 0px 2px 0 #ffffff, -2px 0px 0 #ffffff, 0px -2px 0 #ffffff;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     backdrop-filter: grayscale(100%);
     border-radius: 1.5rem;
-  }
+}
 
 
 /*-------------- Poesia / Problemas --------------*/
 
 #poesia,
 #problemas,
-#campoCiudad, 
+#campoCiudad,
 #sistemasCuerpo {
     display: flex;
     flex-flow: column nowrap;
@@ -521,14 +534,17 @@ footer .bi {
     overflow: hidden;
     border: 2px solid #d90429;
     color: #d90429;
-  }
-  .btn_send:hover {
+}
+
+.btn_send:hover {
     color: #fff;
-  }
-  .btn_send:hover:after {
+}
+
+.btn_send:hover:after {
     height: 100%;
-  }
-  .btn_send:after {
+}
+
+.btn_send:after {
     content: "";
     position: absolute;
     z-index: -1;
@@ -538,14 +554,15 @@ footer .bi {
     height: 0;
     width: 100%;
     background: #d90429;
-  }
+}
 
 /* --------------Sociales-------------- */
 
 .green {
     color: #006432;
 }
-.red{
+
+.red {
     color: #ff0000;
 }
 
@@ -566,16 +583,18 @@ footer .bi {
     position: relative;
     top: 0;
     left: 0;
-  }
-  .zonasImg {
+}
+
+.zonasImg {
     width: 100%;
     position: relative;
     top: 0;
     left: 0;
     border: #00185c 3px solid;
     border-radius: 25px;
-  }
-  .zonasSelect {
+}
+
+.zonasSelect {
     font-family: 'Fira Sans Condensed', sans-serif;
     font-weight: 800;
     width: 50%;
@@ -585,24 +604,26 @@ footer .bi {
     border: 3px #006432 solid;
     border-radius: 25px;
     font-size: 0.8rem;
-  }  
+}
 
-  .multChoice, .multChoice legend{
+.multChoice,
+.multChoice legend {
     font-size: 1rem;
     margin: 1rem;
-  }
+}
 
-  .vidaCampoCiudad #nota {
+.vidaCampoCiudad #nota {
     position: absolute;
     top: 85rem;
     right: 27rem;
     transform: rotate(25deg);
 }
-.multChoice .radioSelect > input[type="radio"] {
+
+.multChoice .radioSelect>input[type="radio"] {
     display: none;
-  }
-  
-  .multChoice .radioSelect > input[type="radio"] + *::before {
+}
+
+.multChoice .radioSelect>input[type="radio"]+*::before {
     content: "";
     display: inline-block;
     vertical-align: bottom;
@@ -613,16 +634,16 @@ footer .bi {
     border-style: solid;
     border-width: 0.1rem;
     border-color: black;
-  }
-  
-  .multChoice .radioSelect > input[type="radio"]:checked + * {
+}
+
+.multChoice .radioSelect>input[type="radio"]:checked+* {
     color: #006432;
-  }
-  
-  .multChoice .radioSelect > input[type="radio"]:checked + *::before {
+}
+
+.multChoice .radioSelect>input[type="radio"]:checked+*::before {
     background: radial-gradient(#006432 0%, #006432 40%, transparent 50%, transparent);
     border-color: #006432;
-  }
+}
 
 
 /* --------------Naturales-------------- */
@@ -637,12 +658,12 @@ footer .bi {
     background-color: #ffffe760;
 }
 
-.sistemas p{
+.sistemas p {
     align-self: center;
     font-size: 1.2rem;
 }
 
-.sistemas img{
+.sistemas img {
     height: 140px;
     width: 140px;
     align-self: center;
@@ -673,26 +694,32 @@ footer .bi {
     }
 }
 
-  @media screen and (max-width: 560px){
+@media screen and (max-width: 560px) {
     #contenedorZonas {
         grid-template-columns: 1fr;
     }
-    .multChoice, .poesia, .multChoice legend{
+
+    .multChoice,
+    .poesia,
+    .multChoice legend {
         margin: 1rem 0;
         font-size: 0.9rem;
     }
-  }
+}
 
-  @media screen and (max-width: 820px) {
+@media screen and (max-width: 820px) {
     html {
         font-size: 15px;
     }
+
     main {
         width: 100%;
     }
+
     .titulo h1 {
         font-size: 4rem;
     }
+
     #alumno {
         font-size: 3rem;
     }
@@ -720,11 +747,11 @@ footer .bi {
     .sistemas {
         flex-flow: column wrap;
     }
-    
+
 
     .poesia .titulo,
     .problemas .titulo,
-    .vidaCampoCiudad .titulo, 
+    .vidaCampoCiudad .titulo,
     .sistemasCuerpo .titulo {
         font-size: 1.5rem;
     }
@@ -751,9 +778,8 @@ footer .bi {
         width: 100%;
     }
 
-    .btn_send{
+    .btn_send {
         width: 30vh;
         font-size: 1rem;
     }
 }
-

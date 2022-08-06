@@ -2,189 +2,180 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
-    <link rel="manifest" href="../site.webmanifest" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="../css/style.css" />
-    <title>INTERactividades: Matemáticas</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <title>INTERactividades: Matemáticas</title>
 </head>
 
 <body>
-    <header>
-        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-            <a href="../index.html" class="btn btn-success">Home</a>
-          
-            <div class="btn-group" role="group">
-              <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Áreas
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <li><a class="dropdown-item" href="./pdl.html">Prácticas del Lenguaje</a></li>
-                <li><a class="dropdown-item" href="./matematicas.html">Matemáticas</a></li>
-                <li><a class="dropdown-item" href="./sociales.html">Ciencias Sociales</a></li>
-                <li><a class="dropdown-item" href="./naturales.html">Ciencias Naturales</a></li>
-              </ul>
-            </div>
-          </div>
-        <div class="container">
-            <div class="row">
-                <section class="col-12 titulo" data-aos="fade-down">
-                    <h1>Matemáticas</h1>
-                    <h2 id="alumno">Alumno</h2><button type="button" id="desloguear">No soy yo</button>
-                </section>
-            </div>
-        </div>
-    </header>
+  <header>
+    <div class="btn-group" role="group" aria-label="Button group with nested
+        dropdown">
+      <a href="../index.html" class="btn btn-success">Home</a>
 
-    <main>
-        <div class="container">
-            <div class="row">
-                <section class="actividades actividades__matematicas">
-                  <h2 class="actividades__titulo">Evaluación sobre: </h2>
-                    <article class="problemas">
-                        <h3 class="actividades titulo">Problemas</h3>
-                        <form id="problemas" autocomplete="off">
-                            <div class="estrofa">
-                                <p><b>1.- </b>En un avión viajan <b id="pasajeros"></b> pasajeros. <b id="mujeres"></b> son mujeres y el resto
-                                    son
-                                    hombres.
-                                </p>
-                                <p>¿Cuántos hombres viajan en el avión?: <input type="text" inputmode="numeric"
-                                        name="rta1" id="rta1" placeholder="Respuesta"></p>
-
-                            </div>
-                            <div class="estrofa">
-                                <p><b>2.- </b>En una caja de galletitas de chocolate vienen <b id="paquetes"></b> paquetes. Si cada
-                                    paquete tiene
-                                    <b id="galletitas"></b> galletitas.
-                                </p>
-                                <p>¿Cuántas galletitas contiene toda la caja?: <input type="text" inputmode="numeric"
-                                        name="rta2" id="rta2" placeholder="Respuesta"></p>
-
-                            </div>
-                            <div class="estrofa">
-                                <p><b>3.- </b>Manuel y su padre han hecho este fin de semana tres salidas en bici:</p>
-                                <p>El viernes pedalearon <b id="viernes"></b><b> Km.</b></p>
-                                <p>El sábado pedalearon <b id="sabado"></b><b> Km.</b></p>
-                                <p>El Domingo pedalearon <b id="domingo"></b><b> Km.</b></p>
-                                <p>¿Cuántos Kilómetros han recorrido en tres días? <input type="text"
-                                        inputmode="numeric" name="rta3" id="rta3" placeholder="Respuesta"></p>
-
-                            </div>
-                            <div class="estrofa">
-                                <p><b>4.-</b>Julián tenía ahorrados <b>$ </b><b id="ahorros"></b>. El lunes gastó <b>$ </b><b id="tablet"></b> en
-                                    la compra
-                                    de una
-                                    tablet.</p>
-                                <p>¿Cuánto dinero le quedó? <input type="text" inputmode="numeric" name="rta4" id="rta4"
-                                        placeholder="Respuesta"></p>
-
-                            </div>
-                            <button type="submit" class="btn_send">Evaluar Respuestas</button>
-                            <div id="nota">
-                            </div>
-                        </form>
-                    </article>
-                </section>
-            </div>
-        </div>
-        <!-- botón volver arriba -->
-
-        <button type="button" class="btn btn-floating btn-sm" id="btn-back-to-top">
-            <i class="bi bi-arrow-up"></i>
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Áreas
         </button>
-    </main>
+        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <li>
+            <a class="dropdown-item" href="./pdl.html">Prácticas del Lenguaje</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="./matematicas.html">Matemáticas</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="./sociales.html">Ciencias Sociales</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="./naturales.html">Ciencias
+              Naturales</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <section class="col-12 titulo" data-aos="fade-down">
+          <h1>Matemáticas</h1>
+          <h2 id="alumno">Alumno</h2>
+          <button type="button" id="desloguear">No soy yo</button>
+        </section>
+      </div>
+    </div>
+  </header>
 
-    <footer class="overlay-bg bg-light text-center text-white">
-        <!-- Grid container -->
-        <div class="container p-4 pb-0">
-          <!-- Section: Social media -->
-          <div class="mb-4">
-            <!-- Facebook -->
-            <a
-              class="btn-floating m-1"
-              href="https://www.facebook.com/pame.chavez.96" target=_blank
-              role="button"
-              ><i class="bi bi-facebook"></i></a>
-      
-            <!-- Twitter -->
-            <a
-              class="btn-floating m-1"
-              href="https://twitter.com/tatitachavez" target=_blank
-              role="button"
-              ><i class="bi bi-twitter"></i
-            ></a>
-      
-            <!-- Whatsapp -->
-            <a
-              class="btn-floating m-1"
-              href="https://walink.co/4a81e1" target=_blank
-              role="button"
-              ><i class="bi bi-whatsapp"></i
-            ></a>
-      
-            <!-- Instagram -->
-            <a
-              class="btn-floating m-1"
-              href="https://www.instagram.com/pame_chavez90/" target="_blank"
-              role="button"
-              ><i class="bi bi-instagram"></i
-            ></a>
-      
-            <!-- Linkedin -->
-            <a
-              class="btn-floating m-1"
-              href="https://www.linkedin.com/in/martin-ducau/" target="_blank"
-              role="button"
-              ><i class="bi bi-linkedin"></i
-            ></a>
-            <!-- Github -->
-            <a
-              class="btn-floating m-1"
-              href="https://github.com/ducau84" target="_blank"
-              role="button"
-              ><i class="bi bi-github"></i
-            ></a>
+  <main>
+    <div class="container">
+      <div class="row">
+        <section class="actividades actividades__matematicas">
+          <h2 class="actividades__titulo">Evaluación sobre:</h2>
+          <article class="problemas">
+            <h3 class="actividades titulo">Problemas</h3>
+            <form id="problemas" autocomplete="off">
+              <div class="estrofa">
+                <p>
+                  <b class="green">1.- </b>En un avión viajan
+                  <b class="red" id="pasajeros"></b> pasajeros. <b class="red" id="mujeres"></b> son
+                  mujeres y el resto son hombres.
+                </p>
+                <p>
+                  ¿Cuántos hombres viajan en el avión?:
+                  <input type="text" inputmode="numeric" name="rta1" id="rta1" placeholder="Respuesta" />
+                </p>
               </div>
-          <!-- Section: Social media -->
-        </div>
-        <!-- Grid container -->
-      
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.438);">
-            <p>SeñoPame &copy; 2022</p>
-            <p>
-                República Argentina 537, (7540) Coronel Suárez, Provincia de
-                Buenos
-                Aires.
-            </p>
-        </div>
-      </footer>
+              <div class="estrofa">
+                <p>
+                  <b class="green">2.- </b>En una caja de galletitas de chocolate vienen
+                  <b class="red" id="paquetes"></b> paquetes. Si cada paquete tiene
+                  <b class="red" id="galletitas"></b> galletitas.
+                </p>
+                <p>
+                  ¿Cuántas galletitas contiene toda la caja?:
+                  <input type="text" inputmode="numeric" name="rta2" id="rta2" placeholder="Respuesta" />
+                </p>
+              </div>
+              <div class="estrofa">
+                <p>
+                  <b class="green">3.- </b>Manuel y su padre han hecho este fin de semana
+                  tres salidas en bici:
+                </p>
+                <p>El viernes pedalearon <b class="red" id="viernes"></b><b> Km.</b></p>
+                <p>El sábado pedalearon <b class="red" id="sabado"></b><b> Km.</b></p>
+                <p>El Domingo pedalearon <b class="red" id="domingo"></b><b> Km.</b></p>
+                <p>
+                  ¿Cuántos Kilómetros han recorrido en tres días?
+                  <input type="text" inputmode="numeric" name="rta3" id="rta3" placeholder="Respuesta" />
+                </p>
+              </div>
+              <div class="estrofa">
+                <p>
+                  <b class="green">4.-</b>Julián tenía ahorrados <b>$ </b><b class="red" id="ahorros"></b>.
+                  El lunes gastó <b>$ </b><b class="red" id="tablet"></b> en la compra de
+                  una tablet.
+                </p>
+                <p>
+                  ¿Cuánto dinero le quedó?
+                  <input type="text" inputmode="numeric" name="rta4" id="rta4" placeholder="Respuesta" />
+                </p>
+              </div>
+              <button type="submit" class="btn_send">
+                Evaluar Respuestas
+              </button>
+            </form>
+          </article>
+        </section>
+      </div>
+    </div>
+    <!-- botón volver arriba -->
 
-    <!-- AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
-        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
-        crossorigin="anonymous"></script>
-    <script src="../../src/backToTop.js"></script>
-    <script type="module" src="../../src/components/math.js"></script>
-    <script type="module" src="../../src/App.js"></script>
-    <script type="module" src="../../src/components/controllers/getData.js"></script>
-    <script type="module" src="../../src/components/utils/modalsSwal.js"></script>
+    <button type="button" class="btn btn-floating btn-sm" id="btn-back-to-top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+  </main>
+
+  <footer class="overlay-bg bg-light text-center text-white">
+    <div class="container p-4 pb-0">
+      <div class="mb-4">
+        <!-- Facebook -->
+        <a class="btn-floating m-1" href="https://www.facebook.com/pame.chavez.96" target="_blank" role="button"><i
+            class="bi bi-facebook"></i></a>
+
+        <!-- Twitter -->
+        <a class="btn-floating m-1" href="https://twitter.com/tatitachavez" target="_blank" role="button"><i
+            class="bi bi-twitter"></i></a>
+
+        <!-- Whatsapp -->
+        <a class="btn-floating m-1" href="https://walink.co/4a81e1" target="_blank" role="button"><i
+            class="bi bi-whatsapp"></i></a>
+
+        <!-- Instagram -->
+        <a class="btn-floating m-1" href="https://www.instagram.com/pame_chavez90/" target="_blank" role="button"><i
+            class="bi bi-instagram"></i></a>
+
+        <!-- Linkedin -->
+        <a class="btn-floating m-1" href="https://www.linkedin.com/in/martin-ducau/" target="_blank" role="button"><i
+            class="bi bi-linkedin"></i></a>
+        <!-- Github -->
+        <a class="btn-floating m-1" href="https://github.com/ducau84" target="_blank" role="button"><i
+            class="bi bi-github"></i></a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.438)">
+      <p>SeñoPame &copy; 2022</p>
+      <p>
+        República Argentina 537, (7540) Coronel Suárez, Provincia de Buenos
+        Aires.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
+  <script src="../../src/backToTop.js"></script>
+  <script type="module" src="../../src/components/math.js"></script>
+  <script type="module" src="../../src/App.js"></script>
+  <script type="module" src="../../src/components/controllers/getData.js"></script>
+  <script type="module" src="../../src/components/utils/modalsSwal.js"></script>
 </body>
 
 </html>
