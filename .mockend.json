@@ -1,0 +1,195 @@
+{
+    "Problemas": {
+        "p1": {
+            "id": 1,
+            "dato1": 436,
+            "dato2": 215
+        },
+        "p2": {
+            "id": 2,
+            "dato1": 5,
+            "dato2": 29
+        },
+        "p3": {
+            "id": 3,
+            "dato1": 16,
+            "dato2": 37,
+            "dato3": 43
+        },
+        "p4": {
+            "id": 4,
+            "dato1": 105000,
+            "dato2": 101909
+        }
+    },
+    "Rimas": {
+        "r1": {
+            "palabra": "mañana",
+            "orden": 0
+        },
+        "r2": {
+            "palabra": "ventana",
+            "orden": 11
+        },
+        "r3": {
+            "palabra": "hermana",
+            "orden": 2
+        },
+        "r4": {
+            "palabra": "perro",
+            "orden": 0
+        },
+        "r5": {
+            "palabra": "mitos",
+            "orden": 0
+        },
+        "r6": {
+            "palabra": "gritos",
+            "orden": 3
+        },
+        "r7": {
+            "palabra": "cama",
+            "orden": 9
+        },
+        "r8": {
+            "palabra": "mirar",
+            "orden": 6
+        },
+        "r9": {
+            "palabra": "melodía",
+            "orden": 8
+        },
+        "r10": {
+            "palabra": "agarrar",
+            "orden": 4
+        },
+        "r11": {
+            "palabra": "canto",
+            "orden": 7
+        },
+        "r12": {
+            "palabra": "bajo",
+            "orden": 0
+        },
+        "r13": {
+            "palabra": "piar",
+            "orden": 0
+        },
+        "r14": {
+            "palabra": "alto",
+            "orden": 5
+        },
+        "r15": {
+            "palabra": "ver",
+            "orden": 0
+        },
+        "r16": {
+            "palabra": "silla",
+            "orden": 0
+        },
+        "r17": {
+            "palabra": "día",
+            "orden": 10
+        },
+        "r18": {
+            "palabra": "llanto",
+            "orden": 0
+        },
+        "r20": {
+            "palabra": "atardecer",
+            "orden": 0
+        },
+        "r21": {
+            "palabra": "tía",
+            "orden": 0
+        }
+    },
+    "Sistemas": {
+        "s1": {
+            "organo": "nariz",
+            "orden": 3
+        },
+        "s2": {
+            "organo": "venas",
+            "orden": 1
+        },
+        "s3": {
+            "organo": "riñones",
+            "orden": 6
+        },
+        "s4": {
+            "organo": "boca",
+            "orden": 8
+        },
+        "s5": {
+            "organo": "pulmones",
+            "orden": 4
+        },
+        "s6": {
+            "organo": "hígado",
+            "orden": 0
+        },
+        "s7": {
+            "organo": "estómago",
+            "orden": 9
+        },
+        "s8": {
+            "organo": "tráquea",
+            "orden": 5
+        },
+        "s9": {
+            "organo": "corazón",
+            "orden": 2
+        },
+        "s10": {
+            "organo": "vejiga",
+            "orden": 7
+        },
+        "s11": {
+            "organo": "intestinos",
+            "orden": 10
+        },
+        "s12": {
+            "organo": "artérias",
+            "orden": 0
+        }
+    },
+    "Zonas": {
+        "z1": {
+            "id": 1,
+            "nombre": "colectivo",
+            "zona": "Urbano",
+            "img": "https://github.com/ducau84/interActividades/blob/main/public/img/areas/sociales/bondi.png"
+        },
+        "z2": {
+            "id": 2,
+            "nombre": "semáforo",
+            "zona": "Urbano",
+            "img": "https://github.com/ducau84/interActividades/blob/main/public/img/areas/sociales/semaforo.png"
+        },
+        "z3": {
+            "id": 3,
+            "nombre": "cosechadora",
+            "zona": "Rural",
+            "img": "https://github.com/ducau84/interActividades/blob/main/public/img/areas/sociales/cosechadora.png"
+        },
+        "z4": {
+            "id": 4,
+            "nombre": "taxi",
+            "zona": "Urbano",
+            "img": "https://github.com/ducau84/interActividades/blob/main/public/img/areas/sociales/taxi.png"
+        },
+        "z5": {
+            "id": 5,
+            "nombre": "caballo",
+            "zona": "Rural",
+            "img": "https://github.com/ducau84/interActividades/blob/main/public/img/areas/sociales/caballo.png"
+        },
+        "z6": {
+            "id": 6,
+            "nombre": "tractor",
+            "zona": "Rural",
+            "img": "https://github.com/ducau84/interActividades/blob/main/public/img/areas/sociales/tractor.png"
+        }
+    }
+}
