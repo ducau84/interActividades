@@ -50,7 +50,7 @@ bienvenidoArea("nat", "Ciencias Naturales", nombre);
 window.addEventListener("DOMContentLoaded", async () => {
 
   //Defino el origen de los datos simulando la carga desde un servidor y muestro las opciones en cada campo "Select"
-  const datos = "https://interactividades-server.herokuapp.com/Sistemas";
+  const datos = "https://interact-server-production.up.railway.app/Sistemas";
   const sistemas = await getData(datos);
   const selects = document.querySelectorAll(".sistemasSelect");
 

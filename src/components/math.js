@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // De la base de datos del servidor obtengo las posibles respuestas, donde el id indica a que problema pertenecen
   
-  const datos = "https://interactividades-server.herokuapp.com/Problemas";
+  const datos = "https://interact-server-production.up.railway.app/Problemas";
   problemas = await getData(datos);
 
   //Represento en el documento los datos cargados desde el archivo problemas.json

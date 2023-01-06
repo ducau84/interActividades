@@ -49,7 +49,7 @@ bienvenidoArea("soc", "Ciencias Sociales", nombre);
 //Al cargar el HTML hago una petición al servidor y traigo de la base de datos los objetos que se mostrarán en la consigna número 1
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const datos = "https://interactividades-server.herokuapp.com/Zonas";
+  const datos = "https://interact-server-production.up.railway.app/Zonas";
   const zonas = await getData(datos);
   sessionStorage.setItem("zonas", JSON.stringify(zonas));
   const contenedor = document.getElementById("contenedorZonas");

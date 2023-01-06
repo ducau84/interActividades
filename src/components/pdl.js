@@ -44,7 +44,7 @@ desloguear();
 // Hago una petición al servidor y de la base de datos obtengo las posibles respuestas, donde el orden indica que numero de respuesta es
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const datos = "https://interactividades-server.herokuapp.com/Rimas";
+  const datos = "https://interact-server-production.up.railway.app/Rimas";
   rimas = await getData(datos);
   addPistas(rimas);
   ordenarArray(rimas);
