@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"
-      />
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"
-      />
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"
-      />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon-16x16.png"
+    />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet"
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-      />
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous" />
-    <link rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
-      />
+    />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/style.css" />
     <title>INTERactividades: Ciencias Naturales</title>
@@ -30,23 +43,43 @@
 
   <body>
     <header>
-      <div class="btn-group" role="group" aria-label="Button group with nested
-        dropdown">
+      <div
+        class="btn-group"
+        role="group"
+        aria-label="Button group with nested
+        dropdown"
+      >
         <a href="../index.html" class="btn btn-success">Home</a>
 
         <div class="btn-group" role="group">
-          <button id="btnGroupDrop1" type="button" class="btn btn-success
-            dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <button
+            id="btnGroupDrop1"
+            type="button"
+            class="btn btn-success dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             Áreas
           </button>
           <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <li><a class="dropdown-item" href="./pdl.html">Prácticas del
-                Lenguaje</a></li>
-            <li><a class="dropdown-item" href="./matematicas.html">Matemáticas</a></li>
-            <li><a class="dropdown-item" href="./sociales.html">Ciencias
-                Sociales</a></li>
-            <li><a class="dropdown-item" href="./naturales.html">Ciencias
-                Naturales</a></li>
+            <li>
+              <a class="dropdown-item" href="./pdl.html"
+                >Prácticas del Lenguaje</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="./matematicas.html">Matemáticas</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="./sociales.html"
+                >Ciencias Sociales</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="./naturales.html"
+                >Ciencias Naturales</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -54,8 +87,8 @@
         <div class="row">
           <section class="col-12 titulo" data-aos="fade-down">
             <h1>Ciencias Naturales</h1>
-            <h2 id="alumno">Alumno</h2><button type="button" id="desloguear">No
-              soy yo</button>
+            <h2 id="alumno">Alumno</h2>
+            <button type="button" id="desloguear">No soy yo</button>
           </section>
         </div>
       </div>
@@ -65,100 +98,106 @@
       <div class="container">
         <div class="row">
           <section class="actividades actividades__nat">
-            <h2 class="actividades__titulo">Evaluación sobre: </h2>
+            <h2 class="actividades__titulo">Evaluación sobre:</h2>
             <article class="sistemasCuerpo">
               <h3 class="actividad titulo">Sistemas del Cuerpo Humano</h3>
-              <p class="actividades__consigna"><b class="red">1. </b>Observa
-                atentamente y completa los órganos
-                correspondientes: </p>
+              <p class="actividades__consigna">
+                <b class="red">1. </b>Observa atentamente y completa los órganos
+                correspondientes:
+              </p>
               <form id="sistemasCuerpo" autocomplete="off">
-
                 <div class="estrofa sistemas">
-
-                  <img src="../img/areas/naturales/circulatorio.png"
-                    alt="Aparato Circulatorio">
-                  <p>El <b class="green">sistema circulatorio</b> transporta
-                    sangre con nutrientes o residuos a través de
-                    las
-                    <sup class="indice">1</sup><select class="sistemasSelect"
-                      id="circ1">
-
+                  <img
+                    src="../img/areas/naturales/circulatorio.png"
+                    alt="Aparato Circulatorio"
+                  />
+                  <p>
+                    El <b class="green">sistema circulatorio</b> transporta
+                    sangre con nutrientes o residuos a través de las
+                    <sup class="indice">1</sup
+                    ><select class="sistemasSelect" id="circ1">
                       <option selected disabled>Selecciona</option>
                     </select>
                     y <b class="red">arterias</b>, gracias a la fuerza del
-                    <sup class="indice">2</sup><select class="sistemasSelect"
-                      id="circ2">
-
-                      <option selected disabled>Selecciona</option>
-                    </select>.
+                    <sup class="indice">2</sup
+                    ><select class="sistemasSelect" id="circ2">
+                      <option selected disabled>Selecciona</option></select
+                    >.
                   </p>
                 </div>
 
                 <div class="estrofa sistemas">
-                  <p>El <b class="green">sistema respiratorio</b> toma aire del
-                    ambiente por la
-                    <sup class="indice">3</sup><select class="sistemasSelect"
-                      id="resp1">
+                  <p>
+                    El <b class="green">sistema respiratorio</b> toma aire del
+                    ambiente por la <sup class="indice">3</sup
+                    ><select class="sistemasSelect" id="resp1">
                       <option selected disabled>Selecciona</option>
-
                     </select>
                     y lo lleva a los
-                    <sup class="indice">4</sup><select class="sistemasSelect"
-                      id="resp2">
+                    <sup class="indice">4</sup
+                    ><select class="sistemasSelect" id="resp2">
                       <option selected disabled>Selecciona</option>
-
                     </select>
                     a través de la
-                    <sup class="indice">5</sup><select class="sistemasSelect"
-                      id="resp3">
-                      <option selected disabled>Selecciona</option>
-
-                    </select>.
+                    <sup class="indice">5</sup
+                    ><select class="sistemasSelect" id="resp3">
+                      <option selected disabled>Selecciona</option></select
+                    >.
                   </p>
-                  <img src="../img/areas/naturales/respiratorio.png"
-                    alt="Aparato Respiratorio">
+                  <img
+                    src="../img/areas/naturales/respiratorio.png"
+                    alt="Aparato Respiratorio"
+                  />
                 </div>
 
                 <div class="estrofa sistemas">
-                  <img src="../img/areas/naturales/excretor.png" alt="Aparato
-                    Urinario">
-                  <p>El <b class="green">sistema urinario</b> elimina los
-                    residuos de nuestro cuerpo a través de la orina
-                    que se forma en los
-                    <sup class="indice">6</sup><select class="sistemasSelect"
-                      id="urin1">
+                  <img
+                    src="../img/areas/naturales/excretor.png"
+                    alt="Aparato
+                    Urinario"
+                  />
+                  <p>
+                    El <b class="green">sistema urinario</b> elimina los
+                    residuos de nuestro cuerpo a través de la orina que se forma
+                    en los <sup class="indice">6</sup
+                    ><select class="sistemasSelect" id="urin1">
                       <option selected disabled>Selecciona</option>
                     </select>
                     y se almacena en la
-                    <sup class="indice">7</sup><select class="sistemasSelect"
-                      id="urin2">
-                      <option selected disabled>Selecciona</option>
-                    </select>.
+                    <sup class="indice">7</sup
+                    ><select class="sistemasSelect" id="urin2">
+                      <option selected disabled>Selecciona</option></select
+                    >.
                   </p>
                 </div>
 
                 <div class="estrofa sistemas">
-                  <p>El <b class="green">sistema digestivo</b> incorpora
-                    alimentos a través de la
-                    <sup class="indice">8</sup><select class="sistemasSelect"
-                      id="dige1">
+                  <p>
+                    El <b class="green">sistema digestivo</b> incorpora
+                    alimentos a través de la <sup class="indice">8</sup
+                    ><select class="sistemasSelect" id="dige1">
                       <option selected disabled>Selecciona</option>
                     </select>
                     y, con ayuda del
-                    <sup class="indice">9</sup><select class="sistemasSelect"
-                      id="dige2">
+                    <sup class="indice">9</sup
+                    ><select class="sistemasSelect" id="dige2">
                       <option selected disabled>Selecciona</option>
                     </select>
                     , el <b class="red">hígado</b>, y los
-                    <sup class="indice">10</sup><select class="sistemasSelect"
-                      id="dige3">
-                      <option selected disabled>Selecciona</option>
-                    </select>, extrae de ellos todos los nutrientes necesarios.
+                    <sup class="indice">10</sup
+                    ><select class="sistemasSelect" id="dige3">
+                      <option selected disabled>Selecciona</option></select
+                    >, extrae de ellos todos los nutrientes necesarios.
                   </p>
-                  <img src="../img/areas/naturales/digestivo.png" alt="Aparato
-                    Digestivo">
+                  <img
+                    src="../img/areas/naturales/digestivo.png"
+                    alt="Aparato
+                    Digestivo"
+                  />
                 </div>
-                <button type="submit" class="btn_send">Evaluar Respuestas</button>
+                <button type="submit" class="btn_send">
+                  Evaluar Respuestas
+                </button>
               </form>
             </article>
           </section>
@@ -166,58 +205,85 @@
       </div>
       <!-- botón volver arriba -->
 
-      <button type="button" class="btn btn-floating btn-sm"
-        id="btn-back-to-top">
+      <button
+        type="button"
+        class="btn btn-floating btn-sm"
+        id="btn-back-to-top"
+      >
         <i class="bi bi-arrow-up"></i>
       </button>
     </main>
 
     <footer class="overlay-bg bg-light text-center text-white">
-
+      <!-- Grid container -->
       <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
         <div class="mb-4">
           <!-- Facebook -->
-          <a class="btn-floating m-1"
-            href="https://www.facebook.com/pame.chavez.96" target=_blank
-            role="button"><i
-              class="bi bi-facebook"></i></a>
+          <a
+            class="btn-floating m-1"
+            href="https://www.facebook.com/"
+            target="_blank"
+            role="button"
+            ><i class="bi bi-facebook"></i
+          ></a>
 
           <!-- Twitter -->
-          <a class="btn-floating m-1" href="https://twitter.com/tatitachavez"
-            target=_blank role="button"><i
-              class="bi bi-twitter"></i></a>
+          <a
+            class="btn-floating m-1"
+            href="https://twitter.com/"
+            target="_blank"
+            role="button"
+            ><i class="bi bi-twitter"></i
+          ></a>
 
           <!-- Whatsapp -->
-          <a class="btn-floating m-1" href="https://walink.co/4a81e1"
-            target=_blank role="button"><i
-              class="bi bi-whatsapp"></i></a>
+          <a
+            class="btn-floating m-1"
+            href="https://walink.co"
+            target="_blank"
+            role=" button"
+            ><i class="bi bi-whatsapp"></i
+          ></a>
 
           <!-- Instagram -->
-          <a class="btn-floating m-1"
-            href="https://www.instagram.com/pame_chavez90/" target="_blank"
-            role="button"><i
-              class="bi bi-instagram"></i></a>
+          <a
+            class="btn-floating m-1"
+            href="https://www.instagram.com/"
+            target="_blank"
+            role="button"
+            ><i class="bi bi-instagram"></i
+          ></a>
 
           <!-- Linkedin -->
-          <a class="btn-floating m-1"
-            href="https://www.linkedin.com/in/martin-ducau/" target="_blank"
-            role="button"><i
-              class="bi bi-linkedin"></i></a>
+          <a
+            class="btn-floating m-1"
+            href="https://www.linkedin.com/in/martin-ducau/"
+            target="_blank"
+            role="button"
+            ><i class="bi bi-linkedin"></i
+          ></a>
           <!-- Github -->
-          <a class="btn-floating m-1" href="https://github.com/ducau84"
-            target="_blank" role="button"><i
-              class="bi bi-github"></i></a>
+          <a
+            class="btn-floating m-1"
+            href="https://github.com/ducau84"
+            target="_blank"
+            role="button"
+            ><i class="bi bi-github"></i
+          ></a>
         </div>
+        <!-- Section: Social media -->
       </div>
+      <!-- Grid container -->
 
       <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0,
-        0.438);">
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(0, 0, 0, 0.438)"
+      >
         <p>SeñoPame &copy; 2022</p>
         <p>
-          República Argentina 537, (7540) Coronel Suárez, Provincia de
-          Buenos
-          Aires.
+          Av. Siempreviva 742, (7540) Coronel Suárez, Provincia de Buenos Aires.
         </p>
       </div>
     </footer>
@@ -226,16 +292,23 @@
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
       integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
       integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script src="../../src/backToTop.js"></script>
     <script type="module" src="../../src/App.js"></script>
     <script type="module" src="../../src/components/naturales.js"></script>
-    <script type="module" src="../../src/components/controllers/getData.js"></script>
-    <script type="module" src="../../src/components/utils/modalsSwal.js"></script>
+    <script
+      type="module"
+      src="../../src/components/controllers/getData.js"
+    ></script>
+    <script
+      type="module"
+      src="../../src/components/utils/modalsSwal.js"
+    ></script>
   </body>
-
 </html>

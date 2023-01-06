@@ -1,237 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon-16x16.png"
+    />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>INTERactividades: Prácticas del Lenguaje</title>
+  </head>
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="apple-touch-icon" sizes="180x180"
-            href="../apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32"
-            href="../favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16"
-            href="../favicon-16x16.png" />
-        <link rel="manifest" href="../site.webmanifest" />
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-            />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-            crossorigin="anonymous" />
-        <link rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
-            />
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <link rel="stylesheet" href="../css/style.css" />
-        <title>INTERactividades: Prácticas del Lenguaje</title>
-    </head>
+  <body>
+    <header>
+      <div
+        class="btn-group"
+        role="group"
+        aria-label="Button group with
+                nested dropdown"
+      >
+        <a href="../index.html" class="btn btn-success">Home</a>
 
-    <body>
-        <header>
-            <div class="btn-group" role="group" aria-label="Button group with
-                nested dropdown">
-                <a href="../index.html" class="btn btn-success">Home</a>
+        <div class="btn-group" role="group">
+          <button
+            id="btnGroupDrop1"
+            type="button"
+            class="btn btn-success dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Áreas
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <li>
+              <a class="dropdown-item" href="./pdl.html"
+                >Prácticas del Lenguaje</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="./matematicas.html">Matemáticas</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="./sociales.html"
+                >Ciencias Sociales</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="./naturales.html"
+                >Ciencias Naturales</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <section class="col-12 titulo" data-aos="fade-down">
+            <h1>Prácticas del Lenguaje</h1>
+            <h2 id="alumno">Alumno</h2>
+            <button type="button" id="desloguear">No soy yo</button>
+          </section>
+        </div>
+      </div>
+    </header>
 
-                <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn
-                        btn-success dropdown-toggle"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Áreas
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <li><a class="dropdown-item" href="./pdl.html">Prácticas
-                                del Lenguaje</a></li>
-                        <li><a class="dropdown-item" href="./matematicas.html">Matemáticas</a></li>
-                        <li><a class="dropdown-item" href="./sociales.html">Ciencias
-                                Sociales</a></li>
-                        <li><a class="dropdown-item" href="./naturales.html">Ciencias
-                                Naturales</a></li>
-                    </ul>
+    <main>
+      <div class="container">
+        <div class="row">
+          <section class="actividades actividades__pdl">
+            <h2 class="actividades__titulo">Evaluación sobre:</h2>
+            <article class="poesia">
+              <h3 class="actividades titulo">Poesía</h3>
+
+              <p class="actividades__consigna">
+                Completa los casilleros en blanco de la poesía, con las
+                siguientes palabras (cada palabra se puede usar sólo una vez):
+              </p>
+
+              <div class="palabras__poesia" id="pistas"></div>
+              <span
+                >Recordá colocar las <strong>tildes</strong> en las palabras
+                correspondenties, sino te las tomará como
+                <strong>incorrectas</strong></span
+              >
+              <form id="poesia" autocomplete="off">
+                <h4 class="actividades titulo">Los Pajaritos</h4>
+                <div class="estrofa">
+                  <p id="ayuda">
+                    Por mi ventana veo cada
+                    <input
+                      type="text"
+                      name="rima1"
+                      id="palabra1"
+                      placeholder="Palabra 1"
+                    />
+                  </p>
+                  <p>Bellos y cantantes pajaritos</p>
+                  <p>
+                    ¡Que no se despierte mi
+                    <input
+                      type="text"
+                      name="rima2"
+                      id="palabra2"
+                      placeholder="Palabra 2"
+                    />!
+                  </p>
+                  <p>
+                    ¡Que no la espanten sus
+                    <input
+                      type="text"
+                      name="rima3"
+                      id="palabra3"
+                      placeholder="Palabra 3"
+                    />!
+                  </p>
                 </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <section class="col-12 titulo" data-aos="fade-down">
-                        <h1>Prácticas del Lenguaje</h1>
-                        <h2 id="alumno">Alumno</h2><button type="button"
-                            id="desloguear">No soy yo</button>
-                    </section>
+                <div class="estrofa">
+                  <p>
+                    Yo los quiero
+                    <input
+                      type="text"
+                      name="rima4"
+                      id="palabra4"
+                      placeholder="Palabra 4"
+                    />
+                  </p>
+                  <p>
+                    Pero ellos vuelan tan
+                    <input
+                      type="text"
+                      name="rima5"
+                      id="palabra5"
+                      placeholder="Palabra 5"
+                    />
+                  </p>
+                  <p>
+                    Solo los puedo
+                    <input
+                      type="text"
+                      name="rima6"
+                      id="palabra6"
+                      placeholder="Palabra 6"
+                    />
+                  </p>
+                  <p>
+                    Y escuchar su dulce
+                    <input
+                      type="text"
+                      name="rima7"
+                      id="palabra7"
+                      placeholder="Palabra 7"
+                    />
+                  </p>
                 </div>
-            </div>
-        </header>
-
-        <main>
-            <div class="container">
-                <div class="row">
-                    <section class="actividades actividades__pdl">
-                        <h2 class="actividades__titulo">Evaluación sobre: </h2>
-                        <article class="poesia">
-                            <h3 class="actividades titulo">Poesía</h3>
-
-                            <p class="actividades__consigna">Completa los
-                                casilleros en blanco de la poesía, con las
-                                siguientes palabras (cada palabra se puede usar
-                                sólo una vez):</p>
-
-                            <div class="palabras__poesia" id="pistas">
-
-                            </div>
-                            <span>Recordá colocar las <strong>tildes</strong> en
-                                las palabras correspondenties, sino te las
-                                tomará como <strong>incorrectas</strong></span>
-                            <form id="poesia" autocomplete="off">
-                                <h4 class="actividades titulo">Los Pajaritos</h4>
-                                <div class="estrofa">
-                                    <p id="ayuda">
-                                        Por mi ventana veo cada <input
-                                            type="text" name="rima1"
-                                            id="palabra1"
-                                            placeholder="Palabra 1" />
-                                    </p>
-                                    <p>Bellos y cantantes pajaritos</p>
-                                    <p>
-                                        ¡Que no se despierte mi <input
-                                            type="text" name="rima2"
-                                            id="palabra2"
-                                            placeholder="Palabra 2" />!
-                                    </p>
-                                    <p>
-                                        ¡Que no la espanten sus <input
-                                            type="text" name="rima3"
-                                            id="palabra3"
-                                            placeholder="Palabra 3" />!
-                                    </p>
-                                </div>
-                                <div class="estrofa">
-                                    <p>
-                                        Yo los quiero <input type="text"
-                                            name="rima4" id="palabra4"
-                                            placeholder="Palabra 4" />
-                                    </p>
-                                    <p>
-                                        Pero ellos vuelan tan <input type="text"
-                                            name="rima5" id="palabra5"
-                                            placeholder="Palabra 5" />
-                                    </p>
-                                    <p>
-                                        Solo los puedo <input type="text"
-                                            name="rima6" id="palabra6"
-                                            placeholder="Palabra 6" />
-                                    </p>
-                                    <p>
-                                        Y escuchar su dulce <input type="text"
-                                            name="rima7" id="palabra7"
-                                            placeholder="Palabra 7" />
-                                    </p>
-                                </div>
-                                <div class="estrofa">
-                                    <p>
-                                        Me despiertan con su dulce <input
-                                            type="text" name="rima8"
-                                            id="palabra8"
-                                            placeholder="Palabra 8" />
-                                    </p>
-                                    <p>
-                                        Me levanto corriendo de la <input
-                                            type="text" name="rima9"
-                                            id="palabra9"
-                                            placeholder="Palabra 9" />
-                                    </p>
-                                    <p>
-                                        Yo los miro cada <input type="text"
-                                            name="rima10" id="palabra10"
-                                            placeholder="Palabra 10" />
-                                    </p>
-                                    <p>
-                                        Sentada detrás de mi <input type="text"
-                                            name="rima11" id="palabra11"
-                                            placeholder="Palabra 11" />
-                                    </p>
-                                </div>
-                                <button type="submit" class="btn_send">Evaluar
-                                    Respuestas</button>
-
-                            </form>
-                        </article>
-                    </section>
+                <div class="estrofa">
+                  <p>
+                    Me despiertan con su dulce
+                    <input
+                      type="text"
+                      name="rima8"
+                      id="palabra8"
+                      placeholder="Palabra 8"
+                    />
+                  </p>
+                  <p>
+                    Me levanto corriendo de la
+                    <input
+                      type="text"
+                      name="rima9"
+                      id="palabra9"
+                      placeholder="Palabra 9"
+                    />
+                  </p>
+                  <p>
+                    Yo los miro cada
+                    <input
+                      type="text"
+                      name="rima10"
+                      id="palabra10"
+                      placeholder="Palabra 10"
+                    />
+                  </p>
+                  <p>
+                    Sentada detrás de mi
+                    <input
+                      type="text"
+                      name="rima11"
+                      id="palabra11"
+                      placeholder="Palabra 11"
+                    />
+                  </p>
                 </div>
-            </div>
-            <!-- botón volver arriba -->
+                <button type="submit" class="btn_send">
+                  Evaluar Respuestas
+                </button>
+              </form>
+            </article>
+          </section>
+        </div>
+      </div>
+      <!-- botón volver arriba -->
 
-            <button type="button" class="btn btn-floating btn-sm"
-                id="btn-back-to-top">
-                <i class="bi bi-arrow-up"></i>
-            </button>
-        </main>
+      <button
+        type="button"
+        class="btn btn-floating btn-sm"
+        id="btn-back-to-top"
+      >
+        <i class="bi bi-arrow-up"></i>
+      </button>
+    </main>
 
-        <footer class="overlay-bg bg-light text-center text-white">
+    <footer class="overlay-bg bg-light text-center text-white">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <div class="mb-4">
+          <!-- Facebook -->
+          <a
+            class="btn-floating m-1"
+            href="https://www.facebook.com/"
+            target="_blank"
+            role="button"
+            ><i class="bi bi-facebook"></i
+          ></a>
 
-            <div class="container p-4 pb-0">
-                <div class="mb-4">
-                    <!-- Facebook -->
-                    <a class="btn-floating m-1"
-                        href="https://www.facebook.com/pame.chavez.96"
-                        target=_blank
-                        role="button"><i class="bi bi-facebook"></i></a>
+          <!-- Twitter -->
+          <a
+            class="btn-floating m-1"
+            href="https://twitter.com/"
+            target="_blank"
+            role="button"
+            ><i class="bi bi-twitter"></i
+          ></a>
 
-                    <!-- Twitter -->
-                    <a class="btn-floating m-1"
-                        href="https://twitter.com/tatitachavez" target=_blank
-                        role="button"><i
-                            class="bi bi-twitter"></i></a>
+          <!-- Whatsapp -->
+          <a
+            class="btn-floating m-1"
+            href="https://walink.co"
+            target="_blank"
+            role=" button"
+            ><i class="bi bi-whatsapp"></i
+          ></a>
 
-                    <!-- Whatsapp -->
-                    <a class="btn-floating m-1" href="https://walink.co/4a81e1"
-                        target=_blank role="button"><i
-                            class="bi bi-whatsapp"></i></a>
+          <!-- Instagram -->
+          <a
+            class="btn-floating m-1"
+            href="https://www.instagram.com/"
+            target="_blank"
+            role="button"
+            ><i class="bi bi-instagram"></i
+          ></a>
 
-                    <!-- Instagram -->
-                    <a class="btn-floating m-1"
-                        href="https://www.instagram.com/pame_chavez90/"
-                        target="_blank"
-                        role="button"><i class="bi bi-instagram"></i></a>
+          <!-- Linkedin -->
+          <a
+            class="btn-floating m-1"
+            href="https://www.linkedin.com/in/martin-ducau/"
+            target="_blank"
+            role="button"
+            ><i class="bi bi-linkedin"></i
+          ></a>
+          <!-- Github -->
+          <a
+            class="btn-floating m-1"
+            href="https://github.com/ducau84"
+            target="_blank"
+            role="button"
+            ><i class="bi bi-github"></i
+          ></a>
+        </div>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
 
-                    <!-- Linkedin -->
-                    <a class="btn-floating m-1"
-                        href="https://www.linkedin.com/in/martin-ducau/"
-                        target="_blank"
-                        role="button"><i class="bi bi-linkedin"></i></a>
-                    <!-- Github -->
-                    <a class="btn-floating m-1"
-                        href="https://github.com/ducau84" target="_blank"
-                        role="button"><i
-                            class="bi bi-github"></i></a>
-                </div>
-            </div>
+      <!-- Copyright -->
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(0, 0, 0, 0.438)"
+      >
+        <p>SeñoPame &copy; 2022</p>
+        <p>
+          Av. Siempreviva 742, (7540) Coronel Suárez, Provincia de Buenos Aires.
+        </p>
+      </div>
+    </footer>
 
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0,
-                0.438);">
-                <p>SeñoPame &copy; 2022</p>
-                <p>
-                    República Argentina 537, (7540) Coronel Suárez, Provincia de
-                    Buenos
-                    Aires.
-                </p>
-            </div>
-        </footer>
-
-        <!-- Scripts -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
-            crossorigin="anonymous"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
-            integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
-            crossorigin="anonymous"></script>
-        <script src="../../src/backToTop.js"></script>
-        <script type="module" src="../../src/App.js"></script>
-        <script type="module" src="../../src/components/pdl.js"></script>
-        <script type="module" src="../../src/components/controllers/getData.js"></script>
-        <script type="module" src="../../src/components/utils/modalsSwal.js"></script>
-    </body>
-
+    <!-- Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../../src/backToTop.js"></script>
+    <script type="module" src="../../src/App.js"></script>
+    <script type="module" src="../../src/components/pdl.js"></script>
+    <script
+      type="module"
+      src="../../src/components/controllers/getData.js"
+    ></script>
+    <script
+      type="module"
+      src="../../src/components/utils/modalsSwal.js"
+    ></script>
+  </body>
 </html>
